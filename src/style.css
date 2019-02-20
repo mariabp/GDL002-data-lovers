@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css?family=Dosis');
+
+* {
+	box-sizing: border-box;
+	color: rgb(255, 255, 255);
+	font-family: 'Dosis', sans-serif;
+	font-size: 16pt;
+	font-weight: 300;
+}
+
+body {
+	padding: 0;
+	margin: 0;
+	background-color: rgb(61,125,202);
+}
+
+main {
+    display: grid;
+    height: 100vh;
+    width: 100vw;
+    overflow: auto;
+    grid-template-columns: 1fr 30vw 1rem 30vw 1fr;
+    grid-template-rows: 4rem minmax(1rem, 1fr) auto 1rem 3rem 1rem 3rem 1rem auto minmax(1rem, 1fr) 4rem;
+    grid-template-areas: 
+    "header header header header header" 
+    ". . . . ." 
+    ". text text text ." 
+    ". . . . ."
+    ". searchbar searchbar searchbar ."
+    ". . . . ."
+    ". searchbutton searchbutton searchbutton ."
+    ". . . . ."
+    ". showall showall showall ."
+    ". . . . ."
+    "footer footer footer footer footer";
+}
+
+header {
+    grid-area: header;
+    background-color: rgb(13,68,119);
+}
+
+h1 {
+    grid-area: text;
+    align-items: center;
+	justify-content: center;
+}
+
+#searchbar {
+	grid-area: searchbar;
+	display: block;
+	background-color:rgb(92,151,222);
+	padding: 1rem;
+	overflow: hidden;
+	text-overflow: ellipsis;
+    border: solid 1px;
+}
+
+#searchbar::placeholder {
+    color: rgb(255, 255, 255)
+}
+
+#searchbutton {
+    grid-area: searchbutton;
+    display: flex;
+    background-color:rgb(92,151,222);
+    padding: 1rem;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+	cursor: pointer;
+    user-select: none;
+}
+
+#showall {
+    grid-area: showall;
+    display: flex;
+    background-color:rgb(92,151,222);
+    padding: 1rem;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+	cursor: pointer;
+    user-select: none;
+}
+
+footer {
+    grid-area: footer;
+    display: flex;
+    background-color: rgb(13,68,119);
+    align-items: center;
+    justify-content: center;
+
+}

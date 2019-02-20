@@ -1,18 +1,32 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Data Lovers</title>
+    
     <link rel="stylesheet" href="style.css" />
   </head>
+
   <body>
-    <div id="root"></div>
-    <!-- <script src="./data/injuries/injuries.js"></script> -->
-    <!-- <script src="./data/pokemon/pokemon.js"></script> -->
-    <!-- <script src="./data/steam/steam.js"></script> -->
-    <!-- <script src="./data/worldbank/worldbank.js"></script> -->
-    <!-- <script src="./data/lol/lol.js"></script> -->
+
+    <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js" integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP" crossorigin="anonymous"></script>
+
+    <main>
+      <header></header>
+      <h1>Aquí podrás consultar la información necesaria acerca de los Pokemon para combates en PokemonGo</h1>
+      <input id="searchbar" type="text" placeholder="Escribe el nombre de un Pokemon">
+      <div id="searchbutton"><i class="fas fa-search"></i></div>
+      <div id="showall">VER TODOS</div>
+      <footer>Acerca de KantoDex</footer>
+    </main>
+
+    <script src="./data/pokemon/pokemon.js"></script>
     <script src="data.js"></script>
     <script src="main.js"></script>
+
   </body>
+
 </html>
