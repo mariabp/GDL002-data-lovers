@@ -5,7 +5,7 @@ const searchButton = document.querySelector('#searchbutton');
 const showAllButton = document.querySelector('#showall');
 const description = document.querySelector('h1');
 const footer = document.querySelector('footer');
-//const pokemonObj = POKEMON.pokemon;
+const pokemonObj = POKEMON.pokemon;
 
 const showResults = () => {
     searchButton.style.display = 'none';
@@ -18,3 +18,4 @@ const showResults = () => {
 
 
 searchButton.addEventListener('click', showResults);
+//showAllButton.addEventListener('click', window.data.showAll);
