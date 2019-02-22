@@ -50,7 +50,7 @@ h1 {
 
 #searchbar {
 	grid-area: searchbar;
-	display: block;
+	display: none;
 	background-color:rgb(92,151,222);
 	padding: 1rem;
 	overflow: hidden;
@@ -64,7 +64,7 @@ h1 {
 
 #searchbutton {
     grid-area: searchbutton;
-    display: flex;
+    display: none;
     background-color:rgb(92,151,222);
     padding: 1rem;
 	align-items: center;

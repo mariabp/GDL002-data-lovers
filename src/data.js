@@ -4,18 +4,6 @@
 /*
 window.show = {
 
-  
-  showAll : (pokemonObj) => {
-   
-    pokemonObj.forEach((element) => {
-      let pokemonInfo = element.id + ' ' + element.name;
-      pokemonList.push(pokemonInfo);
-    });
-    pokemonList.forEach((element) => {
-      results.innerHTML += element;
-    });
-  },
-
     searchPokemon : (pokemonObj) => {
       let pokemonList = [];
       let searchInput = document.querySelector('#searchbar');
@@ -30,5 +18,4 @@ window.show = {
         }
       });
     } 
-};
- */
+}*/

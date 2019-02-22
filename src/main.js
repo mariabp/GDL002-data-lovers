@@ -25,6 +25,7 @@ let showAboutUs = () => {
     searchButton.style.display = 'none';
     showAllButton.style.display = 'none';
     footer.style.display = 'none';
+    results.style.display = 'none';
     aboutUs.style.display = 'block';
 };
 aboutUsButton.addEventListener('click', showAboutUs);
