@@ -17,7 +17,6 @@ const printResults = () => pokemonList.forEach(element => {results.innerHTML += 
 
 showAllButton.addEventListener('click', printResults);
 
-//searchButton.addEventListener(')click', searchPokemon());
 
 let showAboutUs = () => {
     description.style.display = 'none';
