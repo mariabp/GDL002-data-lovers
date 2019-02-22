@@ -1,21 +1,18 @@
 'use strict';
 
-let userRequest = document.querySelector('#searchbar');
+
 const searchButton = document.querySelector('#searchbutton');
 const showAllButton = document.querySelector('#showall');
-const description = document.querySelector('h1');
-const footer = document.querySelector('footer');
+//const description = document.querySelector('h1');
+//const footer = document.querySelector('footer');
+const results = document.querySelector('#results');
 const pokemonObj = POKEMON.pokemon;
-
-const showResults = () => {
-    searchButton.style.display = 'none';
-    userRequest.style.display = 'none';
-    showAllButton.style.display = 'none';
-    description.style.display = 'none';
-    footer.style.display = 'none';
-    }
-;
+let searchInput = document.querySelector('#searchbar');
 
 
-searchButton.addEventListener('click', showResults);
-//showAllButton.addEventListener('click', window.data.showAll);
+let pokemonList = pokemonObj.map(pokemonObj => `<div class="pokemonInfo"><img src="${pokemonObj.img}" height="30px" width="30px">${pokemonObj.id}. ${pokemonObj.name}</div>`);
+const printResults = () => pokemonList.forEach(element => {results.innerHTML += element});
+
+
+showAllButton.addEventListener('click', printResults);
+//searchButton.addEventListener('click', searchPokemon());

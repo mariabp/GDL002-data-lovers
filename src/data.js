@@ -1,33 +1,34 @@
-// esta es una función de ejemplo
-// puedes ver como agregamos la función a nuestro objeto global window
-/*window.data = {
+'use strict';
 
-showAll : () => {
-  let pokemonList= [];
-  pokemonObj.forEach(element => {
-    let pokemonInfo = '<div class=pokemonInfo>' + '<img src=" "element.img + height=30px width=30px> ' + ' '  + element.id + ' ' + element.name + '</div>'; 
-    pokemonList =pokemonInfo;
 
-    //console.log(pokemonList);
-    return pokemonList; 
+/*
+window.show = {
+
   
-  
-  }
-  );
-}
+  showAll : (pokemonObj) => {
+   
+    pokemonObj.forEach((element) => {
+      let pokemonInfo = element.id + ' ' + element.name;
+      pokemonList.push(pokemonInfo);
+    });
+    pokemonList.forEach((element) => {
+      results.innerHTML += element;
+    });
+  },
 
-}*/
-
-const showAll = () => {
-  let pokemonList= [];
-  pokemonObj.forEach(element => {
-    let pokemonInfo = /*'<div class=pokemonInfo>' + '<img src=" "element.img + height=30px width=30px> ' + ' '  + */element.id + ' ' + element.name /*+ '</div>';*/ 
-    pokemonList =pokemonInfo;
-
-    //console.log(pokemonList);
-    return pokemonList; 
-  
-  
-  }
-  );
-}
+    searchPokemon : (pokemonObj) => {
+      let pokemonList = [];
+      let searchInput = document.querySelector('#searchbar');
+      let searchedPokemon = searchInput.value;
+      pokemonObj.forEach((element) => {
+        let pokemonInfo = element.id + ' ' + element.name; 
+        if (element.name.toLowerCase().includes(`${searchedPokemon.toLowerCase()}`)) {
+          pokemonList.push(pokemonInfo);
+          results.innerHTML = pokemonList;
+        } else {
+          results.innerHTML = 'Tu búsqueda no arrojó resultados';
+        }
+      });
+    } 
+};
+ */
