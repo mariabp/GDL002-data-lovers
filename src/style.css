@@ -92,11 +92,20 @@ footer {
     background-color: rgb(13,68,119);
     align-items: center;
     justify-content: center;
-
 }
 
 #results{
     grid-area: results;
+    display: block;
+}
+
+.pokemonInfo {
     display: flex;
-    
+	background-color: rgba(216, 210, 131, 0.842)   ;
+	margin-bottom: 0.5rem;
+	padding: 1rem;
+	align-items: center;
+	overflow: hidden;
+	cursor: pointer;
+	white-space: nowrap;
 }
