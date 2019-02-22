@@ -101,7 +101,7 @@ footer {
 
 .pokemonInfo {
     display: flex;
-	background-color: rgba(216, 210, 131, 0.842)   ;
+	background-color: rgba(156, 253, 232, 0.842)   ;
 	margin-bottom: 0.5rem;
 	padding: 1rem;
 	align-items: center;
@@ -109,3 +109,16 @@ footer {
 	cursor: pointer;
 	white-space: nowrap;
 }
+
+#aboutUsButton {
+    cursor: pointer;
+}
+
+p {
+    grid-area: text;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    
+}
+ 
