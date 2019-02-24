@@ -109,3 +109,14 @@ footer {
 	cursor: pointer;
 	white-space: nowrap;
 }
+
+#aboutUsButton {
+    cursor: pointer;
+}
+
+p {
+    grid-area: text;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
