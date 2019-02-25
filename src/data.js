@@ -1,5 +1,7 @@
 'use strict';
-/*
-window.data = {
 
-};*/
+window.data = {
+    filterData: (data,condition) => {},
+    sortData: (data,sortBy,sortOrder) => {},
+    computeStats: (data) => {}
+};
