@@ -22,7 +22,7 @@ const validateSearchInput = () => {
 		searchInput.placeholder = "Solo existen 151 pokemon en Kanto";
 		warnAndReset();
 	} else {
-		searchInput.style.backgroundColor = "rgb(122, 196, 196)";
+		searchInput.style.backgroundColor = "rgb(139, 196, 122)";
 		results.innerHTML = "";
 		searchPokemon();
 	}
