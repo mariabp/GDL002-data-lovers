@@ -10,10 +10,32 @@ const searchInput = document.querySelector('#searchbar');
 const aboutUsButton = document.querySelector('#aboutUsButton');
 const aboutUs = document.querySelector('p');
 
-/*Funcion que obtiene la imagen, numero y nombre de cada pokemon y lo incluye en una lista.
-printResults es la función que se encarga de imprimir dichos resultados en pantalla */
-const pokemonShowlist = pokemonObj.map(pokemonObj => `<div class="pokemonInfo"><img src="${pokemonObj.img}" height="30px" width="30px">${pokemonObj.id}. ${pokemonObj.name}</div>`);
-const printResults = () => pokemonShowlist.forEach(element => {results.innerHTML += element});
+//Funcion para validar el texto que ingreso el usuario
+const validateSearchInput = () => {
+	if (searchInput.value.length < 1) {
+		searchInput.placeholder = "Es necesario escribir algo...";
+		warnAndReset();
+	} else if (/[^a-z0-9]/i.test(searchInput.value)) {
+		searchInput.placeholder = "Solo puedes utilizar letras y/o números...";
+		warnAndReset();
+	} else if (searchInput.value < 1 || searchInput.value > 151) {
+		searchInput.placeholder = "Solo existen 151 pokemon en Kanto";
+		warnAndReset();
+	} else {
+		searchInput.style.backgroundColor = "rgb(122, 196, 196)";
+		results.innerHTML = "";
+		searchPokemon();
+	}
+};
+
+/*Funcion que cambia de color el campo donde el usuario ingresa su busqueda,
+/*resetea valor de busqueda del usuario a vacio y
+/*esconde el contenedor de resultados */
+const warnAndReset = () => {
+	searchInput.style.backgroundColor =  "rgb(248, 126, 126)";
+	searchInput.value = "";
+	results.style.display = "none";
+};	
 
 //Funcion que obtiene la información de 1 pokemon buscado.
 const searchPokemon = () => {
@@ -46,9 +68,14 @@ const searchPokemon = () => {
 	});
 };
 
+//Funcion que obtiene la imagen, numero y nombre de cada pokemon y lo incluye en una lista.
+const pokemonShowlist = pokemonObj.map(pokemonObj => `<div class="pokemonInfo"><img src="${pokemonObj.img}" height="30px" width="30px">${pokemonObj.id}. ${pokemonObj.name}</div>`);
+
+//Función que se encarga de imprimir dichos resultados en pantalla
+const printResults = () => pokemonShowlist.forEach(element => {results.innerHTML += element});
 
 //Funcion para mostrar About Kanto Dex
-let showAboutUs = () => {
+const showAboutUs = () => {
     description.style.display = 'none';
     searchInput.style.display = 'none';
     searchButton.style.display = 'none';
@@ -57,6 +84,8 @@ let showAboutUs = () => {
     results.style.display = 'none';
     aboutUs.style.display = 'block';
 };
+
+//Botones
 aboutUsButton.addEventListener('click', showAboutUs);
 showAllButton.addEventListener('click', printResults);
-searchButton.addEventListener('click', searchPokemon);
+searchButton.addEventListener('click', validateSearchInput);
