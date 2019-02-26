@@ -1,5 +1,5 @@
 'use strict';
-
+const POKEMON = {};
 const searchButton = document.querySelector('#searchbutton');
 const showAllButton = document.querySelector('#showall');
 const description = document.querySelector('h1');
@@ -72,7 +72,7 @@ const searchPokemon = () => {
 const pokemonShowlist = pokemonObj.map(pokemonObj => `<div class="pokemonInfo"><img src="${pokemonObj.img}" height="30px" width="30px">${pokemonObj.id}. ${pokemonObj.name}</div>`);
 
 //Función que se encarga de imprimir dichos resultados en pantalla
-const printResults = () => pokemonShowlist.forEach(element => {results.innerHTML += element});
+const printResults = () => pokemonShowlist.forEach(element => {results.innerHTML += element;});
 
 //Funcion para mostrar About Kanto Dex
 const showAboutUs = () => {
