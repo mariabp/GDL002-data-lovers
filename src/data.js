@@ -13,7 +13,7 @@ window.kantodex = {
                     });
                     return filteredPokemonObj;
 
-    }/*,
-    sortData: (data,sortBy,sortOrder) => {},
-    computeStats: (data) => {}*/
+    },
+ //   sortData: (data,sortBy,sortOrder) => {},
+ //   computeStats: (data) => {}*/
 };

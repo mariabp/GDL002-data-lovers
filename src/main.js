@@ -1,5 +1,5 @@
 'use strict';
-const POKEMON = {};
+
 const searchButton = document.querySelector('#searchbutton');
 const showAllButton = document.querySelector('#showall');
 const description = document.querySelector('h1');
