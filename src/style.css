@@ -72,6 +72,8 @@ h1 {
 	overflow: hidden;
 	cursor: pointer;
     user-select: none;
+    border: solid 1px;
+
 }
 
 #filterbutton {
@@ -84,6 +86,7 @@ h1 {
 	overflow: hidden;
 	cursor: pointer;
     user-select: none;
+    border: solid 1px;
 }
 
 #showall {
