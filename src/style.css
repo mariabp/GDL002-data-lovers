@@ -28,7 +28,7 @@ main {
     ". . . . ."
     ". searchbar searchbar searchbar ."
     ". . . . ."
-    ". searchbutton searchbutton searchbutton ."
+    ". searchbutton searchbutton filterbutton ."
     ". . . . ."
     ". showall showall showall ."
     ". . . . ."
@@ -64,6 +64,18 @@ h1 {
 
 #searchbutton {
     grid-area: searchbutton;
+    display: flex;
+    background-color:rgb(92,151,222);
+    padding: 1rem;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+	cursor: pointer;
+    user-select: none;
+}
+
+#filterbutton {
+    grid-area: filterbutton;
     display: flex;
     background-color:rgb(92,151,222);
     padding: 1rem;

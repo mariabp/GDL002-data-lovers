@@ -1,13 +1,12 @@
 require('../src/data.js');
-
-/*
-describe('example', () => {
-  it('is a function', () => {
-    expect(typeof example).toBe('function');
+let pokemonObj;
+describe('filterData()', () => {
+  it('should filter Pokemon by type', () => {
+   expect(typeof window.kantodex.filterData()).toBe('function');
   });
 
-  it('returns `example`', () => {
-    expect(example()).toBe('example');
+  it('debería devolver Pikachu para tipo Electric', () => {
+    expect(window.kantodex.filterData(pokemonObj,'Electric')).toBe('Pikachu');
   });
 });
-*/
+
