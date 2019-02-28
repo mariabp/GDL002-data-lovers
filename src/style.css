@@ -26,9 +26,9 @@ main {
     ". . . . ." 
     ". text text text ." 
     ". . . . ."
-    ". searchbar . searchbutton ."
+    ". searchbar searchbar searchbutton ."
     ". . . . ."
-    ". select . filterbutton ."
+    ". filterbutton select select ."
     ". . . . ."
     ". showall showall showall ."
     ". . . . ."
@@ -59,7 +59,8 @@ h1 {
 }
 
 #searchbar::placeholder {
-    color: rgb(255, 255, 255)
+    color: rgb(255, 255, 255);
+    font-size: 12pt;
 }
 
 #searchbutton {

@@ -12,13 +12,13 @@ const aboutUs = document.querySelector('p');
 let condition = document.querySelector('select');
 const filterButton = document.querySelector('#filterbutton');
 let pokemonList = [];
-let setCondition = condition.value;
+//let setCondition = condition.value;
 
 
 //Funcion para validar el texto que ingreso el usuario
 const validateSearchInput = () => {
 	if (searchInput.value.length < 1) {
-		searchInput.placeholder = "Es necesario escribir algo...";
+		searchInput.placeholder = "Busca por nombre o número...";
 		warnAndReset();
 	} else if (/[^a-z0-9]/i.test(searchInput.value)) {
 		searchInput.placeholder = "Solo puedes utilizar letras y/o números...";
