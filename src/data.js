@@ -13,6 +13,7 @@ window.kantodex = {
         });
         return filteredPokemonObj;
     },
+
     sortData:(data) => {
         const nameList = data.map(element=> {
             return element.name;

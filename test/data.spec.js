@@ -108,4 +108,102 @@ describe('filterData', () => {
     }]);
   });
 });
+describe('sortData', () => {
+  it('should be a function', () => {
+   expect(typeof(kantodex.sortData)).toBe('function');
+  });
+  it('Debería devolver Abra, Aerodactyl, Alacazam' () => {
+    expect(window.kantodex.sortData(pokemonObj)).toEqual([{
+      
+        "id": 63,
+        "num": "063",
+        "name": "Abra",
+        "img": "http://www.serebii.net/pokemongo/pokemon/063.png",
+        "type": [
+          "Psychic"
+        ],
+        "height": "0.89 m",
+        "weight": "19.5 kg",
+        "candy": "Abra Candy",
+        "candy_count": 25,
+        "egg": "5 km",
+        "spawn_chance": 0.42,
+        "avg_spawns": 42,
+        "spawn_time": "04:30",
+        "multipliers": [
+          1.36,
+          1.95
+        ],
+        "weaknesses": [
+          "Bug",
+          "Ghost",
+          "Dark"
+        ],
+        "next_evolution": [{
+          "num": "064",
+          "name": "Kadabra"
+        }, {
+          "num": "065",
+          "name": "Alakazam"
+        }]
+      },
+      {
+        "id": 142,
+        "num": "142",
+        "name": "Aerodactyl",
+        "img": "http://www.serebii.net/pokemongo/pokemon/142.png",
+        "type": [
+          "Rock",
+          "Flying"
+        ],
+        "height": "1.80 m",
+        "weight": "59.0 kg",
+        "candy": "None",
+        "egg": "10 km",
+        "spawn_chance": 0.018,
+        "avg_spawns": 1.8,
+        "spawn_time": "23:40",
+        "multipliers": null,
+        "weaknesses": [
+          "Water",
+          "Electric",
+          "Ice",
+          "Rock",
+          "Steel"
+        ]
+      },
+      {
+        "id": 65,
+        "num": "065",
+        "name": "Alakazam",
+        "img": "http://www.serebii.net/pokemongo/pokemon/065.png",
+        "type": [
+          "Psychic"
+        ],
+        "height": "1.50 m",
+        "weight": "48.0 kg",
+        "candy": "Abra Candy",
+        "egg": "Not in Eggs",
+        "spawn_chance": 0.0073,
+        "avg_spawns": 0.73,
+        "spawn_time": "12:33",
+        "multipliers": null,
+        "weaknesses": [
+          "Bug",
+          "Ghost",
+          "Dark"
+        ],
+        "prev_evolution": [{
+          "num": "063",
+          "name": "Abra"
+        }, {
+          "num": "064",
+          "name": "Kadabra"
+        }]
+      },
+  
+    }]);
+  });
+}); 
+
 
