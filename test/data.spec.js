@@ -108,13 +108,14 @@ describe('filterData', () => {
     }]);
   });
 });
+
 describe('sortData', () => {
   it('should be a function', () => {
    expect(typeof(kantodex.sortData)).toBe('function');
   });
-  it('Debería devolver Abra, Aerodactyl, Alacazam' () => {
+
+  it('Debería devolver Abra, Aerodactyl, Alacazam', () => {
     expect(window.kantodex.sortData(pokemonObj)).toEqual([{
-      
         "id": 63,
         "num": "063",
         "name": "Abra",
@@ -148,31 +149,6 @@ describe('sortData', () => {
         }]
       },
       {
-        "id": 142,
-        "num": "142",
-        "name": "Aerodactyl",
-        "img": "http://www.serebii.net/pokemongo/pokemon/142.png",
-        "type": [
-          "Rock",
-          "Flying"
-        ],
-        "height": "1.80 m",
-        "weight": "59.0 kg",
-        "candy": "None",
-        "egg": "10 km",
-        "spawn_chance": 0.018,
-        "avg_spawns": 1.8,
-        "spawn_time": "23:40",
-        "multipliers": null,
-        "weaknesses": [
-          "Water",
-          "Electric",
-          "Ice",
-          "Rock",
-          "Steel"
-        ]
-      },
-      {
         "id": 65,
         "num": "065",
         "name": "Alakazam",
@@ -201,9 +177,30 @@ describe('sortData', () => {
           "name": "Kadabra"
         }]
       },
-  
-    }]);
+      {
+        "id": 142,
+        "num": "142",
+        "name": "Aerodactyl",
+        "img": "http://www.serebii.net/pokemongo/pokemon/142.png",
+        "type": [
+          "Rock",
+          "Flying"
+        ],
+        "height": "1.80 m",
+        "weight": "59.0 kg",
+        "candy": "None",
+        "egg": "10 km",
+        "spawn_chance": 0.018,
+        "avg_spawns": 1.8,
+        "spawn_time": "23:40",
+        "multipliers": null,
+        "weaknesses": [
+          "Water",
+          "Electric",
+          "Ice",
+          "Rock",
+          "Steel"
+        ]
+      }]);
+    });
   });
-}); 
-
-
