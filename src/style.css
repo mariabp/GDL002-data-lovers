@@ -30,7 +30,7 @@ main {
     ". . . . ."
     ". filterbutton select select ."
     ". . . . ."
-    ". showall showall showall ."
+    ". showall . resetbutton ."
     ". . . . ."
     ". results results results ."
     ". . . . ."
@@ -107,6 +107,18 @@ select {
     grid-area: showall;
     display: flex;
     background-color:rgb(224, 182, 162);
+    padding: 1rem;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+	cursor: pointer;
+    user-select: none;
+}
+
+#resetbutton {
+    grid-area: resetbutton;
+    display: flex;
+    background-color:rgb(120, 166, 223);
     padding: 1rem;
 	align-items: center;
 	justify-content: center;

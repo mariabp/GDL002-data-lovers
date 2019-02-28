@@ -8,6 +8,7 @@ const results = document.querySelector('#results');
 const pokemonObj = POKEMON.pokemon;
 const searchInput = document.querySelector('#searchbar');
 const aboutUsButton = document.querySelector('#aboutUsButton');
+const resetButton = document.querySelector('#resetbutton');
 const aboutUs = document.querySelector('p');
 let condition = document.querySelector('select');
 const filterButton = document.querySelector('#filterbutton');
@@ -41,6 +42,18 @@ const warnAndReset = () => {
 	searchInput.value = "";
 	results.style.display = "none";
 };	
+
+//Funcion para borrar campos 
+const resetForm = () => {
+
+	searchInput.value = "";
+	searchInput.placeholder = "Busca por nombre o número";
+	pokemonList = [];
+	results.innerHTML = "";
+	searchInput.style.background = "rgb(120, 166, 223)";
+	condition.value = "";
+
+};
 
 //Funcion que obtiene la información de 1 pokemon buscado.
 const searchPokemon = () => {
@@ -92,6 +105,7 @@ const showAboutUs = () => {
     aboutUs.style.display = 'block';
 };
 
+//Funcion para imprimir lista de Pokemon filtrados
 const printFilteredPokemon = () => {
         kantodex.filterData(pokemonObj,condition.value).forEach((element) => {
             let pokemonInfo = 
@@ -118,11 +132,12 @@ const printFilteredPokemon = () => {
             results.innerHTML += pokemonInfo;
         });
 	};
+
 //Botones
 aboutUsButton.addEventListener('click', showAboutUs);
 showAllButton.addEventListener('click', printResults);
 searchButton.addEventListener('click', validateSearchInput);
 filterButton.addEventListener('click', printFilteredPokemon);
-
+resetButton.addEventListener('click', resetForm);
 
 
