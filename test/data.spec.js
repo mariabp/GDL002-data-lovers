@@ -1,8 +1,8 @@
 require('../src/data.js');
-//require('../src/data/pokemon/pokemon.js');
-const pokemon = require('../src/data/pokemon/pokemon.json');
 
+const pokemon = require('../src/data/pokemon/pokemon.json');
 const pokemonObj = pokemon.pokemon;
+
 describe('filterData', () => {
   it('should be a function', () => {
    expect(typeof(kantodex.filterData)).toBe('function');

@@ -10,6 +10,7 @@ const searchInput = document.querySelector('#searchbar');
 const aboutUsButton = document.querySelector('#aboutUsButton');
 const aboutUs = document.querySelector('p');
 let userSelect = document.querySelector('select');
+const filterButton = document.querySelector('#filterbutton');
 
 //Funcion para validar el texto que ingreso el usuario
 const validateSearchInput = () => {
@@ -81,6 +82,7 @@ const showAboutUs = () => {
     searchInput.style.display = 'none';
 	searchButton.style.display = 'none';
 	userSelect.style.display = 'none';
+	filterButton.style.display = 'none';
 	showAllButton.style.display = 'none';
     footer.style.display = 'none';
     results.style.display = 'none';
