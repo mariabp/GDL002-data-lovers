@@ -9,6 +9,7 @@ const pokemonObj = POKEMON.pokemon;
 const searchInput = document.querySelector('#searchbar');
 const aboutUsButton = document.querySelector('#aboutUsButton');
 const aboutUs = document.querySelector('p');
+let userSelect = document.querySelector('select');
 
 //Funcion para validar el texto que ingreso el usuario
 const validateSearchInput = () => {
@@ -78,8 +79,9 @@ const printResults = () => pokemonShowlist.forEach(element => {results.innerHTML
 const showAboutUs = () => {
     description.style.display = 'none';
     searchInput.style.display = 'none';
-    searchButton.style.display = 'none';
-    showAllButton.style.display = 'none';
+	searchButton.style.display = 'none';
+	userSelect.style.display = 'none';
+	showAllButton.style.display = 'none';
     footer.style.display = 'none';
     results.style.display = 'none';
     aboutUs.style.display = 'block';

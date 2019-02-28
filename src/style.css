@@ -26,9 +26,9 @@ main {
     ". . . . ." 
     ". text text text ." 
     ". . . . ."
-    ". searchbar searchbar searchbar ."
+    ". searchbar searchbar searchbutton ."
     ". . . . ."
-    ". searchbutton searchbutton filterbutton ."
+    ". select select filterbutton ."
     ". . . . ."
     ". showall showall showall ."
     ". . . . ."
@@ -73,7 +73,20 @@ h1 {
 	cursor: pointer;
     user-select: none;
     border: solid 1px;
+}
 
+select {
+    grid-area: select;
+    display: flex;
+    background-color:rgb(92,151,222);
+    padding: 1rem;
+    font-size: 12pt;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+	cursor: pointer;
+    user-select: none;
+    border: solid 1px;
 }
 
 #filterbutton {
