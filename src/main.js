@@ -93,7 +93,7 @@ const showAboutUs = () => {
 };
 
 const printFilteredPokemon = () => {
-        kantodex.filterData(pokemonObj,setCondition).map((element) => {
+        kantodex.filterData(pokemonObj,condition.value).forEach((element) => {
             let pokemonInfo = 
                 `
                 <div class="pokemoninfo">
