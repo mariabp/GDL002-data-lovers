@@ -9,8 +9,11 @@ const pokemonObj = POKEMON.pokemon;
 const searchInput = document.querySelector('#searchbar');
 const aboutUsButton = document.querySelector('#aboutUsButton');
 const aboutUs = document.querySelector('p');
-let userSelect = document.querySelector('select');
+let condition = document.querySelector('select');
 const filterButton = document.querySelector('#filterbutton');
+let pokemonList = [];
+let setCondition = condition.value;
+
 
 //Funcion para validar el texto que ingreso el usuario
 const validateSearchInput = () => {
@@ -43,7 +46,7 @@ const warnAndReset = () => {
 const searchPokemon = () => {
 	let searchedPokemon = searchInput.value.toLowerCase();
 	pokemonObj.forEach((element) => {
-    let pokemonList = [];
+    pokemonList = [];
     let pokemonInfo = `
 			<div class="pokemoninfo">
 			<div id="id">${element.id}</div>
@@ -81,7 +84,7 @@ const showAboutUs = () => {
     description.style.display = 'none';
     searchInput.style.display = 'none';
 	searchButton.style.display = 'none';
-	userSelect.style.display = 'none';
+	condition.style.display = 'none';
 	filterButton.style.display = 'none';
 	showAllButton.style.display = 'none';
     footer.style.display = 'none';
@@ -89,7 +92,37 @@ const showAboutUs = () => {
     aboutUs.style.display = 'block';
 };
 
+const printFilteredPokemon = () => {
+        kantodex.filterData(pokemonObj,setCondition).map((element) => {
+            let pokemonInfo = 
+                `
+                <div class="pokemoninfo">
+                <div id="id">${element.id}</div>
+                <div id="name">${element.name}</div>
+                <img id="img" src="${element.img}">
+                <div id="type">Type: ${element.type}</div>
+                <div id="height">Height: ${element.height}</div>
+                <div id="weight">Weight: ${element.weight}</div>
+                <div id="candy">Candy: ${element.candy}</div>
+                <div id="candycount">Candy Count: ${element.candy_count}</div>
+                <div id="egg">Egg: ${element.egg}</div>
+                <div id="spawnchance">Spawn Chance: ${element.spawn_chance}</div>
+                <div id="avgspawns">Average Spawns: ${element.avg_spawns}</div>
+                <div id="spawntime">Spawn Time: ${element.spawn_time}</div>
+                <div id="multipliers">Multipliers: ${element.multipliers}</div>
+                <div id="weaknesses">Weaknesses: ${element.weaknesses}</div>
+                <div id="nextevolution">Next Evolution: ${element.next_evolution}</div>
+                </div>
+                `
+            ;
+            results.innerHTML += pokemonInfo;
+        });
+	};
 //Botones
 aboutUsButton.addEventListener('click', showAboutUs);
 showAllButton.addEventListener('click', printResults);
 searchButton.addEventListener('click', validateSearchInput);
+filterButton.addEventListener('click', printFilteredPokemon);
+
+
+
