@@ -38,20 +38,38 @@ const validateSearchInput = () => {
 /*resetea valor de busqueda del usuario a vacio y
 /*esconde el contenedor de resultados */
 const warnAndReset = () => {
-	searchInput.style.backgroundColor =  "rgb(248, 126, 126)";
+	searchInput.style.backgroundColor =  "rgb(212, 110, 110)";
 	searchInput.value = "";
 	results.style.display = "none";
 };	
 
 //Funcion para borrar campos 
 const resetForm = () => {
-
 	searchInput.value = "";
 	searchInput.placeholder = "Busca por nombre o número";
 	pokemonList = [];
 	results.innerHTML = "";
 	searchInput.style.background = "rgb(120, 166, 223)";
-	condition.value = "";
+	condition.value = "Filtrarpor";
+};
+
+//Funcion para mostrar en placeholder la cantidad de resultados
+const colorBgAndShow = () => {
+
+	if (pokemonList.length === 0 ) {
+		searchInput.style.background = "rgb(196, 191, 122)";
+		searchInput.placeholder = `[ 0 RESULTADOS ]`;
+	} else if (pokemonList.length === 1 ) {
+		searchInput.style.background = "rgb(123, 134, 228)";
+		searchInput.placeholder = `[ ${pokemonList.length} RESULTADO ]`;
+	} else {
+		searchInput.style.background = "rgb(123, 134, 228)";
+		searchInput.placeholder = `[ ${pokemonList.length} RESULTADOS ]`;
+	}
+
+	searchInput.value = "";
+	condition.value = "Filtrarpor";
+	results.style.display = "block";
 
 };
 
@@ -59,7 +77,6 @@ const resetForm = () => {
 const searchPokemon = () => {
 	let searchedPokemon = searchInput.value.toLowerCase();
 	pokemonObj.forEach((element) => {
-    pokemonList = [];
     let pokemonInfo = `
 			<div class="pokemoninfo">
 			<div id="id">${element.id}</div>
@@ -82,8 +99,13 @@ const searchPokemon = () => {
 		if (element.name.toLowerCase().includes(`${searchedPokemon}`) || element.id === parseInt(searchedPokemon)) {
 			pokemonList.push(element);
 			results.innerHTML += pokemonInfo;
+		} else {
+			searchInput.value = '';
+			searchInput.placeholder = "Tu búsqueda no arrojó resultados";
+			searchInput.style.backgroundColor =  "rgb(196, 187, 107)";
 		}
 	});
+	colorBgAndShow();
 };
 
 //Funcion que obtiene la imagen, numero y nombre de cada pokemon y lo incluye en una lista.
@@ -100,6 +122,7 @@ const showAboutUs = () => {
 	condition.style.display = 'none';
 	filterButton.style.display = 'none';
 	showAllButton.style.display = 'none';
+	resetButton.style.display = 'none';
     footer.style.display = 'none';
     results.style.display = 'none';
     aboutUs.style.display = 'block';
@@ -139,5 +162,4 @@ showAllButton.addEventListener('click', printResults);
 searchButton.addEventListener('click', validateSearchInput);
 filterButton.addEventListener('click', printFilteredPokemon);
 resetButton.addEventListener('click', resetForm);
-
 
