@@ -77,25 +77,26 @@ const colorBgAndShow = () => {
 const searchPokemon = () => {
 	let searchedPokemon = searchInput.value.toLowerCase();
 	pokemonObj.forEach((element) => {
-    let pokemonInfo = `
+		let pokemonInfo = `
 			<div class="pokemoninfo">
-			<div id="id">${element.id}</div>
-			<div id="name">${element.name}</div>
-			<img id="img" src="${element.img}">
-			<div id="type">Type: ${element.type}</div>
-			<div id="height">Height: ${element.height}</div>
-			<div id="weight">Weight: ${element.weight}</div>
-			<div id="candy">Candy: ${element.candy}</div>
-			<div id="candycount">Candy Count: ${element.candy_count}</div>
-			<div id="egg">Egg: ${element.egg}</div>
-			<div id="spawnchance">Spawn Chance: ${element.spawn_chance}</div>
-			<div id="avgspawns">Average Spawns: ${element.avg_spawns}</div>
-			<div id="spawntime">Spawn Time: ${element.spawn_time}</div>
-			<div id="multipliers">Multipliers: ${element.multipliers}</div>
-			<div id="weaknesses">Weaknesses: ${element.weaknesses}</div>
-			<div id="nextevolution">Next Evolution: ${element.next_evolution}</div>
+			<div id="pokemonid">${element.id}</div>
+			<div id="pokemonname">${element.name}</div>
+			<img id="pokemonimg" src="${element.img}">
+			<div id="pokemontype"><div class="property">Type: </div>${element.type}</div>
+			<div id="pokemonheight"><div class="property">Height: </div>${element.height}</div>
+			<div id="pokemonweight"><div class="property">Weight: </div>${element.weight}</div>
+			<div id="pokemoncandy"><div class="property">Candy: </div>${element.candy}</div>
+			<div id="pokemoncandycount"><div class="property">Candy Count: </div>${element.candy_count}</div>
+			<div id="pokemonegg"><div class="property">Egg: </div>${element.egg}</div>
+			<div id="pokemonspawnchance"><div class="property">Spawn Chance: </div>${element.spawn_chance}</div>
+			<div id="pokemonavgspawns"><div class="property">Average Spawns: </div>${element.avg_spawns}</div>
+			<div id="pokemonspawntime"><div class="property">Spawn Time: </div>${element.spawn_time}</div>
+			<div id="pokemonmultipliers"><div class="property">Multipliers: </div>${element.multipliers}</div>
+			<div id="pokemonweaknesses"><div class="property">Weaknesses: </div>${element.weaknesses}</div>
+			<div id="pokemonprevevolution"><div class="property">Previous Evolution: </div>${element.next_evolution}</div>
+			<div id="pokemonnextevolution"><div class="property">Next Evolution: </div>${element.next_evolution}</div>
 			</div>
-			`;
+		`;
 		if (element.name.toLowerCase().includes(`${searchedPokemon}`) || element.id === parseInt(searchedPokemon)) {
 			pokemonList.push(element);
 			results.innerHTML += pokemonInfo;
@@ -109,7 +110,7 @@ const searchPokemon = () => {
 };
 
 //Funcion que obtiene la imagen, numero y nombre de cada pokemon y lo incluye en una lista.
-const pokemonShowlist = pokemonObj.map(pokemonObj => `<div class="pokemonInfo"><img src="${pokemonObj.img}" height="30px" width="30px">${pokemonObj.id}. ${pokemonObj.name}</div>`);
+const pokemonShowlist = pokemonObj.map((element) => `<div class="allpokemon"><img id="img" src="${element.img}"><div id="id">${element.id}</div><div id="name">${element.name}</div></div>`);
 
 //Función que se encarga de imprimir dichos resultados en pantalla
 const printResults = () => pokemonShowlist.forEach(element => {results.innerHTML += element;});
