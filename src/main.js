@@ -47,12 +47,16 @@ const warnAndReset = () => {
 
 //Funcion para borrar campos 
 const resetForm = () => {
+	sort.style.display = "none";
+	searchButton.style.display = "flex";
+	searchInput.style.display = "block";
 	searchInput.value = "";
 	searchInput.placeholder = "Busca por nombre o número";
 	pokemonList = [];
 	results.innerHTML = "";
 	searchInput.style.background = "rgb(120, 166, 223)";
 	condition.value = "Filtrarpor";
+
 };
 
 //Funcion para mostrar en placeholder la cantidad de resultados
