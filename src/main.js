@@ -12,7 +12,9 @@ const resetButton = document.querySelector('#resetbutton');
 const aboutUs = document.querySelector('p');
 let condition = document.querySelector('select');
 const filterButton = document.querySelector('#filterbutton');
+const sort = document.querySelector('#sort');
 let pokemonList = [];
+
 //let setCondition = condition.value;
 
 
@@ -113,7 +115,12 @@ const searchPokemon = () => {
 const pokemonShowlist = pokemonObj.map((element) => `<div class="allpokemon"><img id="img" src="${element.img}"><div id="id">${element.id}</div><div id="name">${element.name}</div></div>`);
 
 //Función que se encarga de imprimir dichos resultados en pantalla
-const printResults = () => pokemonShowlist.forEach(element => {results.innerHTML += element;});
+const printResults = () => {
+	pokemonShowlist.forEach(element => {results.innerHTML += element;});
+	searchInput.style.display = 'none';
+	searchButton.style.display = 'none';
+	sort.style.display = 'flex';
+};
 
 //Funcion para mostrar About Kanto Dex
 const showAboutUs = () => {
