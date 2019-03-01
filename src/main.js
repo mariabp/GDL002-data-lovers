@@ -12,8 +12,8 @@ const resetButton = document.querySelector('#resetbutton');
 const aboutUs = document.querySelector('p');
 let condition = document.querySelector('select');
 const filterButton = document.querySelector('#filterbutton');
-const sort = document.querySelector('#sort');
 let pokemonList = [];
+const sortButton = document.querySelector('#sortbutton');
 
 //Funcion para validar el texto que ingreso el usuario
 const validateSearchInput = () => {
@@ -116,9 +116,10 @@ const pokemonShowlist = pokemonObj.map((element) => `<div class="allpokemon"><im
 //Función que se encarga de imprimir dichos resultados en pantalla
 const printResults = () => {
 	pokemonShowlist.forEach(element => {results.innerHTML += element;});
+	sortButton.style.display = 'flex';
 	searchInput.style.display = 'none';
 	searchButton.style.display = 'none';
-	sort.style.display = 'flex';
+	
 };
 
 //Funcion para imprimir lista de Pokemon filtrados
@@ -149,6 +150,11 @@ const printFilteredPokemon = () => {
         });
 	};
 
+const sortList = () => {
+	kantodex.sortData(pokemonShowlist).forEach(element => {
+		console.log (element);
+		results.innerHTML += element;});
+};
 //Funcion para mostrar About Kanto Dex
 const showAboutUs = () => {
     description.style.display = 'none';
@@ -160,7 +166,9 @@ const showAboutUs = () => {
 	resetButton.style.display = 'none';
     footer.style.display = 'none';
     results.style.display = 'none';
-    aboutUs.style.display = 'block';
+	aboutUs.style.display = 'block';
+	sortButton.style.display = 'none';
+
 };
 //Botones
 aboutUsButton.addEventListener('click', showAboutUs);
@@ -168,4 +176,4 @@ showAllButton.addEventListener('click', printResults);
 searchButton.addEventListener('click', validateSearchInput);
 filterButton.addEventListener('click', printFilteredPokemon);
 resetButton.addEventListener('click', resetForm);
-
+sortButton.addEventListener('click', sortList);

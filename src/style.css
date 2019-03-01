@@ -45,7 +45,8 @@ header {
 h1 {
     grid-area: text;
     align-items: center;
-	justify-content: center;
+    justify-content: center;
+    user-select: none;
 }
 
 #searchbar {
@@ -87,13 +88,13 @@ select {
 	align-items: center;
 	justify-content: center;
 	overflow: hidden;
-	cursor: pointer;
     user-select: none;
     border: solid 1px;
 }
 
-#sort {
-    grid-area: searchbar;
+#sortbutton{
+
+    grid-area: searchbutton;
     display: none;
     background-color:rgb(129, 185, 238);
     padding: 1rem;
@@ -102,6 +103,7 @@ select {
 	overflow: hidden;
 	cursor: pointer;
     user-select: none;
+    border: 1px solid;
 }
 
 #filterbutton {
@@ -316,6 +318,7 @@ p {
     display: none;
     align-items: center;
     justify-content: center;
+    user-select: none;
 }
 
 @media only screen and (max-width: 720px){
