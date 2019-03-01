@@ -15,9 +15,6 @@ const filterButton = document.querySelector('#filterbutton');
 const sort = document.querySelector('#sort');
 let pokemonList = [];
 
-//let setCondition = condition.value;
-
-
 //Funcion para validar el texto que ingreso el usuario
 const validateSearchInput = () => {
 	if (searchInput.value.length < 1) {
@@ -56,7 +53,6 @@ const resetForm = () => {
 	results.innerHTML = "";
 	searchInput.style.background = "rgb(120, 166, 223)";
 	condition.value = "Filtrarpor";
-
 };
 
 //Funcion para mostrar en placeholder la cantidad de resultados
@@ -117,7 +113,6 @@ const searchPokemon = () => {
 
 //Funcion que obtiene la imagen, numero y nombre de cada pokemon y lo incluye en una lista.
 const pokemonShowlist = pokemonObj.map((element) => `<div class="allpokemon"><img id="img" src="${element.img}"><div id="id">${element.id}</div><div id="name">${element.name}</div></div>`);
-
 //Función que se encarga de imprimir dichos resultados en pantalla
 const printResults = () => {
 	pokemonShowlist.forEach(element => {results.innerHTML += element;});
@@ -125,6 +120,34 @@ const printResults = () => {
 	searchButton.style.display = 'none';
 	sort.style.display = 'flex';
 };
+
+//Funcion para imprimir lista de Pokemon filtrados
+const printFilteredPokemon = () => {
+        kantodex.filterData(pokemonObj,condition.value).forEach((element) => {
+            let pokemonInfo = 
+                `
+                <div class="pokemoninfo">
+                <div id="pokemonid">${element.id}</div>
+                <div id="pokemonname">${element.name}</div>
+                <img id="pokemonimg" src="${element.img}">
+                <div id="pokemontype">Type: ${element.type}</div>
+                <div id="pokemonheight">Height: ${element.height}</div>
+                <div id="pokemonweight">Weight: ${element.weight}</div>
+                <div id="pokemoncandy">Candy: ${element.candy}</div>
+                <div id="pokemoncandycount">Candy Count: ${element.candy_count}</div>
+                <div id="pokemonegg">Egg: ${element.egg}</div>
+                <div id="pokemonspawnchance">Spawn Chance: ${element.spawn_chance}</div>
+                <div id="pokemonavgspawns">Average Spawns: ${element.avg_spawns}</div>
+                <div id="pokemonspawntime">Spawn Time: ${element.spawn_time}</div>
+                <div id="pokemonmultipliers">Multipliers: ${element.multipliers}</div>
+                <div id="pokemonweaknesses">Weaknesses: ${element.weaknesses}</div>
+                <div id="pokemonnextevolution">Next Evolution: ${element.next_evolution}</div>
+                </div>
+                `
+            ;
+            results.innerHTML += pokemonInfo;
+        });
+	};
 
 //Funcion para mostrar About Kanto Dex
 const showAboutUs = () => {
@@ -139,35 +162,6 @@ const showAboutUs = () => {
     results.style.display = 'none';
     aboutUs.style.display = 'block';
 };
-
-//Funcion para imprimir lista de Pokemon filtrados
-const printFilteredPokemon = () => {
-        kantodex.filterData(pokemonObj,condition.value).forEach((element) => {
-            let pokemonInfo = 
-                `
-                <div class="pokemoninfo">
-                <div id="id">${element.id}</div>
-                <div id="name">${element.name}</div>
-                <img id="img" src="${element.img}">
-                <div id="type">Type: ${element.type}</div>
-                <div id="height">Height: ${element.height}</div>
-                <div id="weight">Weight: ${element.weight}</div>
-                <div id="candy">Candy: ${element.candy}</div>
-                <div id="candycount">Candy Count: ${element.candy_count}</div>
-                <div id="egg">Egg: ${element.egg}</div>
-                <div id="spawnchance">Spawn Chance: ${element.spawn_chance}</div>
-                <div id="avgspawns">Average Spawns: ${element.avg_spawns}</div>
-                <div id="spawntime">Spawn Time: ${element.spawn_time}</div>
-                <div id="multipliers">Multipliers: ${element.multipliers}</div>
-                <div id="weaknesses">Weaknesses: ${element.weaknesses}</div>
-                <div id="nextevolution">Next Evolution: ${element.next_evolution}</div>
-                </div>
-                `
-            ;
-            results.innerHTML += pokemonInfo;
-        });
-	};
-
 //Botones
 aboutUsButton.addEventListener('click', showAboutUs);
 showAllButton.addEventListener('click', printResults);
