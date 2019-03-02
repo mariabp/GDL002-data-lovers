@@ -44,7 +44,6 @@ const warnAndReset = () => {
 
 //Funcion para borrar campos 
 const resetForm = () => {
-	sort.style.display = "none";
 	searchButton.style.display = "flex";
 	searchInput.style.display = "block";
 	searchInput.value = "";
