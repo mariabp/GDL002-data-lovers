@@ -33,9 +33,7 @@ const validateSearchInput = () => {
 	}
 };
 
-/*Funcion que cambia de color el campo donde el usuario ingresa su busqueda,
-/*resetea valor de busqueda del usuario a vacio y
-/*esconde el contenedor de resultados */
+/*Funcion que cambia de color el campo donde el usuario ingresa su busqueda,resetea valor de busqueda del usuario a vacio y esconde el contenedor de resultados */
 const warnAndReset = () => {
 	searchInput.style.backgroundColor =  "rgb(212, 110, 110)";
 	searchInput.value = "";
@@ -44,6 +42,7 @@ const warnAndReset = () => {
 
 //Funcion para borrar campos 
 const resetForm = () => {
+	sortButton.style.display = 'none';
 	searchButton.style.display = "flex";
 	searchInput.style.display = "block";
 	searchInput.value = "";
@@ -111,18 +110,37 @@ const searchPokemon = () => {
 };
 
 //Funcion que obtiene la imagen, numero y nombre de cada pokemon y lo incluye en una lista.
-const pokemonShowlist = pokemonObj.map((element) => `<div class="allpokemon"><img id="img" src="${element.img}"><div id="id">${element.id}</div><div id="name">${element.name}</div></div>`);
+const pokemonShowlist = pokemonObj.map((element) => 
+		`<div class="allpokemon">
+			<img id="img" src="${element.img}">
+			<div id="id">${element.id}</div>
+			<div id="name">${element.name}</div>
+		</div>`
+);
+
 //Función que se encarga de imprimir dichos resultados en pantalla
-const printResults = () => {
+const printShowlist = () => {
+	results.innerHTML = "";
 	pokemonShowlist.forEach(element => {results.innerHTML += element;});
 	sortButton.style.display = 'flex';
 	searchInput.style.display = 'none';
 	searchButton.style.display = 'none';
-	
+	description.style.display = 'none';
+};
+
+//Funcion para ordenar la lista por orden alfabético
+const printSortedList = () => {
+	results.innerHTML = "";
+	kantodex.sortData(pokemonObj).forEach((element) => {
+		let sortedPokemon = `<div class="allpokemon"><img id="img" src="${element.img}"><div id="id">${element.id}</div><div id="name">${element.name}</div></div>`;
+		results.innerHTML += sortedPokemon;
+	}
+	);
 };
 
 //Funcion para imprimir lista de Pokemon filtrados
 const printFilteredPokemon = () => {
+		results.innerHTML = "";
         kantodex.filterData(pokemonObj,condition.value).forEach((element) => {
             let pokemonInfo = 
                 `
@@ -149,11 +167,6 @@ const printFilteredPokemon = () => {
         });
 	};
 
-const sortList = () => {
-	kantodex.sortData(pokemonShowlist).forEach(element => {
-		console.log (element);
-		results.innerHTML += element;});
-};
 //Funcion para mostrar About Kanto Dex
 const showAboutUs = () => {
     description.style.display = 'none';
@@ -171,8 +184,8 @@ const showAboutUs = () => {
 };
 //Botones
 aboutUsButton.addEventListener('click', showAboutUs);
-showAllButton.addEventListener('click', printResults);
+showAllButton.addEventListener('click', printShowlist);
 searchButton.addEventListener('click', validateSearchInput);
 filterButton.addEventListener('click', printFilteredPokemon);
 resetButton.addEventListener('click', resetForm);
-sortButton.addEventListener('click', sortList);
+sortButton.addEventListener('click', printSortedList);
