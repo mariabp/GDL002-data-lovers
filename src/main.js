@@ -18,6 +18,8 @@ const results = document.querySelector('#results');
 const footer = document.querySelector('footer');
 const aboutUsButton = document.querySelector('#aboutusbutton');
 const aboutUs = document.querySelector('p');
+const searchBox = document.querySelector('#search');
+const homeButton = document.querySelector('#homebutton');
 
 
 //Funcion para validar el texto que ingreso el usuario
@@ -245,10 +247,31 @@ const showAboutUs = () => {
 	sortButton.style.display = 'none';
 	showAllButton.style.display = 'none';
 	resetButton.style.display = 'none';
-    footer.style.display = 'none';
-    results.style.display = 'none';
+    footer.style.display = 'flex';
+	results.style.display = 'none';
+	searchBox.style.display = 'none';
 	aboutUs.style.display = 'block';
+	homeButton.style.display = 'flex';
 
+};
+
+const home = () => {
+	aboutUs.style.display = 'none';
+	homeButton.style.display = 'none'; 
+	description.style.display = 'block';
+	searchInput.style.display = 'flex';
+	searchButton.style.display = 'flex';
+	condition.style.display = 'flex';
+	filterButton.style.display = 'flex';
+	sortButton.style.display = 'flex';
+	showAllButton.style.display = 'flex';
+	resetButton.style.display = 'flex';
+	footer.style.display = 'flex';
+	results.style.display = 'none';
+	searchBox.style.display = 'grid';
+
+	
+	resetForm();
 };
 
 //Botones
@@ -259,3 +282,4 @@ searchButton.addEventListener('click', validateSearchInput);
 filterButton.addEventListener('click', printFilteredPokemon);
 resetButton.addEventListener('click', resetForm);
 sortButton.addEventListener('click', printSortedList);
+homeButton.addEventListener('click', home);

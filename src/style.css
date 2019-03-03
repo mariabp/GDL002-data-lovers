@@ -207,6 +207,21 @@ select {
 	opacity: 0.75;
 }
 
+#homebutton {
+    display: none;
+    grid-area: header;
+    background-color:rgb(120, 166, 223);
+    padding: 1rem;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+	cursor: pointer;
+}
+
+#homebutton:hover {
+	opacity: 0.75;
+}
+
 p {
     grid-area: text;
     display: none;
