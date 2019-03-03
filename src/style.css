@@ -96,6 +96,23 @@ select {
     border: solid 1px;
 }
 
+#filterbutton {
+    grid-area: filterbutton;
+    display: flex;
+    background-color:rgb(129, 163, 238);
+    padding: 1rem;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+	cursor: pointer;
+    user-select: none;
+    border: solid 1px;
+}
+
+#filterbutton:hover {
+	opacity: 0.75;
+}
+
 #sortbutton {
 
     grid-area: sortbutton;
@@ -111,23 +128,6 @@ select {
 }
 
 #sortbutton:hover {
-	opacity: 0.75;
-}
-
-#filterbutton {
-    grid-area: filterbutton;
-    display: flex;
-    background-color:rgb(129, 163, 238);
-    padding: 1rem;
-	align-items: center;
-	justify-content: center;
-	overflow: hidden;
-	cursor: pointer;
-    user-select: none;
-    border: solid 1px;
-}
-
-#filterbutton:hover {
 	opacity: 0.75;
 }
 

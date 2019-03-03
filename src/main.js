@@ -1,22 +1,25 @@
 'use strict';
 
-const searchButton = document.querySelector('#searchbutton');
-const showAllButton = document.querySelector('#showall');
-const description = document.querySelector('h1');
-const footer = document.querySelector('footer');
-const results = document.querySelector('#results');
+let pokemonList = [];
 const pokemonObj = POKEMON.pokemon;
+
+const description = document.querySelector('h1');
 const searchInput = document.querySelector('#searchbar');
-const aboutUsButton = document.querySelector('#aboutUsButton');
-const resetButton = document.querySelector('#resetbutton');
-const aboutUs = document.querySelector('p');
+const searchButton = document.querySelector('#searchbutton');
 let condition = document.querySelector('select');
 const filterButton = document.querySelector('#filterbutton');
-let pokemonList = [];
 const sortButton = document.querySelector('#sortbutton');
+const showAllButton = document.querySelector('#showall');
+const resetButton = document.querySelector('#resetbutton');
+const results = document.querySelector('#results');
+const footer = document.querySelector('footer');
+const aboutUsButton = document.querySelector('#aboutUsButton');
+const aboutUs = document.querySelector('p');
+
 
 //Funcion para validar el texto que ingreso el usuario
 const validateSearchInput = () => {
+
 	if (searchInput.value.length < 1) {
 		searchInput.placeholder = "Busca por nombre o número...";
 		warnAndReset();
@@ -31,23 +34,28 @@ const validateSearchInput = () => {
 		results.innerHTML = "";
 		searchPokemon();
 	}
+
 };
 
 /*Funcion que cambia de color el campo donde el usuario ingresa su busqueda,resetea valor de busqueda del usuario a vacio y esconde el contenedor de resultados */
 const warnAndReset = () => {
+
 	searchInput.style.backgroundColor =  "rgb(212, 110, 110)";
 	searchInput.value = "";
 	results.style.display = "none";
+
 };	
 
 //Funcion para borrar campos 
 const resetForm = () => {
+
 	searchInput.value = "";
 	searchInput.placeholder = "Busca por nombre o número";
 	pokemonList = [];
 	results.innerHTML = "";
 	searchInput.style.background = "rgb(120, 166, 223)";
 	condition.value = "Filtrarpor";
+
 };
 
 //Funcion para mostrar en placeholder la cantidad de resultados
@@ -72,6 +80,7 @@ const colorBgAndShow = () => {
 
 //Funcion que obtiene la información de 1 pokemon buscado.
 const searchPokemon = () => {
+
 	let searchedPokemon = searchInput.value.toLowerCase();
 	pokemonObj.forEach((element) => {
 		let pokemonInfo = `
@@ -108,6 +117,7 @@ const searchPokemon = () => {
 
 //Funcion que obtiene la imagen, numero y nombre de cada pokemon y lo incluye en una lista.
 const pokemonShowlist = pokemonObj.map((element) => 
+
 		`<div class="allpokemon">
 			<img id="img" src="${element.img}">
 			<div id="id">${element.id}</div>
@@ -117,23 +127,28 @@ const pokemonShowlist = pokemonObj.map((element) =>
 
 //Función que se encarga de imprimir dichos resultados en pantalla
 const printShowlist = () => {
+
 	results.innerHTML = "";
 	pokemonShowlist.forEach(element => {results.innerHTML += element;});
 	description.style.display = 'none';
+
 };
 
 //Funcion para ordenar la lista por orden alfabético
 const printSortedList = () => {
+
 	results.innerHTML = "";
 	kantodex.sortData(pokemonObj).forEach((element) => {
 		let sortedPokemon = `<div class="allpokemon"><img id="img" src="${element.img}"><div id="id">${element.id}</div><div id="name">${element.name}</div></div>`;
 		results.innerHTML += sortedPokemon;
 	}
 	);
+
 };
 
 //Funcion para imprimir lista de Pokemon filtrados
 const printFilteredPokemon = () => {
+
 		results.innerHTML = "";
         kantodex.filterData(pokemonObj,condition.value).forEach((element) => {
             let pokemonInfo = 
@@ -158,11 +173,13 @@ const printFilteredPokemon = () => {
                 `
             ;
             results.innerHTML += pokemonInfo;
-        });
+		});
+		
 	};
 
 //Funcion para mostrar About Kanto Dex
 const showAboutUs = () => {
+
     description.style.display = 'none';
     searchInput.style.display = 'none';
 	searchButton.style.display = 'none';
@@ -176,7 +193,9 @@ const showAboutUs = () => {
 	sortButton.style.display = 'none';
 
 };
+
 //Botones
+
 aboutUsButton.addEventListener('click', showAboutUs);
 showAllButton.addEventListener('click', printShowlist);
 searchButton.addEventListener('click', validateSearchInput);
