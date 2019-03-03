@@ -2,29 +2,33 @@
 
 window.kantodex = {
 //Funcion para filtrar por tipo:
-    filterData: (data, setCondition, pokemonList) => {
-        data;
-        pokemonList = data.filter(element => {
+    filterData: (data, setCondition) => {
+
+        let filteredData = data.filter((element) => {
             for (let i = 0; i < element.type.length; i++) {
-                if (element.type[i] == setCondition) {
+                if (element.type[i] === setCondition) {
                     return element;
                 }
             }
         });
-        return pokemonList;
+        
+        return filteredData;
     },
 //Fucion para ordenar por nombre 
     sortData:(data) => {
-        const nameList = data.map(element=> {
-            return element.name;
-        });
-      
-        const orderedNames = nameList.sort(function(a,b){
-            return a.localeCompare(b);
+
+        data.sort((a, b) => {
+            if (a.name.toLowerCase() < b.name.toLowerCase()) {
+                return -1;
+            }
+            if (a.name.toLowerCase() > b.name.toLowerCase()) {
+                return 1;
+            }
+            return 0;
         });
 
-        const orderedObjects = orderedNames.map(name => data.find(element => element.name === name));
-        return orderedObjects;
+        console.log(data);
+        return data;
     }
 };
  

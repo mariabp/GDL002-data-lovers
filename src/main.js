@@ -1,20 +1,22 @@
 'use strict';
 
-let pokemonList = [];
 const pokemonObj = POKEMON.pokemon;
+
+let pokemonList = [];
 let pokemonInfo = "";
+
+let condition = document.querySelector('select');
 
 const description = document.querySelector('h1');
 const searchInput = document.querySelector('#searchbar');
 const searchButton = document.querySelector('#searchbutton');
-let condition = document.querySelector('select');
 const filterButton = document.querySelector('#filterbutton');
 const sortButton = document.querySelector('#sortbutton');
 const showAllButton = document.querySelector('#showall');
 const resetButton = document.querySelector('#resetbutton');
 const results = document.querySelector('#results');
 const footer = document.querySelector('footer');
-const aboutUsButton = document.querySelector('#aboutUsButton');
+const aboutUsButton = document.querySelector('#aboutusbutton');
 const aboutUs = document.querySelector('p');
 
 
@@ -102,8 +104,9 @@ const searchPokemon = () => {
 			<div id="pokemonweaknesses"><div class="property">Weaknesses: </div>${element.weaknesses}</div>
 			<div id="pokemonprevevolution"><div class="property">Previous Evolution: </div>${element.next_evolution}</div>
 			<div id="pokemonnextevolution"><div class="property">Next Evolution: </div>${element.next_evolution}</div>
-			</div>
-		`;
+			</div>`
+		;
+
 		if (element.name.toLowerCase().includes(`${searchedPokemon}`) || element.id === parseInt(searchedPokemon)) {
 			pokemonList.push(element);
 			results.innerHTML += pokemonInfo;
@@ -118,31 +121,77 @@ const searchPokemon = () => {
 
 //Funcion que obtiene e imprime una lista corta de todos los pokemon
 const getAllPokemon = () => {
+
+	pokemonList = [];
+
+	results.innerHTML = "";
 	
 	pokemonObj.forEach((element) => {
 
-		pokemonInfo =
-			`<div class="allpokemon">
-				<img id="img" src="${element.img}">
-				<div id="id">${element.id}</div>
-				<div id="name">${element.name}</div>
-			</div>`;
+		pokemonInfo = `
+			<div class="pokemoninfo">
+			<div id="pokemonid">${element.id}</div>
+			<div id="pokemonname">${element.name}</div>
+			<img id="pokemonimg" src="${element.img}">
+			<div id="pokemontype"><div class="property">Type: </div>${element.type}</div>
+			<div id="pokemonheight"><div class="property">Height: </div>${element.height}</div>
+			<div id="pokemonweight"><div class="property">Weight: </div>${element.weight}</div>
+			<div id="pokemoncandy"><div class="property">Candy: </div>${element.candy}</div>
+			<div id="pokemoncandycount"><div class="property">Candy Count: </div>${element.candy_count}</div>
+			<div id="pokemonegg"><div class="property">Egg: </div>${element.egg}</div>
+			<div id="pokemonspawnchance"><div class="property">Spawn Chance: </div>${element.spawn_chance}</div>
+			<div id="pokemonavgspawns"><div class="property">Average Spawns: </div>${element.avg_spawns}</div>
+			<div id="pokemonspawntime"><div class="property">Spawn Time: </div>${element.spawn_time}</div>
+			<div id="pokemonmultipliers"><div class="property">Multipliers: </div>${element.multipliers}</div>
+			<div id="pokemonweaknesses"><div class="property">Weaknesses: </div>${element.weaknesses}</div>
+			<div id="pokemonprevevolution"><div class="property">Previous Evolution: </div>${element.next_evolution}</div>
+			<div id="pokemonnextevolution"><div class="property">Next Evolution: </div>${element.next_evolution}</div>
+			</div>`
+		;
 
 		pokemonList.push(element);
 		results.innerHTML += pokemonInfo;
 
 	});
+
+	colorBgAndShow();
+	
 };
 
-//Funcion para ordenar la lista por orden alfabético
+//Funcion para imprimir la lista por orden alfabético
 const printSortedList = () => {
 
 	results.innerHTML = "";
-	kantodex.sortData(pokemonObj).forEach((element) => {
-		let sortedPokemon = `<div class="allpokemon"><img id="img" src="${element.img}"><div id="id">${element.id}</div><div id="name">${element.name}</div></div>`;
-		results.innerHTML += sortedPokemon;
+
+	kantodex.sortData(pokemonList).forEach((element) => {
+
+		pokemonInfo = `
+			<div class="pokemoninfo">
+			<div id="pokemonid">${element.id}</div>
+			<div id="pokemonname">${element.name}</div>
+			<img id="pokemonimg" src="${element.img}">
+			<div id="pokemontype"><div class="property">Type: </div>${element.type}</div>
+			<div id="pokemonheight"><div class="property">Height: </div>${element.height}</div>
+			<div id="pokemonweight"><div class="property">Weight: </div>${element.weight}</div>
+			<div id="pokemoncandy"><div class="property">Candy: </div>${element.candy}</div>
+			<div id="pokemoncandycount"><div class="property">Candy Count: </div>${element.candy_count}</div>
+			<div id="pokemonegg"><div class="property">Egg: </div>${element.egg}</div>
+			<div id="pokemonspawnchance"><div class="property">Spawn Chance: </div>${element.spawn_chance}</div>
+			<div id="pokemonavgspawns"><div class="property">Average Spawns: </div>${element.avg_spawns}</div>
+			<div id="pokemonspawntime"><div class="property">Spawn Time: </div>${element.spawn_time}</div>
+			<div id="pokemonmultipliers"><div class="property">Multipliers: </div>${element.multipliers}</div>
+			<div id="pokemonweaknesses"><div class="property">Weaknesses: </div>${element.weaknesses}</div>
+			<div id="pokemonprevevolution"><div class="property">Previous Evolution: </div>${element.next_evolution}</div>
+			<div id="pokemonnextevolution"><div class="property">Next Evolution: </div>${element.next_evolution}</div>
+			</div>`
+			;
+
+		pokemonList.push(element);
+		results.innerHTML += pokemonInfo;
 	}
 	);
+
+	colorBgAndShow();
 
 };
 
@@ -150,7 +199,12 @@ const printSortedList = () => {
 const printFilteredPokemon = () => {
 
 		results.innerHTML = "";
-        kantodex.filterData(pokemonObj, condition.value, pokemonList).forEach((element) => {
+
+		if (pokemonList.length === 0) {
+			pokemonList = pokemonObj;
+		}
+
+        kantodex.filterData(pokemonList, condition.value).forEach((element) => {
             let pokemonInfo = 
                 `
                 <div class="pokemoninfo">
@@ -171,9 +225,13 @@ const printFilteredPokemon = () => {
                 <div id="pokemonnextevolution">Next Evolution: ${element.next_evolution}</div>
                 </div>
                 `
-            ;
-            results.innerHTML += pokemonInfo;
+			;
+			results.innerHTML += pokemonInfo;
 		});
+
+		pokemonList = kantodex.filterData(pokemonList, condition.value);
+		colorBgAndShow();
+
 	};
 
 //Funcion para mostrar About Kanto Dex
@@ -184,12 +242,12 @@ const showAboutUs = () => {
 	searchButton.style.display = 'none';
 	condition.style.display = 'none';
 	filterButton.style.display = 'none';
+	sortButton.style.display = 'none';
 	showAllButton.style.display = 'none';
 	resetButton.style.display = 'none';
     footer.style.display = 'none';
     results.style.display = 'none';
 	aboutUs.style.display = 'block';
-	sortButton.style.display = 'none';
 
 };
 

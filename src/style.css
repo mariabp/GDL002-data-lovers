@@ -20,17 +20,17 @@ main {
     width: 100vw;
     overflow: auto;
     grid-template-columns: 1fr 30vw 30vw 10vw 1fr;
-    grid-template-rows: 4rem minmax(1rem, 1fr) auto 1rem 3rem 1rem 3rem 1rem 3rem 1rem auto minmax(0.5rem, 1fr) 4rem;
+    grid-template-rows: 4rem 1rem auto 1rem 3rem 1rem 3rem 1rem 3rem 1rem auto minmax(0.5rem, 1fr) 4rem;
     grid-template-areas: 
         "header header header header header" 
         ". . . . ." 
         ". text text text ." 
         ". . . . ."
-        ". searchbar searchbar searchbutton ."
+        ". search search search ."
         ". . . . ."
-        ". select filterbutton sortbutton ."
+        ". filter filter filter ."
         ". . . . ."
-        ". showall showall resetbutton ."
+        ". showandreset showandreset showandreset ."
         ". . . . ."
         ". results results results ."
         ". . . . ."
@@ -49,6 +49,19 @@ h1 {
     user-select: none;
 }
 
+#search {
+    grid-area: search;
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    grid-template-areas: 
+        "searchbar searchbutton";
+    border: solid 1px;
+}
+
+#search:focus {
+	box-shadow: inset 0px 0px 4px 2px rgba(255, 255, 255, 0.5);
+}
+
 #searchbar {
 	grid-area: searchbar;
 	display: block;
@@ -56,13 +69,16 @@ h1 {
 	padding: 1rem;
 	overflow: hidden;
 	text-overflow: ellipsis;
-    border: solid 1px;
-    border-right: 0;
+    border: 0;
 }
 
 #searchbar::placeholder {
     color: rgb(255, 255, 255);
     font-size: 12pt;
+}
+
+#searchbar:focus {
+	outline: none;
 }
 
 #searchbutton {
@@ -75,12 +91,18 @@ h1 {
 	overflow: hidden;
 	cursor: pointer;
     user-select: none;
-    border: solid 1px;
-    border-left: 0;
 }
 
 #searchbutton:hover {
 	opacity: 0.75;
+}
+
+#filter {
+    grid-area: filter;
+    display: grid;
+    grid-template-columns: 6fr 0.5rem 2fr 0.5rem 2fr;
+    grid-template-areas: 
+    "select . filterbutton . sortbutton";
 }
 
 select {
@@ -91,7 +113,6 @@ select {
     font-size: 12pt;
 	align-items: center;
 	justify-content: center;
-	overflow: hidden;
     user-select: none;
     border: solid 1px;
 }
@@ -131,6 +152,14 @@ select {
 	opacity: 0.75;
 }
 
+#showandreset {
+    grid-area: showandreset;
+    display: grid;
+    grid-template-columns: 6fr 0.5rem 2fr;
+    grid-template-areas: 
+    "showall . resetbutton";
+}
+
 #showall {
     grid-area: showall;
     display: flex;
@@ -141,6 +170,7 @@ select {
 	overflow: hidden;
 	cursor: pointer;
     user-select: none;
+    border: solid 1px;
 }
 
 #showall:hover {
@@ -169,11 +199,11 @@ select {
     display: block;
 }
 
-#aboutUsButton {
+#aboutusbutton {
     cursor: pointer;
 }
 
-#aboutUsButton:hover {
+#aboutusbutton:hover {
 	opacity: 0.75;
 }
 
