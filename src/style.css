@@ -28,7 +28,7 @@ main {
         ". . . . ."
         ". searchbar searchbar searchbutton ."
         ". . . . ."
-        ". select select filterbutton ."
+        ". select filterbutton sortbutton ."
         ". . . . ."
         ". showall showall resetbutton ."
         ". . . . ."
@@ -79,6 +79,10 @@ h1 {
     border-left: 0;
 }
 
+#searchbutton:hover {
+	opacity: 0.75;
+}
+
 select {
     grid-area: select;
     display: flex;
@@ -92,11 +96,11 @@ select {
     border: solid 1px;
 }
 
-#sortbutton{
+#sortbutton {
 
-    grid-area: searchbutton;
-    display: none;
-    background-color:rgb(129, 185, 238);
+    grid-area: sortbutton;
+    display: flex;
+    background-color:rgb(129, 163, 238);
     padding: 1rem;
 	align-items: center;
 	justify-content: center;
@@ -104,6 +108,10 @@ select {
 	cursor: pointer;
     user-select: none;
     border: 1px solid;
+}
+
+#sortbutton:hover {
+	opacity: 0.75;
 }
 
 #filterbutton {
@@ -119,6 +127,10 @@ select {
     border: solid 1px;
 }
 
+#filterbutton:hover {
+	opacity: 0.75;
+}
+
 #showall {
     grid-area: showall;
     display: flex;
@@ -131,6 +143,10 @@ select {
     user-select: none;
 }
 
+#showall:hover {
+	opacity: 0.75;
+}
+
 #resetbutton {
     grid-area: resetbutton;
     display: flex;
@@ -141,19 +157,32 @@ select {
 	overflow: hidden;
 	cursor: pointer;
     user-select: none;
+    border: 1px solid;
 }
 
-footer {
-    grid-area: footer;
-    display: flex;
-    background-color: rgb(95, 154, 209);
-    align-items: center;
-    justify-content: center;
+#resetbutton:hover {
+	opacity: 0.75;
 }
 
 #results{
     grid-area: results;
     display: block;
+}
+
+#aboutUsButton {
+    cursor: pointer;
+}
+
+#aboutUsButton:hover {
+	opacity: 0.75;
+}
+
+p {
+    grid-area: text;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
 }
 
 .pokemoninfo {
@@ -309,18 +338,6 @@ footer {
 	color: rgb(179, 147, 120);
 }
 
-#aboutUsButton {
-    cursor: pointer;
-}
-
-p {
-    grid-area: text;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    user-select: none;
-}
-
 @media only screen and (max-width: 720px){
 
     .pokemoninfo {
@@ -358,4 +375,12 @@ p {
 	#pokemonimg {
 		display: none;
 	}
+}
+
+footer {
+    grid-area: footer;
+    display: flex;
+    background-color: rgb(95, 154, 209);
+    align-items: center;
+    justify-content: center;
 }

@@ -42,9 +42,6 @@ const warnAndReset = () => {
 
 //Funcion para borrar campos 
 const resetForm = () => {
-	sortButton.style.display = 'none';
-	searchButton.style.display = "flex";
-	searchInput.style.display = "block";
 	searchInput.value = "";
 	searchInput.placeholder = "Busca por nombre o número";
 	pokemonList = [];
@@ -122,9 +119,6 @@ const pokemonShowlist = pokemonObj.map((element) =>
 const printShowlist = () => {
 	results.innerHTML = "";
 	pokemonShowlist.forEach(element => {results.innerHTML += element;});
-	sortButton.style.display = 'flex';
-	searchInput.style.display = 'none';
-	searchButton.style.display = 'none';
 	description.style.display = 'none';
 };
 
