@@ -2,6 +2,7 @@
 
 let pokemonList = [];
 const pokemonObj = POKEMON.pokemon;
+let pokemonInfo = "";
 
 const description = document.querySelector('h1');
 const searchInput = document.querySelector('#searchbar');
@@ -83,7 +84,7 @@ const searchPokemon = () => {
 
 	let searchedPokemon = searchInput.value.toLowerCase();
 	pokemonObj.forEach((element) => {
-		let pokemonInfo = `
+		pokemonInfo = `
 			<div class="pokemoninfo">
 			<div id="pokemonid">${element.id}</div>
 			<div id="pokemonname">${element.name}</div>
@@ -115,23 +116,22 @@ const searchPokemon = () => {
 	colorBgAndShow();
 };
 
-//Funcion que obtiene la imagen, numero y nombre de cada pokemon y lo incluye en una lista.
-const pokemonShowlist = pokemonObj.map((element) => 
+//Funcion que obtiene e imprime una lista corta de todos los pokemon
+const getAllPokemon = () => {
+	
+	pokemonObj.forEach((element) => {
 
-		`<div class="allpokemon">
-			<img id="img" src="${element.img}">
-			<div id="id">${element.id}</div>
-			<div id="name">${element.name}</div>
-		</div>`
-);
+		pokemonInfo =
+			`<div class="allpokemon">
+				<img id="img" src="${element.img}">
+				<div id="id">${element.id}</div>
+				<div id="name">${element.name}</div>
+			</div>`;
 
-//Función que se encarga de imprimir dichos resultados en pantalla
-const printShowlist = () => {
+		pokemonList.push(element);
+		results.innerHTML += pokemonInfo;
 
-	results.innerHTML = "";
-	pokemonShowlist.forEach(element => {results.innerHTML += element;});
-	description.style.display = 'none';
-
+	});
 };
 
 //Funcion para ordenar la lista por orden alfabético
@@ -150,7 +150,7 @@ const printSortedList = () => {
 const printFilteredPokemon = () => {
 
 		results.innerHTML = "";
-        kantodex.filterData(pokemonObj,condition.value).forEach((element) => {
+        kantodex.filterData(pokemonObj, condition.value, pokemonList).forEach((element) => {
             let pokemonInfo = 
                 `
                 <div class="pokemoninfo">
@@ -174,7 +174,6 @@ const printFilteredPokemon = () => {
             ;
             results.innerHTML += pokemonInfo;
 		});
-		
 	};
 
 //Funcion para mostrar About Kanto Dex
@@ -197,7 +196,7 @@ const showAboutUs = () => {
 //Botones
 
 aboutUsButton.addEventListener('click', showAboutUs);
-showAllButton.addEventListener('click', printShowlist);
+showAllButton.addEventListener('click', getAllPokemon);
 searchButton.addEventListener('click', validateSearchInput);
 filterButton.addEventListener('click', printFilteredPokemon);
 resetButton.addEventListener('click', resetForm);
