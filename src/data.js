@@ -29,6 +29,22 @@ window.kantodex = {
 
         console.log(data);
         return data;
+    },
+
+    computeStats: (data, computeType) => {
+
+       let computeInputList = [];
+
+       data.forEach((element) => {
+           
+            computeInputList.push(element[`${computeType}`]);
+
+        })
+
+        console.log(computeInputList);
+
+        return computeInputList;
+
     }
 };
  

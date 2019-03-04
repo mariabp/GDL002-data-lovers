@@ -121,7 +121,7 @@ const searchPokemon = () => {
 	colorBgAndShow();
 };
 
-//Funcion que obtiene e imprime una lista corta de todos los pokemon
+//Funcion que obtiene e imprime una lista todos los pokemon
 const getAllPokemon = () => {
 
 	pokemonList = [];
@@ -255,6 +255,7 @@ const showAboutUs = () => {
 
 };
 
+//Funcion para regresar a Home
 const home = () => {
 	aboutUs.style.display = 'none';
 	homeButton.style.display = 'none'; 
@@ -269,9 +270,9 @@ const home = () => {
 	footer.style.display = 'flex';
 	results.style.display = 'none';
 	searchBox.style.display = 'grid';
-
 	
 	resetForm();
+	
 };
 
 //Botones
