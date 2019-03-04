@@ -59,9 +59,10 @@ window.kantodex = {
 		});
 
 		let sum = floatNumbersArray.reduce((previous, current) => current += previous);
-		let avg = Math.round(sum / floatNumbersArray.length);
-		
-		return avg;
+		let avg = (sum / floatNumbersArray.length);
+		let avgFixed = avg.toFixed(2); 
+
+		return avgFixed;
 	
 	}
 };
