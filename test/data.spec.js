@@ -149,3 +149,12 @@ describe('sortData', () => {
     );
     });
   });
+
+  describe('computeStats', () => {
+    it('should be a function', () => {
+     expect(typeof(kantodex.computeStats)).toBe('function');
+    });
+  
+    it('debería devolver 45.95 como peso promedio', () => {
+      expect(window.kantodex.computeStats(pokemonObj,'weight')).toEqual('45.95');
+    });});
