@@ -5,7 +5,7 @@ const pokemonObj = POKEMON.pokemon;
 let pokemonList = [];
 let pokemonInfo = "";
 
-let condition = document.querySelector('select');
+let condition = document.querySelector('select');	
 
 const description = document.querySelector('h1');
 const searchInput = document.querySelector('#searchbar');
