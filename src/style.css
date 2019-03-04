@@ -56,7 +56,7 @@ h1 {
 	font-size: 18pt;
 }
 
-h2 {
+section {
     grid-area: h2;
     display: flex;
     padding: 1rem;
@@ -67,7 +67,7 @@ h2 {
     user-select: none;
 }
 
-h2:hover {
+section:hover {
 	opacity: 0.75;
 }
 
@@ -258,6 +258,58 @@ p {
     justify-content: center;
     user-select: none;
 }
+
+#statistics {
+	display: grid;
+	grid-template-columns: 1fr 20vw 20vw 20vw 1fr;
+	grid-column-gap: 1rem;
+	grid-template-rows: minmax(0.5rem, 1fr) auto 1rem 3rem 1rem auto 1rem;
+	grid-template-areas:
+		". . . . ."
+		". whattodo whattodo whattodo ."
+		". . . . ."
+		". choicetocalculate calculatebutton calculatebutton ."
+		". . . . ."
+		". computedresults computedresults computedresults . "
+		". . . . ."
+	 ;
+}
+
+#whattodo {
+	grid-area: whattodo;
+    display: none;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+    user-select: none;
+}
+
+#computeType {
+	grid-area: choicetocalculate;
+    display: none;
+    background-color:rgb(111, 180, 157);
+    padding: 1rem;
+	align-items: center;
+	justify-content: center;
+    user-select: none;
+    border: solid 1px;
+}
+
+#calculatebutton {
+	grid-area: calculatebutton;
+	display: none;
+	background-color:rgb(111, 180, 157);
+    padding: 1rem;
+	align-items: center;
+	justify-content: center;
+    user-select: none;
+    border: solid 1px;
+}
+
+#calculatebutton:hover {
+	opacity: 0.75;
+}
+
 
 .pokemoninfo {
 	display: grid;

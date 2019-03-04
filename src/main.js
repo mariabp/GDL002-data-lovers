@@ -22,6 +22,10 @@ const searchBox = document.querySelector('#search');
 const homeButton = document.querySelector('#homebutton');
 const welcomer = document.querySelector('h1');
 const infoButton = document.querySelector('h2');
+const descriptionDemographics = document.querySelector('#whattodo');
+const computeType = document.querySelector('#computetype');
+const calculateButton = document.querySelector('#calculatebutton');
+const computedResults = document.querySelector('#computedresults');
 
 //Funcion para validar el texto que ingreso el usuario
 const validateSearchInput = () => {
@@ -275,6 +279,9 @@ const home = () => {
 	results.style.display = 'none';
 	searchBox.style.display = 'grid';
 	aboutUs.style.display = 'none';
+	descriptionDemographics.style.display = 'none';
+	computeType.style.display = 'none';
+	calculateButton.style.display = 'none';
 	
 	resetForm();
 	
@@ -292,11 +299,14 @@ const showInfo = () => {
 	sortButton.style.display = 'none';
 	showAllButton.style.display = 'none';
 	resetButton.style.display = 'none';
-	footer.style.display = 'flex';
 	results.style.display = 'none';
 	searchBox.style.display = 'none';
 	aboutUs.style.display = 'none';
+	descriptionDemographics.style.display = 'flex';
+	computeType.style.display = 'flex';
+	calculateButton.style.display = 'flex';
 	homeButton.style.display = 'flex';
+	footer.style.display = 'flex';
 };
 
 //Botones
