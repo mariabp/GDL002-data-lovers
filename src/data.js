@@ -1,7 +1,7 @@
 'use strict';
 
 window.kantodex = {
-//Funcion para filtrar por tipo:
+//Función para filtrar por tipo:
     filterData: (data, setCondition) => {
 
         let filteredData = data.filter((element) => {
@@ -14,7 +14,7 @@ window.kantodex = {
         
         return filteredData;
     },
-//Fucion para ordenar por nombre 
+//Función para ordenar por nombre 
     sortData:(data) => {
 
         data.sort((a, b) => {
