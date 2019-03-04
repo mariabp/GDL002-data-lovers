@@ -27,7 +27,6 @@ window.kantodex = {
             return 0;
         });
 
-        console.log(data);
         return data;
     }
 };

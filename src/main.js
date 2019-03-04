@@ -188,7 +188,6 @@ const printSortedList = () => {
 			</div>`
 			;
 
-		pokemonList.push(element);
 		results.innerHTML += pokemonInfo;
 	}
 	);
