@@ -157,4 +157,10 @@ describe('sortData', () => {
   
     it('debería devolver 45.95 como peso promedio', () => {
       expect(window.kantodex.computeStats(pokemonObj,'weight')).toEqual('45.95');
-    });});
+    });
+  
+    it('debería devolver 1.19 como peso promedio', () => {
+      expect(window.kantodex.computeStats(pokemonObj,'height')).toEqual('1.19');
+    });
+  
+  });
