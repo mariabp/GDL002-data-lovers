@@ -2,49 +2,67 @@
 
 window.kantodex = {
 //Funcion para filtrar por tipo:
-    filterData: (data, setCondition) => {
+	filterData: (data, setCondition) => {
 
-        let filteredData = data.filter((element) => {
-            for (let i = 0; i < element.type.length; i++) {
-                if (element.type[i] === setCondition) {
-                    return element;
-                }
-            }
-        });
-        
-        return filteredData;
-    },
+		let filteredData = data.filter((element) => {
+			for (let i = 0; i < element.type.length; i++) {
+				if (element.type[i] === setCondition) {
+					return element;
+				}
+			}
+		});
+		
+		return filteredData;
+	},
 //Fucion para ordenar por nombre 
-    sortData:(data) => {
+	sortData:(data) => {
 
-        data.sort((a, b) => {
-            if (a.name.toLowerCase() < b.name.toLowerCase()) {
-                return -1;
-            }
-            if (a.name.toLowerCase() > b.name.toLowerCase()) {
-                return 1;
-            }
-            return 0;
-        });
+		data.sort((a, b) => {
+			if (a.name.toLowerCase() < b.name.toLowerCase()) {
+				return -1;
+			}
+			if (a.name.toLowerCase() > b.name.toLowerCase()) {
+				return 1;
+			}
+			return 0;
+		});
 
-        console.log(data);
-        return data;
-    },
+		
+		return data;
+	},
 
-    computeStats: (data, computeType) => {
+	computeStats: (data, computeType) => {
 
-       let computeInputList = [];
+		let computeInputList = [];
+		let floatNumbersArray = [];
 
-       data.forEach((element) => {
-           
-            computeInputList.push(element[`${computeType}`]);
+		data.forEach((element) => {
 
-        })
+			computeInputList.push(element[`${computeType}`]);
 
-        console.log(computeInputList);
+		});
 
-        return computeInputList;
+		computeInputList.forEach((element) => {
 
-    }
+			let splitString = element.split(' ');
+
+			let numbersOnlyArray = splitString.filter((element) => {
+				if (/[0-9.]/.test(element)) {
+					return true;
+				}
+			});
+			
+			numbersOnlyArray.forEach((element) => {
+				floatNumbersArray.push(parseFloat(element));
+			}) 
+			
+		});
+
+		let sum = floatNumbersArray.reduce((previous, current) => current += previous);
+		let avg = Math.round(sum / floatNumbersArray.length);
+		
+		return avg;
+	
+	}
 };
  
