@@ -7,7 +7,7 @@ let pokemonInfo = "";
 
 let condition = document.querySelector('select');
 
-const description = document.querySelector('h1');
+const description = document.querySelector('h3');
 const searchInput = document.querySelector('#searchbar');
 const searchButton = document.querySelector('#searchbutton');
 const filterButton = document.querySelector('#filterbutton');
@@ -20,7 +20,8 @@ const aboutUsButton = document.querySelector('#aboutusbutton');
 const aboutUs = document.querySelector('p');
 const searchBox = document.querySelector('#search');
 const homeButton = document.querySelector('#homebutton');
-
+const welcomer = document.querySelector('h1');
+const infoButton = document.querySelector('h2');
 
 //Funcion para validar el texto que ingreso el usuario
 const validateSearchInput = () => {
@@ -239,6 +240,7 @@ const printFilteredPokemon = () => {
 //Funcion para mostrar About Kanto Dex
 const showAboutUs = () => {
 
+	welcomer.style.display = 'none';	
     description.style.display = 'none';
     searchInput.style.display = 'none';
 	searchButton.style.display = 'none';
@@ -257,7 +259,9 @@ const showAboutUs = () => {
 
 //Funcion para regresar a Home
 const home = () => {
-	aboutUs.style.display = 'none';
+
+	welcomer.style.display = 'flex';
+	infoButton.style.display = 'flex';
 	homeButton.style.display = 'none'; 
 	description.style.display = 'block';
 	searchInput.style.display = 'flex';
@@ -270,9 +274,29 @@ const home = () => {
 	footer.style.display = 'flex';
 	results.style.display = 'none';
 	searchBox.style.display = 'grid';
+	aboutUs.style.display = 'none';
 	
 	resetForm();
 	
+};
+
+const showInfo = () => {
+
+	welcomer.style.display = 'none';
+	infoButton.style.display = 'none';
+	description.style.display = 'none';
+	searchInput.style.display = 'none';
+	searchButton.style.display = 'none';
+	condition.style.display = 'none';
+	filterButton.style.display = 'none';
+	sortButton.style.display = 'none';
+	showAllButton.style.display = 'none';
+	resetButton.style.display = 'none';
+	footer.style.display = 'flex';
+	results.style.display = 'none';
+	searchBox.style.display = 'none';
+	aboutUs.style.display = 'none';
+	homeButton.style.display = 'flex';
 };
 
 //Botones
@@ -284,3 +308,4 @@ filterButton.addEventListener('click', printFilteredPokemon);
 resetButton.addEventListener('click', resetForm);
 sortButton.addEventListener('click', printSortedList);
 homeButton.addEventListener('click', home);
+infoButton.addEventListener('click', showInfo);

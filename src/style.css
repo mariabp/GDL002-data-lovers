@@ -39,10 +39,39 @@ main {
 
 header {
     grid-area: header;
-    background-color: rgb(95, 154, 209);
+	background-color: rgb(95, 154, 209);
+    display: grid;
+    grid-template-columns:  1fr 30vw 30vw 10vw 1fr;
+    grid-template-areas: 
+        ". h1 h1 h1 h2 .";
 }
 
 h1 {
+	grid-area: h1;
+	display: flex;
+    align-items: center;
+	justify-content: center;
+	overflow: hidden;
+	user-select: none;
+	font-size: 18pt;
+}
+
+h2 {
+    grid-area: h2;
+    display: flex;
+    padding: 1rem;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+	cursor: pointer;
+    user-select: none;
+}
+
+h2:hover {
+	opacity: 0.75;
+}
+
+h3 {
     grid-area: text;
     align-items: center;
     justify-content: center;
