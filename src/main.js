@@ -7,7 +7,7 @@ let pokemonInfo = "";
 
 let condition = document.querySelector('select');
 
-const description = document.querySelector('h3');
+const description = document.querySelector('h1');
 const searchInput = document.querySelector('#searchbar');
 const searchButton = document.querySelector('#searchbutton');
 const filterButton = document.querySelector('#filterbutton');
@@ -20,12 +20,14 @@ const aboutUsButton = document.querySelector('#aboutusbutton');
 const aboutUs = document.querySelector('p');
 const searchBox = document.querySelector('#search');
 const homeButton = document.querySelector('#homebutton');
-const welcomer = document.querySelector('h1');
-const infoButton = document.querySelector('h2');
+const welcomer = document.querySelector('#welcomemessage');
+const infoButton = document.querySelector('#infobutton');
+const statisticsScreen = document.querySelector('#statistics');
 const descriptionDemographics = document.querySelector('#whattodo');
-const computeType = document.querySelector('#computetype');
+const computeType = document.querySelector('#computeType');
 const calculateButton = document.querySelector('#calculatebutton');
 const computedResults = document.querySelector('#computedresults');
+
 
 //Funcion para validar el texto que ingreso el usuario
 const validateSearchInput = () => {
@@ -244,6 +246,7 @@ const printFilteredPokemon = () => {
 //Funcion para mostrar About Kanto Dex
 const showAboutUs = () => {
 
+	statisticsScreen.style.display = 'none';
 	welcomer.style.display = 'none';	
     description.style.display = 'none';
     searchInput.style.display = 'none';
@@ -258,6 +261,10 @@ const showAboutUs = () => {
 	searchBox.style.display = 'none';
 	aboutUs.style.display = 'block';
 	homeButton.style.display = 'flex';
+	infoButton.style.display = 'none';
+	descriptionDemographics.style.display = 'none';
+	computeType.style.display = 'none';
+	calculateButton.style.display = 'none';
 
 };
 
@@ -282,13 +289,14 @@ const home = () => {
 	descriptionDemographics.style.display = 'none';
 	computeType.style.display = 'none';
 	calculateButton.style.display = 'none';
-	
+	statisticsScreen.style.display = 'none';
 	resetForm();
 	
 };
 
-const showInfo = () => {
-
+//
+const showStatistics = () => {
+	statisticsScreen.style.display = 'grid';
 	welcomer.style.display = 'none';
 	infoButton.style.display = 'none';
 	description.style.display = 'none';
@@ -309,6 +317,8 @@ const showInfo = () => {
 	footer.style.display = 'flex';
 };
 
+
+
 //Botones
 
 aboutUsButton.addEventListener('click', showAboutUs);
@@ -318,4 +328,5 @@ filterButton.addEventListener('click', printFilteredPokemon);
 resetButton.addEventListener('click', resetForm);
 sortButton.addEventListener('click', printSortedList);
 homeButton.addEventListener('click', home);
-infoButton.addEventListener('click', showInfo);
+infoButton.addEventListener('click', showStatistics);
+calculateButton.addEventListener('click', showCalculations);

@@ -1,0 +1,43 @@
+
+#statistics {
+	display: none;
+	height: 100vh;
+    width: 100vw;
+    overflow: auto;
+    grid-template-columns: 1fr 30vw 30vw 10vw 1fr;
+    grid-template-rows: 4rem 1rem auto 1rem 3rem 1rem auto minmax(0.5rem, 1fr) 4rem;
+    grid-template-areas: 
+        "header header header header header" 
+        ". . . . ." 
+        ". whattodo whattodo whattodo ." 
+        ". . . . ."
+        ". computetype computetype calculatebutton ."
+        ". . . . ."
+        ". results results results ."
+        ". . . . ."
+        "footer footer footer footer footer";
+}
+
+#whattodo {
+	display: flex;
+	grid-area: whattodo;
+}
+
+#computeType{
+	display: flex;
+    grid-area: computetype;
+    background-color: rgb(207, 158, 206);
+}
+
+#calculatebutton {
+	display: none;
+    grid-area: calculatebutton;
+    background-color: rgb(158, 207, 173);
+    border: solid 1px;
+    align-items: center;
+    justify-content: center;
+}
+
+#calculatebutton:hover {
+	opacity: 0.75;
+}

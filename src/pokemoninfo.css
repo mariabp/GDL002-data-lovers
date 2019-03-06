@@ -1,0 +1,153 @@
+
+.pokemoninfo {
+	display: grid;
+	grid-template-columns: 4rem 1rem 1fr 0.25rem 1fr 0.25rem 1fr 0.25rem 1fr;
+	grid-template-rows: 4rem 0.25rem auto 0.25rem auto 0.25rem auto 0.25rem auto 0.25rem auto 0.25rem auto 0.25rem auto;
+	grid-template-areas:
+		"img . id . name name name name name"
+		"img . . . . . . . ."
+		"img . type type type type type type type"
+		". . . . . . . . ."
+		". . height height height . weight weight weight"
+		". . . . . . . . ."
+		". . candy candy candy . candycount candycount candycount"
+		". . . . . . . . ."
+		". . egg egg egg . spawnchance spawnchance spawnchance"
+		". . . . . . . . ."
+		". . avgspawns avgspawns avgspawns . spawntime spawntime spawntime"
+		". . . . . . . . ."
+		". . multipliers multipliers multipliers . weaknesses weaknesses weaknesses"
+		". . . . . . . . ."
+		". . nextevolution nextevolution nextevolution . prevevolution prevevolution prevevolution";
+	background-color: rgb(152, 202, 185);
+	margin-bottom: 0.5rem;
+	padding: 0.5rem;
+    overflow: hidden;
+	cursor: pointer;
+}
+
+#img {
+    grid-area: img;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+	width: 4rem;
+	height: 4rem;
+}
+
+#id {
+    grid-area: id;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#name {
+    grid-area: name;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.allpokemon {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 4rem 0.5rem 2fr 0.5rem 6fr;
+    grid-template-areas: 
+        "img . id . name";
+    background-color: rgb(152, 202, 185);
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    border: solid 1px;
+
+}
+
+#pokemonid, #pokemonname, #pokemontype, #pokemonheight, #pokemonweight, #pokemoncandy, #pokemoncandycount, #pokemonegg, #pokemonspawnchance, #pokemonavgspawns, #pokemonspawntime, #pokemonmultipliers, #pokemonweaknesses, #pokemonprevevolution, #pokemonnextevolution {
+	display: flex;
+	background-color: rgb(187, 221, 210);
+	padding: 0.5rem;
+	align-items: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+	white-space: pre;
+	box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.25);
+	border-radius: 0.15rem;
+}
+
+#pokemonid {
+	grid-area: id;
+	background-color: rgb(151, 220, 229);
+	justify-content: center;
+}
+
+#pokemonname {
+	grid-area: name;
+	background-color: rgb(216, 187, 202);
+	font-weight: 600;
+}
+
+#pokemonimg {
+	grid-area: img;
+	width: 4rem;
+	height: 4rem;
+	padding: 0.25rem;
+	box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.25);
+	user-select: none;
+	border-radius: 0.15rem;
+}
+
+#pokemontype {
+	grid-area: type;
+}
+
+#pokemonheight {
+	grid-area: height;
+}
+
+#pokemonweight {
+	grid-area: weight;
+}
+
+#pokemoncandy {
+	grid-area: candy;
+}
+
+#pokemoncandycount {
+	grid-area: candycount;
+}
+
+#pokemonegg {
+	grid-area: egg;
+}
+
+#pokemonspawnchance {
+	grid-area: spawnchance;
+}
+
+#pokemonavgspawns {
+	grid-area: avgspawns;
+}
+
+#pokemonspawntime {
+	grid-area: spawntime;
+}
+
+#pokemonmultipliers {
+	grid-area: multipliers;
+}
+
+#pokemonweaknesses {
+    grid-area: weaknesses;
+}
+
+#pokemonprevevolution {
+	grid-area: prevevolution;
+}
+
+#pokemonnextevolution {
+	grid-area: nextevolution;
+}
+
+.property {
+	color: rgb(179, 147, 120);
+}

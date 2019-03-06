@@ -57,10 +57,8 @@ window.kantodex = {
 			}); 
 			
 		});
-
-		let sum = floatNumbersArray.reduce((previous, current) => current += previous);
-		let avg = (sum / floatNumbersArray.length);
-		let avgFixed = avg.toFixed(2); 
+		const average = floatNumbersArray.reduce((acc, val) => acc + val ) / floatNumbersArray.length;
+		let avgFixed = average.toFixed(2); 
 
 		return avgFixed;
 	
