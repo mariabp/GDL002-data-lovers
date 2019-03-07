@@ -7,6 +7,9 @@ let pokemonInfo = "";
 
 let condition = document.querySelector('select');
 
+const homeScreen = document.querySelector('#homescreen');
+const aboutUsScreen = document.querySelector('#aboutusscreen');
+
 const description = document.querySelector('h1');
 const searchInput = document.querySelector('#searchbar');
 const searchButton = document.querySelector('#searchbutton');
@@ -19,11 +22,13 @@ const footer = document.querySelector('footer');
 const aboutUsButton = document.querySelector('#aboutusbutton');
 const aboutUs = document.querySelector('p');
 const searchBox = document.querySelector('#search');
+const showAndResetBox = document.querySelector('#showandreset');
+const filterBox = document.querySelector('#filter');
 const homeButton = document.querySelector('#homebutton');
-const welcomer = document.querySelector('#welcomemessage');
+const welcomeMessage = document.querySelector('#welcomemessage');
 const infoButton = document.querySelector('#infobutton');
 const statisticsScreen = document.querySelector('#statistics');
-const descriptionDemographics = document.querySelector('#whattodo');
+const descriptionDemographics = document.querySelector('#descriptiondemographics');
 const computeType = document.querySelector('#computeType');
 const calculateButton = document.querySelector('#calculatebutton');
 //const computedResults = document.querySelector('#computedresults');
@@ -247,48 +252,21 @@ const printFilteredPokemon = () => {
 const showAboutUs = () => {
 
 	statisticsScreen.style.display = 'none';
-	welcomer.style.display = 'none';	
-    description.style.display = 'none';
-    searchInput.style.display = 'none';
-	searchButton.style.display = 'none';
-	condition.style.display = 'none';
-	filterButton.style.display = 'none';
-	sortButton.style.display = 'none';
-	showAllButton.style.display = 'none';
-	resetButton.style.display = 'none';
-    footer.style.display = 'flex';
-	results.style.display = 'none';
-	searchBox.style.display = 'none';
-	aboutUs.style.display = 'block';
+	homeScreen.style.display = 'none';
+	welcomeMessage.style.display = 'none';
+	aboutUsScreen.style.display = 'grid';
 	homeButton.style.display = 'flex';
 	infoButton.style.display = 'none';
-	descriptionDemographics.style.display = 'none';
-	computeType.style.display = 'none';
-	calculateButton.style.display = 'none';
 
 };
 
 //Funcion para regresar a Home
 const home = () => {
-
-	welcomer.style.display = 'flex';
+	homeScreen.style.display = 'grid';
+	welcomeMessage.style.display = 'flex';
 	infoButton.style.display = 'flex';
-	homeButton.style.display = 'none'; 
-	description.style.display = 'block';
-	searchInput.style.display = 'flex';
-	searchButton.style.display = 'flex';
-	condition.style.display = 'flex';
-	filterButton.style.display = 'flex';
-	sortButton.style.display = 'flex';
-	showAllButton.style.display = 'flex';
-	resetButton.style.display = 'flex';
-	footer.style.display = 'flex';
-	results.style.display = 'none';
-	searchBox.style.display = 'grid';
-	aboutUs.style.display = 'none';
-	descriptionDemographics.style.display = 'none';
-	computeType.style.display = 'none';
-	calculateButton.style.display = 'none';
+	homeButton.style.display = 'none';
+	aboutUsScreen.style.display = 'none';
 	statisticsScreen.style.display = 'none';
 	resetForm();
 	
@@ -296,25 +274,13 @@ const home = () => {
 
 //
 const showStatistics = () => {
-	statisticsScreen.style.display = 'grid';
-	welcomer.style.display = 'none';
-	infoButton.style.display = 'none';
-	description.style.display = 'none';
-	searchInput.style.display = 'none';
-	searchButton.style.display = 'none';
-	condition.style.display = 'none';
-	filterButton.style.display = 'none';
-	sortButton.style.display = 'none';
-	showAllButton.style.display = 'none';
-	resetButton.style.display = 'none';
-	results.style.display = 'none';
-	searchBox.style.display = 'none';
-	aboutUs.style.display = 'none';
-	descriptionDemographics.style.display = 'flex';
-	computeType.style.display = 'flex';
-	calculateButton.style.display = 'flex';
+
+	homeScreen.style.display = 'none';
 	homeButton.style.display = 'flex';
-	footer.style.display = 'flex';
+	statisticsScreen.style.display = 'grid';
+	welcomeMessage.style.display = 'none';
+	infoButton.style.display = 'none';
+
 };
 
 
