@@ -26,7 +26,7 @@ const statisticsScreen = document.querySelector('#statistics');
 const descriptionDemographics = document.querySelector('#whattodo');
 const computeType = document.querySelector('#computeType');
 const calculateButton = document.querySelector('#calculatebutton');
-const computedResults = document.querySelector('#computedresults');
+//const computedResults = document.querySelector('#computedresults');
 
 
 //Funcion para validar el texto que ingreso el usuario
@@ -195,7 +195,7 @@ const printSortedList = () => {
 			</div>`
 			;
 
-		pokemonList.push(element);
+
 		results.innerHTML += pokemonInfo;
 	}
 	);
@@ -329,4 +329,4 @@ resetButton.addEventListener('click', resetForm);
 sortButton.addEventListener('click', printSortedList);
 homeButton.addEventListener('click', home);
 infoButton.addEventListener('click', showStatistics);
-calculateButton.addEventListener('click', showCalculations);
+//calculateButton.addEventListener('click', showCalculations);
