@@ -39,33 +39,6 @@ header {
 	grid-template-areas: ". welcomemessage . infohomebutton .";
 }
 
-#homescreen {
-    grid-area: content;
-    display: grid;
-    grid-template-columns: 1fr 30vw 30vw 10vw 1fr;
-    grid-template-rows: auto 1rem 3rem 1rem 3rem 1rem 3rem 1rem auto;
-    grid-template-areas:
-        ". descriptionhomescreen descriptionhomescreen descriptionhomescreen ." 
-        ". . . . ."
-        ". search search search ."
-        ". . . . ."
-        ". filter filter filter ."
-        ". . . . ."
-        ". showandreset showandreset showandreset ."
-        ". . . . ."
-        ". results results results ."
-        ". . . . ."
-        "footer footer footer footer footer";
-}
-
-#descriptionhomescreen {
-    grid-area: descriptionhomescreen;
-	display: flex;
-	font-size: 18 pt;
-	align-items: center;
-	justify-content: start;
-	user-select: none;
-}
 
 #welcomemessage {
 	grid-area: welcomemessage;
@@ -103,7 +76,35 @@ header {
 	opacity: 0.75;
 }
 
-/*-------------------------Estilo y elementos MAIN-----------------*/
+/*-------------------------Estilo y elementos HOME SCREEN-----------------*/
+
+#homescreen {
+    grid-area: content;
+    display: grid;
+    grid-template-columns: 1fr 30vw 30vw 10vw 1fr;
+    grid-template-rows: auto 1rem 3rem 1rem 3rem 1rem 3rem 1rem auto;
+    grid-template-areas:
+        ". descriptionhomescreen descriptionhomescreen descriptionhomescreen ." 
+        ". . . . ."
+        ". search search search ."
+        ". . . . ."
+        ". filter filter filter ."
+        ". . . . ."
+        ". showandreset showandreset showandreset ."
+        ". . . . ."
+        ". results results results ."
+        ". . . . ."
+        "footer footer footer footer footer";
+}
+
+#descriptionhomescreen {
+    grid-area: descriptionhomescreen;
+	display: flex;
+	font-size: 18 pt;
+	align-items: center;
+	justify-content: start;
+	user-select: none;
+}
 
 #search {
     grid-area: search;
