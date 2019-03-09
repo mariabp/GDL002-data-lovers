@@ -209,6 +209,7 @@ const printSortedList = () => {
 
 };
 
+
 //Funcion para imprimir lista de Pokemon filtrados
 const printFilteredPokemon = () => {
 
@@ -283,6 +284,10 @@ const showStatistics = () => {
 
 };
 
+const getCalculations = () => {
+
+
+};
 
 
 //Botones
@@ -295,4 +300,4 @@ resetButton.addEventListener('click', resetForm);
 sortButton.addEventListener('click', printSortedList);
 homeButton.addEventListener('click', home);
 infoButton.addEventListener('click', showStatistics);
-//calculateButton.addEventListener('click', showCalculations);
+calculateButton.addEventListener('click', getCalculations);

@@ -15,7 +15,7 @@ window.kantodex = {
 		return filteredData;
 	},
 //Fucion para ordenar por nombre 
-	sortData:(data) => {
+	sortData: (data) => {
 
 		data.sort((a, b) => {
 			if (a.name.toLowerCase() < b.name.toLowerCase()) {
@@ -24,11 +24,14 @@ window.kantodex = {
 			if (a.name.toLowerCase() > b.name.toLowerCase()) {
 				return 1;
 			}
-			//return 0;
+			return 0;
 		});
-
-		
+ 	
 		return data;
+	},
+
+	sortDataDescent: (data) => {
+		return window.kantodex.sortData(data).reverse();
 	},
 
 	computeStats: (data, computeType) => {

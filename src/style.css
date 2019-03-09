@@ -34,7 +34,7 @@ main {
 header {
     grid-area: header;
 	background-color: rgb(95, 154, 209);
-	display : grid;
+	display: grid;
 	grid-template-columns: 1fr 30vw 30vw 10vw 1fr;
 	grid-template-areas: ". welcomemessage . infohomebutton .";
 }
@@ -94,7 +94,7 @@ header {
         ". . . . ."
         ". results results results ."
         ". . . . ."
-        "footer footer footer footer footer";
+        "footer footer footer footer footer"; /* borrar linea repetida ??*/
 }
 
 #descriptionhomescreen {
