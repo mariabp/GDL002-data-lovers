@@ -150,6 +150,50 @@ describe('sortData', () => {
     });
   });
 
+  describe('sortDataDescent', () => {
+    it('should be a function', () => {
+     expect(typeof(kantodex.sortDataDescent)).toBe('function');
+    });
+  
+    it('Debería devolver Abra', () => {
+      expect(window.kantodex.sortDataDescent(pokemonObj)[150]).toEqual({
+        
+          "id": 63,
+          "num": "063",
+          "name": "Abra",
+          "img": "http://www.serebii.net/pokemongo/pokemon/063.png",
+          "type": [
+            "Psychic"
+          ],
+          "height": "0.89 m",
+          "weight": "19.5 kg",
+          "candy": "Abra Candy",
+          "candy_count": 25,
+          "egg": "5 km",
+          "spawn_chance": 0.42,
+          "avg_spawns": 42,
+          "spawn_time": "04:30",
+          "multipliers": [
+            1.36,
+            1.95
+          ],
+          "weaknesses": [
+            "Bug",
+            "Ghost",
+            "Dark"
+          ],
+          "next_evolution": [{
+            "num": "064",
+            "name": "Kadabra"
+          }, {
+            "num": "065",
+            "name": "Alakazam"
+          }]}
+      );
+    });
+  });
+
+
   describe('computeStats', () => {
     it('should be a function', () => {
      expect(typeof(kantodex.computeStats)).toBe('function');

@@ -24,7 +24,7 @@
 	user-select: none;
 }
 
-#computeType{
+#computetype{
     grid-area: computetype;
 	display: flex;
     background-color: rgb(207, 158, 206);

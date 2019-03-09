@@ -10,28 +10,30 @@ let condition = document.querySelector('select');
 const homeScreen = document.querySelector('#homescreen');
 const aboutUsScreen = document.querySelector('#aboutusscreen');
 
-const description = document.querySelector('h1');
+//const description = document.querySelector('h1');
 const searchInput = document.querySelector('#searchbar');
 const searchButton = document.querySelector('#searchbutton');
 const filterButton = document.querySelector('#filterbutton');
 const sortButton = document.querySelector('#sortbutton');
+const sortDescentButton = document.querySelector('#sortdescentbutton');
 const showAllButton = document.querySelector('#showall');
 const resetButton = document.querySelector('#resetbutton');
 const results = document.querySelector('#results');
-const footer = document.querySelector('footer');
+//const footer = document.querySelector('footer');
 const aboutUsButton = document.querySelector('#aboutusbutton');
-const aboutUs = document.querySelector('p');
-const searchBox = document.querySelector('#search');
-const showAndResetBox = document.querySelector('#showandreset');
-const filterBox = document.querySelector('#filter');
+//const aboutUs = document.querySelector('p');
+//const searchBox = document.querySelector('#search');
+//const showAndResetBox = document.querySelector('#showandreset');
+//const filterBox = document.querySelector('#filter');
 const homeButton = document.querySelector('#homebutton');
 const welcomeMessage = document.querySelector('#welcomemessage');
 const infoButton = document.querySelector('#infobutton');
 const statisticsScreen = document.querySelector('#statistics');
-const descriptionDemographics = document.querySelector('#descriptiondemographics');
-const computeType = document.querySelector('#computeType');
+//const descriptionDemographics = document.querySelector('#descriptiondemographics');
+const computeType = document.querySelector('#computetype');
 const calculateButton = document.querySelector('#calculatebutton');
-//const computedResults = document.querySelector('#computedresults');
+const computedResults = document.querySelector('#computedresults');
+const selectType = document.querySelector('selecttype');
 
 
 //Funcion para validar el texto que ingreso el usuario
@@ -209,6 +211,41 @@ const printSortedList = () => {
 
 };
 
+const printSortedDescentList = () => {
+
+	results.innerHTML = "";
+
+	kantodex.sortDataDescent(pokemonList).forEach((element) => {
+
+		pokemonInfo = `
+			<div class="pokemoninfo">
+			<div id="pokemonid">${element.id}</div>
+			<div id="pokemonname">${element.name}</div>
+			<img id="pokemonimg" src="${element.img}">
+			<div id="pokemontype"><div class="property">Type: </div>${element.type}</div>
+			<div id="pokemonheight"><div class="property">Height: </div>${element.height}</div>
+			<div id="pokemonweight"><div class="property">Weight: </div>${element.weight}</div>
+			<div id="pokemoncandy"><div class="property">Candy: </div>${element.candy}</div>
+			<div id="pokemoncandycount"><div class="property">Candy Count: </div>${element.candy_count}</div>
+			<div id="pokemonegg"><div class="property">Egg: </div>${element.egg}</div>
+			<div id="pokemonspawnchance"><div class="property">Spawn Chance: </div>${element.spawn_chance}</div>
+			<div id="pokemonavgspawns"><div class="property">Average Spawns: </div>${element.avg_spawns}</div>
+			<div id="pokemonspawntime"><div class="property">Spawn Time: </div>${element.spawn_time}</div>
+			<div id="pokemonmultipliers"><div class="property">Multipliers: </div>${element.multipliers}</div>
+			<div id="pokemonweaknesses"><div class="property">Weaknesses: </div>${element.weaknesses}</div>
+			<div id="pokemonprevevolution"><div class="property">Previous Evolution: </div>${element.next_evolution}</div>
+			<div id="pokemonnextevolution"><div class="property">Next Evolution: </div>${element.next_evolution}</div>
+			</div>`
+			;
+
+
+		results.innerHTML += pokemonInfo;
+	}
+	);
+
+	colorBgAndShow();
+
+};
 
 //Funcion para imprimir lista de Pokemon filtrados
 const printFilteredPokemon = () => {
@@ -286,7 +323,11 @@ const showStatistics = () => {
 
 const getCalculations = () => {
 
-
+	if (computeType.value === "weight") {
+		computedResults.innerHTML = "El peso promedio de los pokemon en Kanto es de " + kantodex.computeStats(pokemonObj, computeType.value) + " kg.";
+	} else  {
+		computedResults.innerHTML = "La altura promedio de los pokemon en Kanto es de " + kantodex.computeStats(pokemonObj, computeType.value) + " metros.";
+	}
 };
 
 
@@ -298,6 +339,8 @@ searchButton.addEventListener('click', validateSearchInput);
 filterButton.addEventListener('click', printFilteredPokemon);
 resetButton.addEventListener('click', resetForm);
 sortButton.addEventListener('click', printSortedList);
+sortDescentButton.addEventListener('click', printSortedDescentList);
 homeButton.addEventListener('click', home);
 infoButton.addEventListener('click', showStatistics);
 calculateButton.addEventListener('click', getCalculations);
+
