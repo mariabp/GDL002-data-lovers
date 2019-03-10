@@ -35,10 +35,20 @@ header {
     grid-area: header;
 	background-color: rgb(95, 154, 209);
 	display: grid;
-	grid-template-columns: 1fr 30vw 30vw 10vw 1fr;
-	grid-template-areas: ". welcomemessage . infohomebutton .";
+	grid-template-columns: 1fr 20vw auto 20vw 1fr;
+	grid-template-areas: ". pokeball welcomemessage infohomebutton .";
 }
 
+#pokeball {
+    grid-area: pokeball;
+    display: grid;
+    height: 2rem;
+    width: 2rem;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    overflow: hidden;
+}
 
 #welcomemessage {
 	grid-area: welcomemessage;
