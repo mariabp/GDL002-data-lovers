@@ -19,8 +19,8 @@ main {
     height: 100vh;
     width: 100vw;
     overflow: auto;
-    grid-template-columns: 1fr 30vw 30vw 10vw 1fr;
-    grid-template-rows: 4rem 2rem auto minmax(1rem, 1fr) 4rem;
+    grid-template-columns: 1fr 35vw 35vw 10vw 1fr;
+    grid-template-rows: auto 2rem auto minmax(1rem, 1fr) 4rem;
     grid-template-areas: 
         "header header header header header"
         ". . . . ." 
@@ -35,17 +35,17 @@ header {
     grid-area: header;
 	background-color: rgb(95, 154, 209);
 	display: grid;
-	grid-template-columns: 1fr 20vw auto 20vw 1fr;
-	grid-template-areas: ". pokeball welcomemessage infohomebutton .";
+	grid-template-columns: 1fr 20vw 20vw 20vw 20vw 1fr;
+	grid-template-areas: ". pokeball welcomemessage welcomemessage infohomebutton .";
 }
 
 #pokeball {
     grid-area: pokeball;
-    display: grid;
+    display: flex;
     height: 2rem;
     width: 2rem;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     height: 100px;
     overflow: hidden;
 }
@@ -55,7 +55,8 @@ header {
 	display: flex;
 	font-size: 18 pt;
 	align-items: center;
-	justify-content: start;
+    justify-content: center;
+    text-align: center;
 	user-select: none;
 }
 
