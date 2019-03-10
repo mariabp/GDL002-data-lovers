@@ -115,11 +115,13 @@ const pokemonInfoLayout = (givenPokemonList) => {
 
 		pokemonInfo = `
 			<div id="identifier${element.id}" class="pokemoninfo">
+
 				<div class="primaryinfolayout">
 					<div id="pokemonid">${element.id}</div>
 					<div id="pokemonname">${element.name}</div>
 					<img id="pokemonimg" src="${element.img}">
 				</div>
+
 				<div id="secondaryinfoid${secondaryInfoId}" class="secondaryinfolayout">
 					<div id="pokemontype" class="secondaryinfostyle"><div class="property">Type: </div>${element.type}</div>
 					<div id="pokemonheight" class="secondaryinfostyle"><div class="property">Height: </div>${element.height}</div>
