@@ -11,6 +11,9 @@
     <title>Data Lovers</title>
     
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="devices.css" />
+    <link rel="stylesheet" href="pokemoninfo.css" />
+    <link rel="stylesheet" href="statistics.css" />
 
   </head>
 
@@ -20,55 +23,86 @@
 
     <main>
 
-        <header></header>
+        <header>
 
-        <h1>Aquí podrás consultar la información de los pokemon de la región Kanto.</h1>
+          <img id="pokeball" src="images/pokeball.svg">
+          <div id="welcomemessage">¡Bienvenido a KantoDex!</div>
+          <div id="infobutton"><i class="fas fa-info"></i></div>
+          <div id="homebutton"><i class="fas fa-home"></i></div>
+       
+        </header>
 
-        <div id="search">
-          <input id= "searchbar" type="text" placeholder="Busca por nombre o número">
-          <div id="searchbutton"><i class="fas fa-search"></i></div>
-        </div>
+        <div id="homescreen">
+      
+          <div id="descriptionhomescreen">Aquí podrás consultar la información de los pokemon de la región Kanto.</div>
 
-        <div id="filter">
+          <div id="search">
+            <input id= "searchbar" type="text" placeholder="Busca por nombre o número">
+            <div id="searchbutton"><i class="fas fa-search"></i></div>
+          </div>
 
-          <div id="sortbutton"><i class="fas fa-sort-alpha-up"></i></div>
-
-          <div id="filterbutton"><i class="fas fa-filter"></i></div>
+          <div id="filter">
 
           <select>
-            <option value="Filtrarpor">Filtrar por Tipo</option>
-            <option value="Normal">Normal</option>
-            <option value="Fire">Fire</option>
-            <option value="Water">Water</option>
-            <option value="Grass">Grass</option>
-            <option value="Electric">Electric</option>
-            <option value="Ice">Ice</option>
-            <option value="Fighting">Fighting</option>
-            <option value="Poison">Poison</option>
-            <option value="Ground">Ground</option>
-            <option value="Flying">Flying</option>
-            <option value="Psychic">Psychic</option>
-            <option value="Bug">Bug</option>
-            <option value="Rock">Rock</option>
-            <option value="Ghost">Ghost</option>
-            <option value="Dragon">Dragon</option>
+              <option value="Filtrarpor">Filtrar por Tipo</option>
+              <option value="Normal">Normal</option>
+              <option value="Fire">Fire</option>
+              <option value="Water">Water</option>
+              <option value="Grass">Grass</option>
+              <option value="Electric">Electric</option>
+              <option value="Ice">Ice</option>
+              <option value="Fighting">Fighting</option>
+              <option value="Poison">Poison</option>
+              <option value="Ground">Ground</option>
+              <option value="Flying">Flying</option>
+              <option value="Psychic">Psychic</option>
+              <option value="Bug">Bug</option>
+              <option value="Rock">Rock</option>
+              <option value="Ghost">Ghost</option>
+              <option value="Dragon">Dragon</option>
+            </select>
+
+            <div id="filterbutton"><i class="fas fa-filter"></i></div>
+
+            <div id="sortbutton"><i class="fas fa-sort-alpha-up"></i></div>
+
+            <div id="sortdescentbutton"><i class="fas fa-sort-alpha-down"></i></div>
+
+          </div>
+
+          <div id="showandreset">
+
+            <div id="showall">VER TODOS</div>
+
+            <div id="resetbutton"><i class="fas fa-redo-alt"></i></div>
+
+          </div>
+
+          <div id= "results"></div>
+
+        </div>
+
+        <div id="statistics">
+
+          <div id="descriptiondemographics">Para conocer algunos datos demográficos de Kanto, elige alguna de las opciones siguientes:</div> 
+
+          <select id="computetype">
+            <option value="chooseoption">Elige una opción</option>
+            <option value="weight">Peso</option>
+            <option value="height">Altura</option>
           </select>
 
-        </div>
+          <div id="calculatebutton">Ver Promedio</div>
 
-        <div id="showandreset">
-
-          <div id="showall">VER TODOS</div>
-
-          <div id="resetbutton"><i class="fas fa-redo-alt"></i></div>
+          <div id="computedresults"></div>
 
         </div>
 
-        <div id= "results"></div>
-
-        <p>Kanto Dex  es una herramienta de ayuda a los nuevos jugadores de PokemonGo, siendo una guía rápida en la que puedan consultar la información básica necesaria de los personajes, facilitando así el desempeño y la toma de decisiones en el juego.</p>
+        <div id="aboutusscreen">
         
-        <div id="homebutton"><i class="fas fa-home"></i></div>
+        <div id="aboutustext">Kanto Dex  es una herramienta de ayuda a los nuevos jugadores de PokemonGo, siendo una guía rápida en la que puedan consultar la información básica necesaria de los personajes, facilitando así el desempeño y la toma de decisiones en el juego.</div>
+
+        </div>
 
         <footer>
 

@@ -1,0 +1,35 @@
+@media only screen and (max-width: 720px){
+
+	.pokemoninfo {
+		grid-template-columns: 4rem 0.25rem 2rem 0.25rem 1fr;
+		grid-template-rows: auto 0.25rem auto 0.25rem auto 0.25rem auto 0.25rem auto 0.25rem auto 0.25rem auto 0.25rem auto 0.25rem auto 0.25rem auto 0.25rem auto 0.25rem auto 0.25rem auto 0.25rem auto;
+		grid-template-areas:
+			"img . id . name"
+			". . . . ."
+			"type type type type type"
+			". . . . ."	
+			"height height height height height"
+			". . . . ."
+			"weight weight weight weight weight"
+			". . . . ."
+			"candy candy candy candy candy"
+			". . . . ."
+			"candycount candycount candycount candycount candycount"
+			". . . . ."
+			"egg egg egg egg egg"
+			". . . . ."
+			"spawnchance spawnchance spawnchance spawnchance spawnchance"
+			". . . . ."
+			"avgspawns avgspawns avgspawns avgspawns avgspawns"
+			". . . . ."
+			"spawntime spawntime spawntime spawntime spawntime"
+			". . . . ."
+			"multipliers multipliers multipliers multipliers multipliers"
+			". . . . ."
+			"weaknesses weaknesses weaknesses weaknesses weaknesses"
+			". . . . ."
+			"prevevolution prevevolution prevevolution prevevolution prevevolution"
+			". . . . ."
+			"nextevolution nextevolution nextevolution nextevolution nextevolution";
+	}
+}

@@ -19,12 +19,83 @@ main {
     height: 100vh;
     width: 100vw;
     overflow: auto;
-    grid-template-columns: 1fr 30vw 30vw 10vw 1fr;
-    grid-template-rows: 4rem 1rem auto 1rem 3rem 1rem 3rem 1rem 3rem 1rem auto minmax(0.5rem, 1fr) 4rem;
+    grid-template-columns: 1fr 35vw 35vw 10vw 1fr;
+    grid-template-rows: auto 2rem auto minmax(1rem, 1fr) 4rem;
     grid-template-areas: 
-        "header header header header header" 
+        "header header header header header"
         ". . . . ." 
-        ". text text text ." 
+        ". content content content ."
+        ". . . . ."
+        "footer footer footer footer footer";
+}
+
+
+/*-------------------------Estilo y elementos HEADER-----------------*/
+header {
+    grid-area: header;
+	background-color: rgb(95, 154, 209);
+	display: grid;
+	grid-template-columns: 1fr 20vw 20vw 20vw 20vw 1fr;
+	grid-template-areas: ". pokeball welcomemessage welcomemessage infohomebutton .";
+}
+
+#pokeball {
+    grid-area: pokeball;
+    display: flex;
+    height: 2rem;
+    width: 2rem;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100px;
+    overflow: hidden;
+}
+
+#welcomemessage {
+	grid-area: welcomemessage;
+	display: flex;
+	font-size: 18 pt;
+	align-items: center;
+    justify-content: center;
+    text-align: center;
+	user-select: none;
+}
+
+#infobutton { 
+	grid-area: infohomebutton;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	overflow: hidden;
+	cursor: pointer;
+    user-select: none;
+}
+
+#infobutton:hover {
+	opacity: 0.75;
+}
+
+#homebutton {
+    grid-area: infohomebutton;
+    display: none;
+	align-items: center;
+	justify-content: flex-end;
+	overflow: hidden;
+	cursor: pointer;
+}
+
+#homebutton:hover {
+	opacity: 0.75;
+}
+
+/*-------------------------Estilo y elementos HOME SCREEN-----------------*/
+
+#homescreen {
+    grid-area: content;
+    display: grid;
+    grid-template-columns: 1fr 30vw 30vw 10vw 1fr;
+    grid-template-rows: auto 1rem 3rem 1rem 3rem 1rem 3rem 1rem auto;
+    grid-template-areas:
+        ". descriptionhomescreen descriptionhomescreen descriptionhomescreen ." 
         ". . . . ."
         ". search search search ."
         ". . . . ."
@@ -34,19 +105,16 @@ main {
         ". . . . ."
         ". results results results ."
         ". . . . ."
-        "footer footer footer footer footer";
+        "footer footer footer footer footer"; /* borrar linea repetida ??*/
 }
 
-header {
-    grid-area: header;
-    background-color: rgb(95, 154, 209);
-}
-
-h1 {
-    grid-area: text;
-    align-items: center;
-    justify-content: center;
-    user-select: none;
+#descriptionhomescreen {
+    grid-area: descriptionhomescreen;
+	display: flex;
+	font-size: 18 pt;
+	align-items: center;
+	justify-content: start;
+	user-select: none;
 }
 
 #search {
@@ -100,9 +168,9 @@ h1 {
 #filter {
     grid-area: filter;
     display: grid;
-    grid-template-columns: 6fr 0.5rem 2fr 0.5rem 2fr;
+    grid-template-columns: 6fr 0.5rem 2fr 0.5rem 2fr 0.5rem 2fr;
     grid-template-areas: 
-    "select . filterbutton . sortbutton";
+        "select . filterbutton . sortbutton . sortdescentbutton";
 }
 
 select {
@@ -134,6 +202,7 @@ select {
 	opacity: 0.75;
 }
 
+
 #sortbutton {
 
     grid-area: sortbutton;
@@ -149,6 +218,24 @@ select {
 }
 
 #sortbutton:hover {
+	opacity: 0.75;
+}
+
+#sortdescentbutton {
+
+    grid-area: sortdescentbutton;
+    display: flex;
+    background-color:rgb(129, 163, 238);
+    padding: 1rem;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+	cursor: pointer;
+    user-select: none;
+    border: 1px solid;
+}
+
+#sortdescentbutton:hover {
 	opacity: 0.75;
 }
 
@@ -207,219 +294,22 @@ select {
 	opacity: 0.75;
 }
 
-#homebutton {
+#aboutusscreen {
+    grid-area: content;
     display: none;
-    grid-area: header;
-    background-color:rgb(120, 166, 223);
-    padding: 1rem;
-	align-items: center;
-	justify-content: center;
-	overflow: hidden;
-	cursor: pointer;
+    grid-template-columns: 1fr 70vw 1fr;
+    grid-template-areas:
+        ". aboutustext .";
 }
 
-#homebutton:hover {
-	opacity: 0.75;
-}
-
-p {
-    grid-area: text;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    user-select: none;
-}
-
-.pokemoninfo {
-	display: grid;
-	grid-template-columns: 4rem 1rem 1fr 0.25rem 1fr 0.25rem 1fr 0.25rem 1fr;
-	grid-template-rows: 4rem 0.25rem auto 0.25rem auto 0.25rem auto 0.25rem auto 0.25rem auto 0.25rem auto 0.25rem auto;
-	grid-template-areas:
-		"img . id . name name name name name"
-		"img . . . . . . . ."
-		"img . type type type type type type type"
-		". . . . . . . . ."
-		". . height height height . weight weight weight"
-		". . . . . . . . ."
-		". . candy candy candy . candycount candycount candycount"
-		". . . . . . . . ."
-		". . egg egg egg . spawnchance spawnchance spawnchance"
-		". . . . . . . . ."
-		". . avgspawns avgspawns avgspawns . spawntime spawntime spawntime"
-		". . . . . . . . ."
-		". . multipliers multipliers multipliers . weaknesses weaknesses weaknesses"
-		". . . . . . . . ."
-		". . nextevolution nextevolution nextevolution . prevevolution prevevolution prevevolution";
-	background-color: rgb(152, 202, 185);
-	margin-bottom: 0.5rem;
-	padding: 0.5rem;
-    overflow: hidden;
-	cursor: pointer;
-}
-
-#img {
-    grid-area: img;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-	width: 4rem;
-	height: 4rem;
-}
-
-#id {
-    grid-area: id;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#name {
-    grid-area: name;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.allpokemon {
-    display: grid;
-    width: 100%;
-    grid-template-columns: 4rem 0.5rem 2fr 0.5rem 6fr;
-    grid-template-areas: 
-        "img . id . name";
-    background-color: rgb(152, 202, 185);
-    padding: 0.5rem;
-    margin-bottom: 0.5rem;
-    border: solid 1px;
-
-}
-
-#pokemonid, #pokemonname, #pokemontype, #pokemonheight, #pokemonweight, #pokemoncandy, #pokemoncandycount, #pokemonegg, #pokemonspawnchance, #pokemonavgspawns, #pokemonspawntime, #pokemonmultipliers, #pokemonweaknesses, #pokemonprevevolution, #pokemonnextevolution {
+/*-------------------------ACERCA DE KANTODEX-----------------*/
+#aboutustext {
+    grid-area: aboutustext;
 	display: flex;
-	background-color: rgb(187, 221, 210);
-	padding: 0.5rem;
+	font-size: 18 pt;
 	align-items: center;
-    overflow: hidden;
-    text-overflow: ellipsis;
-	white-space: pre;
-	box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.25);
-	border-radius: 0.15rem;
-}
-
-#pokemonid {
-	grid-area: id;
-	background-color: rgb(151, 220, 229);
-	justify-content: center;
-}
-
-#pokemonname {
-	grid-area: name;
-	background-color: rgb(216, 187, 202);
-	font-weight: 600;
-}
-
-#pokemonimg {
-	grid-area: img;
-	width: 4rem;
-	height: 4rem;
-	padding: 0.25rem;
-	box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.25);
+	justify-content: start;
 	user-select: none;
-	border-radius: 0.15rem;
-}
-
-#pokemontype {
-	grid-area: type;
-}
-
-#pokemonheight {
-	grid-area: height;
-}
-
-#pokemonweight {
-	grid-area: weight;
-}
-
-#pokemoncandy {
-	grid-area: candy;
-}
-
-#pokemoncandycount {
-	grid-area: candycount;
-}
-
-#pokemonegg {
-	grid-area: egg;
-}
-
-#pokemonspawnchance {
-	grid-area: spawnchance;
-}
-
-#pokemonavgspawns {
-	grid-area: avgspawns;
-}
-
-#pokemonspawntime {
-	grid-area: spawntime;
-}
-
-#pokemonmultipliers {
-	grid-area: multipliers;
-}
-
-#pokemonweaknesses {
-    grid-area: weaknesses;
-}
-
-#pokemonprevevolution {
-	grid-area: prevevolution;
-}
-
-#pokemonnextevolution {
-	grid-area: nextevolution;
-}
-
-.property {
-	color: rgb(179, 147, 120);
-}
-
-@media only screen and (max-width: 720px){
-
-    .pokemoninfo {
-		grid-template-columns: 1fr 0.25rem 1fr;
-		grid-template-rows: auto 0.25rem auto 0.25rem auto 0.25rem auto 0.25rem auto 0.25rem auto 0.25rem auto 0.25rem auto 0.25rem auto 0.25rem auto 0.25rem auto 0.25rem auto 0.25rem auto 0.25rem auto;
-		grid-template-areas:
-			"id . name"
-			". . ."
-			"type type type"
-			". . ."
-			"height height height"
-			". . ."
-			"weight weight weight"
-			". . ."
-			"candy candy candy"
-			". . ."
-			"candycount candycount candycount"
-			". . ."
-			"egg egg egg"
-			". . ."
-			"spawnchance spawnchance spawnchance"
-			". . ."
-			"avgspawns avgspawns avgspawns"
-			". . ."
-			"spawntime spawntime spawntime"
-			". . ."
-			"multipliers multipliers multipliers"
-			". . ."
-			"weaknesses weaknesses weaknesses"
-			". . ."
-			"prevevolution prevevolution prevevolution"
-			". . ."
-			"nextevolution nextevolution nextevolution";
-	}
-	#pokemonimg {
-		display: none;
-	}
 }
 
 footer {

@@ -1,0 +1,50 @@
+
+#statistics {
+    grid-area: content;
+	display: none;
+    overflow: auto;
+    grid-template-columns: 1fr 30vw 30vw 10vw 1fr;
+    grid-template-rows: auto 1rem 3rem 1rem 3rem 1rem auto;
+    grid-template-areas:
+        ". descriptiondemographics descriptiondemographics descriptiondemographics ." 
+        ". . . . ."
+        ". computetype computetype computetype ."
+        ". . . . ."
+        " . calculatebutton calculatebutton calculatebutton ."
+        ". . . . ."
+        ". computedresults computedresults computedresults ."
+}
+
+#descriptiondemographics {
+	grid-area: descriptiondemographics;
+	display: flex;
+	font-size: 18 pt;
+	align-items: center;
+	justify-content: start;
+	user-select: none;
+}
+
+#computetype{
+    grid-area: computetype;
+	display: flex;
+    background-color: rgb(207, 158, 206);
+}
+
+#calculatebutton {
+    grid-area: calculatebutton;
+	display: flex;
+    background-color: rgb(158, 207, 173);
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: solid 1px;
+}
+
+#calculatebutton:hover {
+	opacity: 0.75;
+}
+
+#computedresults {
+    grid-area: computedresults;
+    display: block;
+}
