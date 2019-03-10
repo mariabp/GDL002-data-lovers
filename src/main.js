@@ -1,16 +1,16 @@
 'use strict';
 
 const pokemonObj = POKEMON.pokemon;
-
+//---------------------------------------------------------------------
 let pokemonList = [];
 let pokemonInfo = "";
-
+//---------------------------------------------------------------------
 let condition = document.querySelector('select');
-
+//---------------------------------------------------------------------
 const homeScreen = document.querySelector('#homescreen');
 const aboutUsScreen = document.querySelector('#aboutusscreen');
-
-//const description = document.querySelector('h1');
+//---------------------------------------------------------------------
+//---------------------------------------------------------------------
 const searchInput = document.querySelector('#searchbar');
 const searchButton = document.querySelector('#searchbutton');
 const filterButton = document.querySelector('#filterbutton');
@@ -19,22 +19,17 @@ const sortDescentButton = document.querySelector('#sortdescentbutton');
 const showAllButton = document.querySelector('#showall');
 const resetButton = document.querySelector('#resetbutton');
 const results = document.querySelector('#results');
-//const footer = document.querySelector('footer');
+//---------------------------------------------------------------------
 const aboutUsButton = document.querySelector('#aboutusbutton');
-//const aboutUs = document.querySelector('p');
-//const searchBox = document.querySelector('#search');
-//const showAndResetBox = document.querySelector('#showandreset');
-//const filterBox = document.querySelector('#filter');
+//---------------------------------------------------------------------
 const homeButton = document.querySelector('#homebutton');
 const welcomeMessage = document.querySelector('#welcomemessage');
 const infoButton = document.querySelector('#infobutton');
 const statisticsScreen = document.querySelector('#statistics');
-//const descriptionDemographics = document.querySelector('#descriptiondemographics');
+//---------------------------------------------------------------------
 const computeType = document.querySelector('#computetype');
 const calculateButton = document.querySelector('#calculatebutton');
 const computedResults = document.querySelector('#computedresults');
-const selectType = document.querySelector('selecttype');
-
 
 //Funcion para validar el texto que ingreso el usuario
 const validateSearchInput = () => {
@@ -272,3 +267,12 @@ sortDescentButton.addEventListener('click', printSortedDescentList);
 homeButton.addEventListener('click', home);
 infoButton.addEventListener('click', showStatistics);
 calculateButton.addEventListener('click', getCalculations);
+
+//const aboutUs = document.querySelector('p');
+//const searchBox = document.querySelector('#search');
+//const showAndResetBox = document.querySelector('#showandreset');
+//const filterBox = document.querySelector('#filter');
+//const footer = document.querySelector('footer');
+//const description = document.querySelector('h1');
+//const descriptionDemographics = document.querySelector('#descriptiondemographics');
+//const selectType = document.querySelector('selecttype');
