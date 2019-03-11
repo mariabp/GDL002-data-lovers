@@ -100,7 +100,7 @@ const pokemonInfoLayout = (givenPokemonList) => {
 
 	let secondaryInfoId = 1;
 
-	const showSecondaryInfo = () => {
+	const showSecondaryInfo = (event) => {
 
 		let pokemonInfoDiv = event.currentTarget;
 		let clickedElement = pokemonInfoDiv.querySelector("[id^='secondaryinfoid']");
@@ -263,6 +263,7 @@ aboutUsButton.addEventListener('click', showAboutUs);
 showAllButton.addEventListener('click', getAllPokemon);
 searchButton.addEventListener('click', validateSearchInput);
 filterButton.addEventListener('click', printFilteredPokemon);
+//condition.addEventListener('change', (event) => printFilteredPokemon);
 resetButton.addEventListener('click', resetForm);
 sortButton.addEventListener('click', printSortedList);
 sortDescentButton.addEventListener('click', printSortedDescentList);

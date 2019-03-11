@@ -1,24 +1,29 @@
-const GetAllHeights = pokemonObj.map(element => element.height);
+var heightChart = document.getElementById("heightchart");
 
-
-const heights = [1,2,3,4,5,6,7,8,9,10,
-                11,12,13,14,15,16,17,18,19,20,
-                21,22,23,24,25,26,27,28,29,30,
-                31,32,33,34, 35,36,37,38,39,40,
-                41,42,43,44,45,46,47,48,49,50,
-                51,52,53,54,55,56,57,58,59,60,
-                61,62,63,64,65,66,67,68,69,70,
-                71,72,73,74,75,76,77,78,79,80,
-                81,82,83,84,85,86,87,88,89,90,
-                91,92,93,94,95,96,97,98,99,100,
-                101,102,103,104,105,106,107,108,109,110,
-                111,112,113,114,115,116,117,118,119,120,
-                121,122,123,124,125,126,127,128,129,130,
-                131,132,133,134,135,136,137,138,139,140,
-                141,142,143,144,145,146,147,148,149,150,
-                151];
-
-const allHeights = [0.71,0.99,2.01,1.09,1.70,0.51,0.99,1.60,0.30,0.71,
+let lineHeightChart = new Chart(heightChart, {
+    type: 'line',
+    data: {
+        labels:["Bulbasaur", "Ivysaur", "Venusaur", "Charmander", "Charmeleon", "Charizard", "Squirtle", "Wartortle", "Blastoise", "Caterpie", 
+                "Metapod", "Butterfree", "Weedle", "Kakuna", "Beedrill", "Pidgey", "Pidgeotto", "Pidgeot", "Rattata", "Raticate",
+                "Spearow", "Fearow", "Ekans", "Arbok", "Pikachu", "Raichu", "Sandshrew", "Sandslash", "Nidoran ♀ (Female)", "Nidorina",
+                "Nidoqueen", "Nidoran ♂ (Male)", "Nidorino", "Nidoking", "Clefairy", "Clefable", "Vulpix", "Ninetales", "Jigglypuff", "Wigglytuff", 
+                "Zubat", "Golbat", "Oddish", "Gloom", "Vileplume", "Paras", "Parasect", "Venonat", "Venomoth", "Diglett", 
+                "Dugtrio", "Meowth", "Persian", "Psyduck", "Golduck", "Mankey", "Primeape", "Growlithe", "Arcanine", "Poliwag",
+                "Poliwhirl", "Poliwrath", "Abra", "Kadabra", "Alakazam", "Machop", "Machoke", "Machamp", "Bellsprout", "Weepinbell", 
+                "Victreebel", "Tentacool", "Tentacruel", "Geodude", "Graveler", "Golem", "Ponyta", "Rapidash", "Slowpoke", "Slowbro", 
+                "Magnemite", "Magneton", "Farfetch'd", "Doduo", "Dodrio", "Seel", "Dewgong", "Grimer", "Muk", "Shellder", 
+                "Cloyster", "Gastly", "Haunter", "Gengar", "Onix", "Drowzee", "Hypno", "Krabby", "Kingler", "Voltorb",
+                "Electrode","Exeggcute","Exeggutor","Cubone","Marowak","Hitmonlee","Hitmonchan","Lickitung","Koffing","Weezing",
+                "Rhyhorn","Rhydon","Chansey","Tangela","Kangaskhan","Horsea","Seadra","Goldeen","Seaking","Staryu","Starmie",
+                "Mr. Mime","Scyther","Jynx","Electabuzz","Magmar","Pinsir","Tauros","Magikarp","Gyarados","Lapras",
+                "Ditto","Eevee","Vaporeon","Jolteon","Flareon","Porygon","Omanyte","Omastar","Kabuto","Kabutops",
+                "Aerodactyl","Snorlax","Articuno","Zapdos","Moltres","Dratini","Dragonair","Dragonite","Mewtwo","Mew"
+             ],
+        datasets: [
+            {
+                label: 'Altura de pokemones de la región Kanto',
+                fill: false,
+                data: [0.71,0.99,2.01,1.09,1.70,0.51,0.99,1.60,0.30,0.71,
                     1.09,0.30,0.61,0.99,0.30,1.09,1.50,0.30,0.71,0.30,
                     1.19,2.01,2.01,0.41,0.79,0.61,0.99,0.41,0.79,1.30,
                     0.51,0.89,1.40,0.61,1.30,0.61,1.09,0.51,0.99,0.79,
@@ -32,28 +37,11 @@ const allHeights = [0.71,0.99,2.01,1.09,1.70,0.51,0.99,1.60,0.30,0.71,
                     1.09,0.99,2.21,1.19,0.61,1.30,0.79,1.09,1.30,1.50,
                     1.40,1.09,1.30,1.50,1.40,0.89,1.50,1.60,0.30,0.30,
                     0.99,0.79,0.89,0.79,0.41,0.99,0.51,1.30,1.80,2.11,
-                    1.70,1.60,2.01,1.80,3.99,2.21,2.01,0.41];
+                    1.70,1.60,2.01,1.80,3.99,2.21,2.01,0.41],
+            }
+        ]
 
-var ctx = document.getElementById("myChart");
+    }
 
-var myChart = new Chart(ctx, {
-  type: 'line',
-  data: {
-    labels: heights,
-    datasets: [ { 
-            data: allHeights,
-            label: 'Altura de Pokemones de Kanto',
-            borderColor: "#ce5454",
-            fill: false
-        }
-    ]
-  },
-  options:{
-      
-    xAxisID: 'Pokemon',
-    yAxisID: 'metros',
-
-  } 
 });
-
 
