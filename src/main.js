@@ -31,6 +31,7 @@ const computeType = document.querySelector('#computetype');
 const calculateButton = document.querySelector('#calculatebutton');
 const computedResults = document.querySelector('#computedresults');
 
+
 //Funcion para validar el texto que ingreso el usuario
 const validateSearchInput = () => {
 
@@ -92,6 +93,7 @@ const colorBgAndShow = () => {
 
 };
 
+//Funcion para mostrar la informacion de pokemon
 const pokemonInfoLayout = (givenPokemonList) => {
 
 	results.innerHTML = "";
