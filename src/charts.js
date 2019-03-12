@@ -24,6 +24,9 @@ let lineHeightChart = new Chart(heightChart, {
         datasets: [
             {
                 label: 'Altura de pokemones de la región Kanto',
+                borderColor: "#d66e06",
+                pointStyle: 'line',
+                lineTension: 0,
                 fill: false,
                 data: [0.71,0.99,2.01,0.61,1.09,1.70,0.51,0.99,1.60,0.30,
                     0.71,1.09,0.30,0.61,0.99,0.30,1.09,1.50,0.30,0.71,
@@ -45,6 +48,8 @@ let lineHeightChart = new Chart(heightChart, {
             
             {
                 label: 'Altura promedio',
+                borderColor: "#ffd902",
+                pointStyle: 'star',
                 fill: true,
                 data: [1.19]
             }
@@ -64,4 +69,5 @@ let lineHeightChart = new Chart(heightChart, {
 
 
 });
+
 

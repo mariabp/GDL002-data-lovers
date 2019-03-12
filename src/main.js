@@ -31,6 +31,7 @@ const computeType = document.querySelector('#computetype');
 const calculateButton = document.querySelector('#calculatebutton');
 const textResults = document.querySelector('#textresults');
 const computedResults = document.querySelector('#computedresults');
+const pokeballButton = document.querySelector('#pokeball');
 
 
 //Funcion para validar el texto que ingreso el usuario
@@ -237,7 +238,7 @@ const home = () => {
 	
 };
 
-//
+//Funcion para mostrar pantalla statistics
 const showStatistics = () => {
 
 	homeScreen.style.display = 'none';
@@ -248,6 +249,7 @@ const showStatistics = () => {
 
 };
 
+//Funcion para obtener los promedios
 const getCalculations = () => {
 
 	computedResults.style.display = 'flex';
@@ -260,6 +262,11 @@ const getCalculations = () => {
 
 };
 
+//Funcion para borrar campos en statistics
+const clearStatisticsScreen = () => {
+	computedResults.style.display = 'none';
+	textResults.style.display = 'none';
+}
 
 //Botones
 
@@ -274,6 +281,8 @@ sortDescentButton.addEventListener('click', printSortedDescentList);
 homeButton.addEventListener('click', home);
 infoButton.addEventListener('click', showStatistics);
 calculateButton.addEventListener('click', getCalculations);
+pokeballButton.addEventListener('click', clearStatisticsScreen);
+
 
 //const aboutUs = document.querySelector('p');
 //const searchBox = document.querySelector('#search');
