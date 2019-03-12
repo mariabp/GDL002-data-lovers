@@ -58,7 +58,7 @@ window.kantodex = {
 			
 			numbersOnlyArray.forEach((element) => {
 				floatNumbersArray.push(parseFloat(element));
-				
+				console.log(element);
 			}); 
 			
 		});
