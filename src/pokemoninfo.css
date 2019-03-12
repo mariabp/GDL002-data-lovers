@@ -18,7 +18,7 @@
 	display: grid;
 	grid-template-columns: 4rem 0.25rem 1fr 0.25rem 1fr 0.25rem 1fr 0.25rem 1fr;
 	grid-template-areas:
-		"img . id . name name name name name"
+		"img . id . name name name name name";
 }
 
 .secondaryinfolayout {

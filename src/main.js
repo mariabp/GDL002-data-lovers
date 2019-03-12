@@ -1,16 +1,16 @@
 'use strict';
 
 const pokemonObj = POKEMON.pokemon;
-
+//---------------------------------------------------------------------
 let pokemonList = [];
 let pokemonInfo = "";
-
+//---------------------------------------------------------------------
 let condition = document.querySelector('select');
-
+//---------------------------------------------------------------------
 const homeScreen = document.querySelector('#homescreen');
 const aboutUsScreen = document.querySelector('#aboutusscreen');
-
-//const description = document.querySelector('h1');
+//---------------------------------------------------------------------
+//---------------------------------------------------------------------
 const searchInput = document.querySelector('#searchbar');
 const searchButton = document.querySelector('#searchbutton');
 const filterButton = document.querySelector('#filterbutton');
@@ -19,21 +19,18 @@ const sortDescentButton = document.querySelector('#sortdescentbutton');
 const showAllButton = document.querySelector('#showall');
 const resetButton = document.querySelector('#resetbutton');
 const results = document.querySelector('#results');
-//const footer = document.querySelector('footer');
+//---------------------------------------------------------------------
 const aboutUsButton = document.querySelector('#aboutusbutton');
-//const aboutUs = document.querySelector('p');
-//const searchBox = document.querySelector('#search');
-//const showAndResetBox = document.querySelector('#showandreset');
-//const filterBox = document.querySelector('#filter');
+//---------------------------------------------------------------------
 const homeButton = document.querySelector('#homebutton');
 const welcomeMessage = document.querySelector('#welcomemessage');
 const infoButton = document.querySelector('#infobutton');
 const statisticsScreen = document.querySelector('#statistics');
-//const descriptionDemographics = document.querySelector('#descriptiondemographics');
+//---------------------------------------------------------------------
 const computeType = document.querySelector('#computetype');
 const calculateButton = document.querySelector('#calculatebutton');
+const textResults = document.querySelector('#textresults');
 const computedResults = document.querySelector('#computedresults');
-const selectType = document.querySelector('selecttype');
 
 
 //Funcion para validar el texto que ingreso el usuario
@@ -97,13 +94,14 @@ const colorBgAndShow = () => {
 
 };
 
+//Funcion para mostrar la informacion de pokemon
 const pokemonInfoLayout = (givenPokemonList) => {
 
 	results.innerHTML = "";
 
 	let secondaryInfoId = 1;
 
-	const showSecondaryInfo = () => {
+	const showSecondaryInfo = (event) => {
 
 		let pokemonInfoDiv = event.currentTarget;
 		let clickedElement = pokemonInfoDiv.querySelector("[id^='secondaryinfoid']");
@@ -252,11 +250,14 @@ const showStatistics = () => {
 
 const getCalculations = () => {
 
+	computedResults.style.display = 'flex';
+
 	if (computeType.value === "weight") {
-		computedResults.innerHTML = "El peso promedio de los pokemon en Kanto es de " + kantodex.computeStats(pokemonObj, computeType.value) + " kg.";
+		textResults.innerHTML = "El peso promedio de los pokemon en Kanto es de " + kantodex.computeStats(pokemonObj, computeType.value) + " kg.";
 	} else  {
-		computedResults.innerHTML = "La altura promedio de los pokemon en Kanto es de " + kantodex.computeStats(pokemonObj, computeType.value) + " metros.";
+		textResults.innerHTML = "La altura promedio de los pokemon en Kanto es de " + kantodex.computeStats(pokemonObj, computeType.value) + " metros.";
 	}
+
 };
 
 
@@ -266,9 +267,19 @@ aboutUsButton.addEventListener('click', showAboutUs);
 showAllButton.addEventListener('click', getAllPokemon);
 searchButton.addEventListener('click', validateSearchInput);
 filterButton.addEventListener('click', printFilteredPokemon);
+//condition.addEventListener('change', (event) => printFilteredPokemon);
 resetButton.addEventListener('click', resetForm);
 sortButton.addEventListener('click', printSortedList);
 sortDescentButton.addEventListener('click', printSortedDescentList);
 homeButton.addEventListener('click', home);
 infoButton.addEventListener('click', showStatistics);
 calculateButton.addEventListener('click', getCalculations);
+
+//const aboutUs = document.querySelector('p');
+//const searchBox = document.querySelector('#search');
+//const showAndResetBox = document.querySelector('#showandreset');
+//const filterBox = document.querySelector('#filter');
+//const footer = document.querySelector('footer');
+//const description = document.querySelector('h1');
+//const descriptionDemographics = document.querySelector('#descriptiondemographics');
+//const selectType = document.querySelector('selecttype');
