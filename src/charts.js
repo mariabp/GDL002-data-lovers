@@ -3,6 +3,7 @@ var heightChart = document.getElementById("heightchart");
 let lineHeightChart = new Chart(heightChart, {
     type: 'line',
     data: {
+
         labels:["Bulbasaur", "Ivysaur", "Venusaur", "Charmander", "Charmeleon", "Charizard", "Squirtle", "Wartortle", "Blastoise", "Caterpie", 
                 "Metapod", "Butterfree", "Weedle", "Kakuna", "Beedrill", "Pidgey", "Pidgeotto", "Pidgeot", "Rattata", "Raticate",
                 "Spearow", "Fearow", "Ekans", "Arbok", "Pikachu", "Raichu", "Sandshrew", "Sandslash", "Nidoran ♀ (Female)", "Nidorina",
@@ -19,6 +20,7 @@ let lineHeightChart = new Chart(heightChart, {
                 "Ditto","Eevee","Vaporeon","Jolteon","Flareon","Porygon","Omanyte","Omastar","Kabuto","Kabutops",
                 "Aerodactyl","Snorlax","Articuno","Zapdos","Moltres","Dratini","Dragonair","Dragonite","Mewtwo","Mew"
              ],
+
         datasets: [
             {
                 label: 'Altura de pokemones de la región Kanto',
@@ -38,10 +40,27 @@ let lineHeightChart = new Chart(heightChart, {
                     1.40,1.09,1.30,1.50,1.40,0.89,1.50,1.60,0.30,0.30,
                     0.99,0.79,0.89,0.79,0.41,0.99,0.51,1.30,1.80,2.11,
                     1.70,1.60,2.01,1.80,3.99,2.21,2.01,0.41],
+            },
+            
+            {
+                label: 'Altura promedio',
+                fill: false,
+                data: [1.19]
             }
         ]
 
+    },
+
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
     }
+
 
 });
 

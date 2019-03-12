@@ -29,6 +29,7 @@ const statisticsScreen = document.querySelector('#statistics');
 //---------------------------------------------------------------------
 const computeType = document.querySelector('#computetype');
 const calculateButton = document.querySelector('#calculatebutton');
+const textResults = document.querySelector('#textresults');
 const computedResults = document.querySelector('#computedresults');
 
 
@@ -249,11 +250,14 @@ const showStatistics = () => {
 
 const getCalculations = () => {
 
+	computedResults.style.display = 'flex';
+
 	if (computeType.value === "weight") {
-		computedResults.innerHTML = "El peso promedio de los pokemon en Kanto es de " + kantodex.computeStats(pokemonObj, computeType.value) + " kg.";
+		textResults.innerHTML = "El peso promedio de los pokemon en Kanto es de " + kantodex.computeStats(pokemonObj, computeType.value) + " kg.";
 	} else  {
-		computedResults.innerHTML = "La altura promedio de los pokemon en Kanto es de " + kantodex.computeStats(pokemonObj, computeType.value) + " metros.";
+		textResults.innerHTML = "La altura promedio de los pokemon en Kanto es de " + kantodex.computeStats(pokemonObj, computeType.value) + " metros.";
 	}
+
 };
 
 
