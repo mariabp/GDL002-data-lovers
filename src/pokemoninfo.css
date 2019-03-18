@@ -1,24 +1,22 @@
-
 .pokemoninfo {
 	display: grid;
 	grid-template-columns: 100%;
-	grid-template-rows: 4rem auto;
+	grid-template-rows: auto auto;
 	grid-template-areas:
 		"primaryinfo"
 		"secondaryinfo";
 	background-color: rgb(152, 202, 185);
 	margin-bottom: 0.5rem;
 	padding: 0.5rem;
-	overflow: hidden;
 	cursor: pointer;
 }
 
 .primaryinfolayout {
 	grid-area: primaryinfo;
 	display: grid;
-	grid-template-columns: 4rem 0.25rem 1fr 0.25rem 1fr 0.25rem 1fr 0.25rem 1fr;
+	grid-template-columns: 4rem 0.25rem 1fr 0.25rem 3fr;
 	grid-template-areas:
-		"img . id . name name name name name";
+		"img . id . name";
 }
 
 .secondaryinfolayout {

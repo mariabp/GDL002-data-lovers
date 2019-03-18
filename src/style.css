@@ -1,17 +1,18 @@
 @import url('https://fonts.googleapis.com/css?family=Dosis');
 
 * {
-	box-sizing: border-box;
-	color: rgb(255, 255, 255);
-	font-family: 'Dosis', sans-serif;
-	font-size: 16pt;
-	font-weight: 300;
+    box-sizing: border-box;
+    color: rgb(255, 255, 255);
+    font-family: 'Dosis', sans-serif;
+    font-size: 16pt;
+    font-weight: 300;
+    border-radius: 0.15rem;
 }
 
 body {
-	padding: 0;
-	margin: 0;
-	background-color: rgb(129, 178, 238);
+    padding: 0;
+    margin: 0;
+    background-color: rgb(129, 178, 238);
 }
 
 main {
@@ -33,10 +34,10 @@ main {
 /*-------------------------Estilo y elementos HEADER-----------------*/
 header {
     grid-area: header;
-	background-color: rgb(95, 154, 209);
-	display: grid;
-	grid-template-columns: 1fr 20vw 20vw 20vw 20vw 1fr;
-	grid-template-areas: ". pokeball welcomemessage welcomemessage infohomebutton .";
+    background-color: rgb(95, 154, 209);
+    display: grid;
+    grid-template-columns: 1fr 20vw 20vw 20vw 20vw 1fr;
+    grid-template-areas: ". pokeball welcomemessage welcomemessage infohomebutton .";
 }
 
 #pokeball {
@@ -51,40 +52,40 @@ header {
 }
 
 #welcomemessage {
-	grid-area: welcomemessage;
-	display: flex;
-	font-size: 18 pt;
-	align-items: center;
+    grid-area: welcomemessage;
+    display: flex;
+    font-size: 18 pt;
+    align-items: center;
     justify-content: center;
     text-align: center;
-	user-select: none;
+    user-select: none;
 }
 
 #infobutton { 
-	grid-area: infohomebutton;
-	display: flex;
-	align-items: center;
-	justify-content: flex-end;
-	overflow: hidden;
-	cursor: pointer;
+    grid-area: infohomebutton;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    overflow: hidden;
+    cursor: pointer;
     user-select: none;
 }
 
 #infobutton:hover {
-	opacity: 0.75;
+    opacity: 0.75;
 }
 
 #homebutton {
     grid-area: infohomebutton;
     display: none;
-	align-items: center;
-	justify-content: flex-end;
-	overflow: hidden;
-	cursor: pointer;
+    align-items: center;
+    justify-content: flex-end;
+    overflow: hidden;
+    cursor: pointer;
 }
 
 #homebutton:hover {
-	opacity: 0.75;
+    opacity: 0.75;
 }
 
 /*-------------------------Estilo y elementos HOME SCREEN-----------------*/
@@ -110,11 +111,11 @@ header {
 
 #descriptionhomescreen {
     grid-area: descriptionhomescreen;
-	display: flex;
-	font-size: 18 pt;
-	align-items: center;
-	justify-content: start;
-	user-select: none;
+    display: flex;
+    font-size: 18 pt;
+    align-items: center;
+    justify-content: start;
+    user-select: none;
 }
 
 #search {
@@ -127,16 +128,16 @@ header {
 }
 
 #search:focus {
-	box-shadow: inset 0px 0px 4px 2px rgba(255, 255, 255, 0.5);
+    box-shadow: inset 0px 0px 4px 2px rgba(255, 255, 255, 0.5);
 }
 
 #searchbar {
-	grid-area: searchbar;
-	display: block;
-	background-color:rgb(120, 166, 223);
-	padding: 1rem;
-	overflow: hidden;
-	text-overflow: ellipsis;
+    grid-area: searchbar;
+    display: block;
+    background-color:rgb(120, 166, 223);
+    padding: 1rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
     border: 0;
 }
 
@@ -146,7 +147,7 @@ header {
 }
 
 #searchbar:focus {
-	outline: none;
+    outline: none;
 }
 
 #searchbutton {
@@ -154,15 +155,15 @@ header {
     display: flex;
     background-color:rgb(120, 166, 223);
     padding: 1rem;
-	align-items: center;
-	justify-content: center;
-	overflow: hidden;
-	cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    cursor: pointer;
     user-select: none;
 }
 
 #searchbutton:hover {
-	opacity: 0.75;
+    opacity: 0.75;
 }
 
 #filter {
@@ -179,8 +180,8 @@ select {
     background-color:rgb(129, 163, 238);
     padding: 1rem;
     font-size: 12pt;
-	align-items: center;
-	justify-content: center;
+    align-items: center;
+    justify-content: center;
     user-select: none;
     border: solid 1px;
 }
@@ -191,16 +192,16 @@ select {
     display: flex;
     background-color:rgb(129, 163, 238);
     padding: 1rem;
-	align-items: center;
-	justify-content: center;
-	overflow: hidden;
-	cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    cursor: pointer;
     user-select: none;
     border: 1px solid;
 }
 
 #sortbutton:hover {
-	opacity: 0.75;
+    opacity: 0.75;
 }
 
 #sortdescentbutton {
@@ -209,16 +210,16 @@ select {
     display: flex;
     background-color:rgb(129, 163, 238);
     padding: 1rem;
-	align-items: center;
-	justify-content: center;
-	overflow: hidden;
-	cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    cursor: pointer;
     user-select: none;
     border: 1px solid;
 }
 
 #sortdescentbutton:hover {
-	opacity: 0.75;
+    opacity: 0.75;
 }
 
 #showandreset {
@@ -234,16 +235,16 @@ select {
     display: flex;
     background-color:rgb(224, 182, 162);
     padding: 1rem;
-	align-items: center;
-	justify-content: center;
-	overflow: hidden;
-	cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    cursor: pointer;
     user-select: none;
     border: solid 1px;
 }
 
 #showall:hover {
-	opacity: 0.75;
+    opacity: 0.75;
 }
 
 #resetbutton {
@@ -251,16 +252,16 @@ select {
     display: flex;
     background-color:rgb(120, 166, 223);
     padding: 1rem;
-	align-items: center;
-	justify-content: center;
-	overflow: hidden;
-	cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    cursor: pointer;
     user-select: none;
     border: 1px solid;
 }
 
 #resetbutton:hover {
-	opacity: 0.75;
+    opacity: 0.75;
 }
 
 #results{
@@ -273,7 +274,7 @@ select {
 }
 
 #aboutusbutton:hover {
-	opacity: 0.75;
+    opacity: 0.75;
 }
 
 #aboutusscreen {
@@ -287,11 +288,11 @@ select {
 /*-------------------------ACERCA DE KANTODEX-----------------*/
 #aboutustext {
     grid-area: aboutustext;
-	display: flex;
-	font-size: 18 pt;
-	align-items: center;
-	justify-content: start;
-	user-select: none;
+    display: flex;
+    font-size: 18 pt;
+    align-items: center;
+    justify-content: start;
+    user-select: none;
 }
 
 footer {
@@ -302,4 +303,3 @@ footer {
     justify-content: center;
 }
  
-

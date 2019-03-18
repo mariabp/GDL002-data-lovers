@@ -34,264 +34,264 @@ const graphicTitle = document.querySelector('#graphictitle');
 //Funcion para validar el texto que ingreso el usuario
 const validateSearchInput = () => {
 
-	if (searchInput.value.length < 1) {
-		searchInput.placeholder = "Busca por nombre o número...";
-		warnAndReset();
-	} else if (/[^a-z0-9]/i.test(searchInput.value)) {
-		searchInput.placeholder = "Solo puedes utilizar letras y/o números...";
-		warnAndReset();
-	} else if (searchInput.value < 1 || searchInput.value > 151) {
-		searchInput.placeholder = "Solo existen 151 pokemon en Kanto";
-		warnAndReset();
-	} else {
-		searchInput.style.backgroundColor = "rgb(139, 196, 122)";
-		results.innerHTML = "";
-		searchPokemon();
-	}
+    if (searchInput.value.length < 1) {
+        searchInput.placeholder = "Busca por nombre o número...";
+        warnAndReset();
+    } else if (/[^a-z0-9]/i.test(searchInput.value)) {
+        searchInput.placeholder = "Solo puedes utilizar letras y/o números...";
+        warnAndReset();
+    } else if (searchInput.value < 1 || searchInput.value > 151) {
+        searchInput.placeholder = "Solo existen 151 pokemon en Kanto";
+        warnAndReset();
+    } else {
+        searchInput.style.backgroundColor = "rgb(139, 196, 122)";
+        results.innerHTML = "";
+        searchPokemon();
+    }
 
 };
 
 //Funcion que cambia de color el campo donde el usuario ingresa su busqueda,resetea valor de busqueda del usuario a vacio y esconde el contenedor de resultados */
 const warnAndReset = () => {
 
-	searchInput.style.backgroundColor =  "rgb(212, 110, 110)";
-	searchInput.value = "";
-	results.style.display = "none";
+    searchInput.style.backgroundColor =  "rgb(212, 110, 110)";
+    searchInput.value = "";
+    results.style.display = "none";
 
-};	
+};  
 
 //Funcion para borrar campos 
 const resetForm = () => {
 
-	searchInput.value = "";
-	searchInput.placeholder = "Busca por nombre o número";
-	pokemonList = [];
-	results.innerHTML = "";
-	searchInput.style.background = "rgb(120, 166, 223)";
-	condition.value = "Filtrarpor";
+    searchInput.value = "";
+    searchInput.placeholder = "Busca por nombre o número";
+    pokemonList = [];
+    results.innerHTML = "";
+    searchInput.style.background = "rgb(120, 166, 223)";
+    condition.value = "Filtrarpor";
 
 };
 
 //Funcion para eliminar object object.
 const noUndefinedOrNull = (element) => {
 
-	let propertyIds = ["type", "height", "weight", "candy", "candy_count", "egg", "spawn_chance", "avg_spawns", "spawn_time", "multipliers", "weaknesses", "prev_evolution", "next_evolution"];
+    let propertyIds = ["type", "height", "weight", "candy", "candy_count", "egg", "spawn_chance", "avg_spawns", "spawn_time", "multipliers", "weaknesses", "prev_evolution", "next_evolution"];
 
-	for (let i = 0; i < propertyIds.length; i++) {
+    for (let i = 0; i < propertyIds.length; i++) {
 
-		if (element[`${propertyIds[i]}`] === undefined || element[`${propertyIds[i]}`] === null) {
+        if (element[`${propertyIds[i]}`] === undefined || element[`${propertyIds[i]}`] === null) {
 
-			element[`${propertyIds[i]}`] = "--";
+            element[`${propertyIds[i]}`] = "--";
 
-		} else if (Array.isArray(element[`${propertyIds[i]}`])) {
+        } else if (Array.isArray(element[`${propertyIds[i]}`])) {
 
-			element[`${propertyIds[i]}`].forEach((subelement) => {
+            element[`${propertyIds[i]}`].forEach((subelement) => {
 
-				if (typeof(subelement) === "object") {
+                if (typeof(subelement) === "object") {
 
-					let objectContent = Object.entries(subelement);
-					element[`${propertyIds[i]}`] = objectContent[1][1];
+                    let objectContent = Object.entries(subelement);
+                    element[`${propertyIds[i]}`] = objectContent[1][1];
 
-				}
+                }
 
-			});
+            });
 
-		}
+        }
 
-	}
+    }
 
 };
 
 //Funcion para mostrar en placeholder la cantidad de resultados
 const colorBgAndShow = () => {
 
-	if (pokemonList.length === 0 ) {
-		searchInput.style.background = "rgb(196, 191, 122)";
-		searchInput.placeholder = `[ 0 RESULTADOS ]`;
-	} else if (pokemonList.length === 1 ) {
-		searchInput.style.background = "rgb(123, 134, 228)";
-		searchInput.placeholder = `[ ${pokemonList.length} RESULTADO ]`;
-	} else {
-		searchInput.style.background = "rgb(123, 134, 228)";
-		searchInput.placeholder = `[ ${pokemonList.length} RESULTADOS ]`;
-	}
+    if (pokemonList.length === 0 ) {
+        searchInput.style.background = "rgb(196, 191, 122)";
+        searchInput.placeholder = `[ 0 RESULTADOS ]`;
+    } else if (pokemonList.length === 1 ) {
+        searchInput.style.background = "rgb(123, 134, 228)";
+        searchInput.placeholder = `[ ${pokemonList.length} RESULTADO ]`;
+    } else {
+        searchInput.style.background = "rgb(123, 134, 228)";
+        searchInput.placeholder = `[ ${pokemonList.length} RESULTADOS ]`;
+    }
 
-	searchInput.value = "";
-	condition.value = "Filtrarpor";
-	results.style.display = "block";
+    searchInput.value = "";
+    condition.value = "Filtrarpor";
+    results.style.display = "block";
 
 };
 
 //Funcion para mostrar la informacion de pokemon
 const pokemonInfoLayout = (givenPokemonList) => {
 
-	results.innerHTML = "";
+    results.innerHTML = "";
 
-	let secondaryInfoId = 1;
+    let secondaryInfoId = 1;
 
-	const showSecondaryInfo = (event) => {
+    const showSecondaryInfo = (event) => {
 
-		let pokemonInfoDiv = event.currentTarget;
-		let clickedElement = pokemonInfoDiv.querySelector("[id^='secondaryinfoid']");
+        let pokemonInfoDiv = event.currentTarget;
+        let clickedElement = pokemonInfoDiv.querySelector("[id^='secondaryinfoid']");
 
-		if (clickedElement.style.display === 'grid') {
+        if (clickedElement.style.display === 'grid') {
 
-			clickedElement.style.display = "none";
+            clickedElement.style.display = "none";
 
-		} else {
-			clickedElement.style.display = "grid";
+        } else {
+            clickedElement.style.display = "grid";
 
-		}
-	};
-	
-	givenPokemonList.forEach((element) => {
+        }
+    };
+    
+    givenPokemonList.forEach((element) => {
 
-		noUndefinedOrNull(element);
+        noUndefinedOrNull(element);
 
-		pokemonInfo = `
-			<div id="identifier${element.id}" class="pokemoninfo">
+        pokemonInfo = `
+            <div id="identifier${element.id}" class="pokemoninfo">
 
-				<div class="primaryinfolayout">
-					<div id="pokemonid">${element.id}</div>
-					<div id="pokemonname">${element.name}</div>
-					<img id="pokemonimg" src="${element.img}">
-				</div>
+                <div class="primaryinfolayout">
+                    <div id="pokemonid">${element.id}</div>
+                    <div id="pokemonname">${element.name}</div>
+                    <img id="pokemonimg" src="${element.img}">
+                </div>
 
-				<div id="secondaryinfoid${secondaryInfoId}" class="secondaryinfolayout">
-					<div id="pokemontype" class="secondaryinfostyle"><div class="property">Type: </div>${element.type}</div>
-					<div id="pokemonheight" class="secondaryinfostyle"><div class="property">Height: </div>${element.height}</div>
-					<div id="pokemonweight" class="secondaryinfostyle"><div class="property">Weight: </div>${element.weight}</div>
-					<div id="pokemoncandy" class="secondaryinfostyle"><div class="property">Candy: </div>${element.candy}</div>
-					<div id="pokemoncandycount" class="secondaryinfostyle"><div class="property">Candy Count: </div>${element.candy_count}</div>
-					<div id="pokemonegg" class="secondaryinfostyle"><div class="property">Egg: </div>${element.egg}</div>
-					<div id="pokemonspawnchance" class="secondaryinfostyle"><div class="property">Spawn Chance: </div>${element.spawn_chance}</div>
-					<div id="pokemonavgspawns" class="secondaryinfostyle"><div class="property">Average Spawns: </div>${element.avg_spawns}</div>
-					<div id="pokemonspawntime" class="secondaryinfostyle"><div class="property">Spawn Time: </div>${element.spawn_time}</div>
-					<div id="pokemonmultipliers" class="secondaryinfostyle"><div class="property">Multipliers: </div>${element.multipliers}</div>
-					<div id="pokemonweaknesses" class="secondaryinfostyle"><div class="property">Weaknesses: </div>${element.weaknesses}</div>
-					<div id="pokemonprevevolution" class="secondaryinfostyle"><div class="property">Previous Evolution: </div>${element.next_evolution}</div>
-					<div id="pokemonnextevolution" class="secondaryinfostyle"><div class="property">Next Evolution: </div>${element.next_evolution}</div>
-				</div>
-				
-			</div>`
-		;
+                <div id="secondaryinfoid${secondaryInfoId}" class="secondaryinfolayout">
+                    <div id="pokemontype" class="secondaryinfostyle"><div class="property">Type: </div>${element.type}</div>
+                    <div id="pokemonheight" class="secondaryinfostyle"><div class="property">Height: </div>${element.height}</div>
+                    <div id="pokemonweight" class="secondaryinfostyle"><div class="property">Weight: </div>${element.weight}</div>
+                    <div id="pokemoncandy" class="secondaryinfostyle"><div class="property">Candy: </div>${element.candy}</div>
+                    <div id="pokemoncandycount" class="secondaryinfostyle"><div class="property">Candy Count: </div>${element.candy_count}</div>
+                    <div id="pokemonegg" class="secondaryinfostyle"><div class="property">Egg: </div>${element.egg}</div>
+                    <div id="pokemonspawnchance" class="secondaryinfostyle"><div class="property">Spawn Chance: </div>${element.spawn_chance}</div>
+                    <div id="pokemonavgspawns" class="secondaryinfostyle"><div class="property">Average Spawns: </div>${element.avg_spawns}</div>
+                    <div id="pokemonspawntime" class="secondaryinfostyle"><div class="property">Spawn Time: </div>${element.spawn_time}</div>
+                    <div id="pokemonmultipliers" class="secondaryinfostyle"><div class="property">Multipliers: </div>${element.multipliers}</div>
+                    <div id="pokemonweaknesses" class="secondaryinfostyle"><div class="property">Weaknesses: </div>${element.weaknesses}</div>
+                    <div id="pokemonprevevolution" class="secondaryinfostyle"><div class="property">Previous Evolution: </div>${element.prev_evolution}</div>
+                    <div id="pokemonnextevolution" class="secondaryinfostyle"><div class="property">Next Evolution: </div>${element.next_evolution}</div>
+                </div>
+                
+            </div>`
+        ;
 
-		secondaryInfoId++;
-		results.innerHTML += pokemonInfo;
-		
-	});
+        secondaryInfoId++;
+        results.innerHTML += pokemonInfo;
+        
+    });
 
 
-	let pokemonInfoDisplayIds = document.querySelectorAll("[id^='identifier']");
+    let pokemonInfoDisplayIds = document.querySelectorAll("[id^='identifier']");
 
-	pokemonInfoDisplayIds.forEach((element) => {
-		element.addEventListener('click', showSecondaryInfo);
-	});
+    pokemonInfoDisplayIds.forEach((element) => {
+        element.addEventListener('click', showSecondaryInfo);
+    });
 
-	colorBgAndShow();
-	
+    colorBgAndShow();
+    
 };
 
 //Funcion que obtiene la información de 1 pokemon buscado.
 const searchPokemon = () => {
 
-	pokemonList = [];
+    pokemonList = [];
 
-	let searchedPokemon = searchInput.value.toLowerCase();
+    let searchedPokemon = searchInput.value.toLowerCase();
 
-	pokemonObj.forEach((element) => {
+    pokemonObj.forEach((element) => {
 
-		if (element.name.toLowerCase().includes(`${searchedPokemon}`) || element.id === parseInt(searchedPokemon)) {
-			pokemonList.push(element);
-		}
+        if (element.name.toLowerCase().includes(`${searchedPokemon}`) || element.id === parseInt(searchedPokemon)) {
+            pokemonList.push(element);
+        }
 
-	});
+    });
 
-	pokemonInfoLayout(pokemonList);
+    pokemonInfoLayout(pokemonList);
 
 };
 
 //Funcion que obtiene e imprime una lista todos los pokemon
 const getAllPokemon = () => {
 
-	pokemonList = [];
+    pokemonList = [];
 
-	pokemonObj.forEach((element) => {
-		pokemonList.push(element);
-	});
+    pokemonObj.forEach((element) => {
+        pokemonList.push(element);
+    });
 
-	pokemonInfoLayout(pokemonList);
-	
+    pokemonInfoLayout(pokemonList);
+    
 };
 
 //Funcion para imprimir la lista por orden alfabético
 const printSortedList = () => {
-	
-	pokemonInfoLayout(kantodex.sortData(pokemonList));
+    
+    pokemonInfoLayout(kantodex.sortData(pokemonList));
 
 };
 
 const printSortedDescentList = () => {
 
-	pokemonInfoLayout(kantodex.sortDataDescent(pokemonList));		
+    pokemonInfoLayout(kantodex.sortDataDescent(pokemonList));       
 
 };
 
 //Funcion para imprimir lista de Pokemon filtrados
 const printFilteredPokemon = () => {
 
-	if (pokemonList.length === 0) {
-		pokemonList = pokemonObj;
-	}
+    if (pokemonList.length === 0) {
+        pokemonList = pokemonObj;
+    }
 
-	pokemonList = kantodex.filterData(pokemonList, condition.value);
+    pokemonList = kantodex.filterData(pokemonList, condition.value);
 
-	pokemonInfoLayout(pokemonList);
+    pokemonInfoLayout(pokemonList);
 
 };
 
 //Funcion para mostrar About Kanto Dex
 const showAboutUs = () => {
 
-	statisticsScreen.style.display = 'none';
-	homeScreen.style.display = 'none';
-	welcomeMessage.style.display = 'none';
-	aboutUsScreen.style.display = 'grid';
-	homeButton.style.display = 'flex';
-	infoButton.style.display = 'none';
+    statisticsScreen.style.display = 'none';
+    homeScreen.style.display = 'none';
+    welcomeMessage.style.display = 'none';
+    aboutUsScreen.style.display = 'grid';
+    homeButton.style.display = 'flex';
+    infoButton.style.display = 'none';
 
 };
 
 //Funcion para regresar a Home
 const home = () => {
-	homeScreen.style.display = 'grid';
-	welcomeMessage.style.display = 'flex';
-	infoButton.style.display = 'flex';
-	homeButton.style.display = 'none';
-	aboutUsScreen.style.display = 'none';
-	statisticsScreen.style.display = 'none';
-	resetForm();
-	
+    homeScreen.style.display = 'grid';
+    welcomeMessage.style.display = 'flex';
+    infoButton.style.display = 'flex';
+    homeButton.style.display = 'none';
+    aboutUsScreen.style.display = 'none';
+    statisticsScreen.style.display = 'none';
+    resetForm();
+    
 };
 
 //Funcion para mostrar pantalla statistics
 const showStatistics = () => {
 
-	homeScreen.style.display = 'none';
-	homeButton.style.display = 'flex';
-	statisticsScreen.style.display = 'grid';
-	welcomeMessage.style.display = 'none';
-	infoButton.style.display = 'none';
+    homeScreen.style.display = 'none';
+    homeButton.style.display = 'flex';
+    statisticsScreen.style.display = 'grid';
+    welcomeMessage.style.display = 'none';
+    infoButton.style.display = 'none';
 
 };
 
 //Funcion para obtener los promedios
 const getCalculations = () => {
 
-	graphicTitle.style.display= 'flex';
+    graphicTitle.style.display= 'flex';
     calculateButton.style.display = 'none';
-	computedResults.style.display = 'flex';
-	
+    computedResults.style.display = 'flex';
+    
 };
 
 //Botones

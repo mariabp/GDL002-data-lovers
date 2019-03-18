@@ -12,7 +12,6 @@ window.kantodex = {
 			}
 		});
 		
-		console.log(filteredData.map(element => element.name));
 		return filteredData;
 	},
 
@@ -70,4 +69,3 @@ window.kantodex = {
 	
 	}
 };
- 

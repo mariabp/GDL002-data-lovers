@@ -1,35 +1,93 @@
-@media only screen and (max-width: 720px){
+@media only screen and (max-width: 720px) {
 
-	.pokemoninfo {
-		grid-template-columns: 4rem 0.25rem 2rem 0.25rem 1fr;
-		grid-template-rows: auto 0.25rem auto 0.25rem auto 0.25rem auto 0.25rem auto 0.25rem auto 0.25rem auto 0.25rem auto 0.25rem auto 0.25rem auto 0.25rem auto 0.25rem auto 0.25rem auto 0.25rem auto;
+	.primaryinfolayout {
+		grid-area: primaryinfo;
+		display: grid;
+		grid-template-columns: 4rem 0.25rem 1fr;
+		grid-template-rows: 4rem 0.25rem 1fr; 
 		grid-template-areas:
-			"img . id . name"
-			". . . . ."
-			"type type type type type"
-			". . . . ."	
-			"height height height height height"
-			". . . . ."
-			"weight weight weight weight weight"
-			". . . . ."
-			"candy candy candy candy candy"
-			". . . . ."
-			"candycount candycount candycount candycount candycount"
-			". . . . ."
-			"egg egg egg egg egg"
-			". . . . ."
-			"spawnchance spawnchance spawnchance spawnchance spawnchance"
-			". . . . ."
-			"avgspawns avgspawns avgspawns avgspawns avgspawns"
-			". . . . ."
-			"spawntime spawntime spawntime spawntime spawntime"
-			". . . . ."
-			"multipliers multipliers multipliers multipliers multipliers"
-			". . . . ."
-			"weaknesses weaknesses weaknesses weaknesses weaknesses"
-			". . . . ."
-			"prevevolution prevevolution prevevolution prevevolution prevevolution"
-			". . . . ."
-			"nextevolution nextevolution nextevolution nextevolution nextevolution";
+			"name name name"
+			". . ."
+			"img . id"
+		;
 	}
+
+	.secondaryinfolayout {
+		grid-area: secondaryinfo;
+		display: none;
+		grid-template-columns: 1fr;
+		grid-template-rows: 0.25rem auto 0.25rem auto 0.25rem auto 0.25rem auto 0.25rem auto 0.25rem auto 0.25rem auto 0.25rem auto 0.25rem auto 0.25rem auto 0.25rem auto 0.25rem auto 0.25rem auto;
+		grid-template-areas:
+			"."
+			"type"
+			"."
+			"height"
+			"."
+			"weight"
+			"."
+			"candy"
+			"."
+			"candycount"
+			"."
+			"egg"
+			"."
+			"spawnchance"
+			"."
+			"avgspawns"
+			"."
+			"spawntime"
+			"."
+			"multipliers"
+			"."
+			"weaknesses"
+			"."
+			"prevevolution"
+			"."
+			"nextevolution";
+	}
+
+}
+
+statistics
+
+#statistics {
+	grid-area: content;
+	display: none;
+	overflow: auto;
+	grid-template-columns: 1fr 30vw 30vw 10vw 1fr;
+	grid-template-rows: 1em 3rem 0.5rem auto 0.5rem;
+	grid-template-areas: 
+		". . . . ."
+		" . calculatebutton calculatebutton calculatebutton ."
+		". . . . ."
+		". computedresults computedresults computedresults ."
+		". . . . ."
+}
+
+#calculatebutton {
+	grid-area: calculatebutton;
+	display: flex;
+	background-color: rgb(158, 207, 173);
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+	border: solid 1px;
+}
+
+#calculatebutton:hover {
+	opacity: 0.75;
+}
+
+
+#graphictitle {
+	grid-area: calculatebutton;
+	display: none;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+}
+
+#computedresults {
+	grid-area: computedresults;
+	display: none;
 }
