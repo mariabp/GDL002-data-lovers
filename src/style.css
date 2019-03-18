@@ -170,7 +170,7 @@ header {
     display: grid;
     grid-template-columns: 6fr 0.5rem 2fr 0.5rem 2fr 0.5rem 2fr;
     grid-template-areas: 
-        "select . filterbutton . sortbutton . sortdescentbutton";
+        "select select select . sortbutton . sortdescentbutton";
 }
 
 select {
@@ -184,24 +184,6 @@ select {
     user-select: none;
     border: solid 1px;
 }
-
-#filterbutton {
-    grid-area: filterbutton;
-    display: flex;
-    background-color:rgb(129, 163, 238);
-    padding: 1rem;
-	align-items: center;
-	justify-content: center;
-	overflow: hidden;
-	cursor: pointer;
-    user-select: none;
-    border: solid 1px;
-}
-
-#filterbutton:hover {
-	opacity: 0.75;
-}
-
 
 #sortbutton {
 
@@ -319,3 +301,5 @@ footer {
     align-items: center;
     justify-content: center;
 }
+ 
+

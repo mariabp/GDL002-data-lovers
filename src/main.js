@@ -26,12 +26,10 @@ const homeButton = document.querySelector('#homebutton');
 const welcomeMessage = document.querySelector('#welcomemessage');
 const infoButton = document.querySelector('#infobutton');
 const statisticsScreen = document.querySelector('#statistics');
-//---------------------------------------------------------------------
-const computeType = document.querySelector('#computetype');
+
 const calculateButton = document.querySelector('#calculatebutton');
-const textResults = document.querySelector('#textresults');
 const computedResults = document.querySelector('#computedresults');
-const pokeballButton = document.querySelector('#pokeball');
+const graphicTitle = document.querySelector('#graphictitle');
 
 
 //Funcion para validar el texto que ingreso el usuario
@@ -202,7 +200,7 @@ const printSortedDescentList = () => {
 };
 
 //Funcion para imprimir lista de Pokemon filtrados
-const printFilteredPokemon = () => {
+const printFilteredPokemon = (event) => {
 
 	if (pokemonList.length === 0) {
 		pokemonList = pokemonObj;
@@ -252,36 +250,25 @@ const showStatistics = () => {
 //Funcion para obtener los promedios
 const getCalculations = () => {
 
+	graphicTitle.style.display= 'flex';
+    calculateButton.style.display = 'none';
 	computedResults.style.display = 'flex';
-
-	if (computeType.value === "weight") {
-		textResults.innerHTML = "El peso promedio de los pokemon en Kanto es de " + kantodex.computeStats(pokemonObj, computeType.value) + " kg.";
-	} else  {
-		textResults.innerHTML = "La altura promedio de los pokemon en Kanto es de " + kantodex.computeStats(pokemonObj, computeType.value) + " metros.";
-	}
-
+	
 };
-
-//Funcion para borrar campos en statistics
-const clearStatisticsScreen = () => {
-	computedResults.style.display = 'none';
-	textResults.style.display = 'none';
-}
 
 //Botones
 
 aboutUsButton.addEventListener('click', showAboutUs);
 showAllButton.addEventListener('click', getAllPokemon);
 searchButton.addEventListener('click', validateSearchInput);
-filterButton.addEventListener('click', printFilteredPokemon);
-//condition.addEventListener('change', (event) => printFilteredPokemon);
+condition.addEventListener('change', (event) => printFilteredPokemon(event));
 resetButton.addEventListener('click', resetForm);
 sortButton.addEventListener('click', printSortedList);
 sortDescentButton.addEventListener('click', printSortedDescentList);
 homeButton.addEventListener('click', home);
 infoButton.addEventListener('click', showStatistics);
 calculateButton.addEventListener('click', getCalculations);
-pokeballButton.addEventListener('click', clearStatisticsScreen);
+
 
 
 //const aboutUs = document.querySelector('p');
