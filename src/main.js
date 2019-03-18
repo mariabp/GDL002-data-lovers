@@ -13,7 +13,6 @@ const aboutUsScreen = document.querySelector('#aboutusscreen');
 //---------------------------------------------------------------------
 const searchInput = document.querySelector('#searchbar');
 const searchButton = document.querySelector('#searchbutton');
-const filterButton = document.querySelector('#filterbutton');
 const sortButton = document.querySelector('#sortbutton');
 const sortDescentButton = document.querySelector('#sortdescentbutton');
 const showAllButton = document.querySelector('#showall');
@@ -26,11 +25,10 @@ const homeButton = document.querySelector('#homebutton');
 const welcomeMessage = document.querySelector('#welcomemessage');
 const infoButton = document.querySelector('#infobutton');
 const statisticsScreen = document.querySelector('#statistics');
-//---------------------------------------------------------------------
-const computeType = document.querySelector('#computetype');
+
 const calculateButton = document.querySelector('#calculatebutton');
-const textResults = document.querySelector('#textresults');
 const computedResults = document.querySelector('#computedresults');
+const graphicTitle = document.querySelector('#graphictitle');
 
 
 //Funcion para validar el texto que ingreso el usuario
@@ -74,6 +72,36 @@ const resetForm = () => {
 
 };
 
+//Funcion para eliminar object object.
+const noUndefinedOrNull = (element) => {
+
+	let propertyIds = ["type", "height", "weight", "candy", "candy_count", "egg", "spawn_chance", "avg_spawns", "spawn_time", "multipliers", "weaknesses", "prev_evolution", "next_evolution"];
+
+	for (let i = 0; i < propertyIds.length; i++) {
+
+		if (element[`${propertyIds[i]}`] === undefined || element[`${propertyIds[i]}`] === null) {
+
+			element[`${propertyIds[i]}`] = "--";
+
+		} else if (Array.isArray(element[`${propertyIds[i]}`])) {
+
+			element[`${propertyIds[i]}`].forEach((subelement) => {
+
+				if (typeof(subelement) === "object") {
+
+					let objectContent = Object.entries(subelement);
+					element[`${propertyIds[i]}`] = objectContent[1][1];
+
+				}
+
+			});
+
+		}
+
+	}
+
+};
+
 //Funcion para mostrar en placeholder la cantidad de resultados
 const colorBgAndShow = () => {
 
@@ -105,11 +133,20 @@ const pokemonInfoLayout = (givenPokemonList) => {
 
 		let pokemonInfoDiv = event.currentTarget;
 		let clickedElement = pokemonInfoDiv.querySelector("[id^='secondaryinfoid']");
-		clickedElement.style.display = "grid";
 
+		if (clickedElement.style.display === 'grid') {
+
+			clickedElement.style.display = "none";
+
+		} else {
+			clickedElement.style.display = "grid";
+
+		}
 	};
 	
 	givenPokemonList.forEach((element) => {
+
+		noUndefinedOrNull(element);
 
 		pokemonInfo = `
 			<div id="identifier${element.id}" class="pokemoninfo">
@@ -237,7 +274,7 @@ const home = () => {
 	
 };
 
-//
+//Funcion para mostrar pantalla statistics
 const showStatistics = () => {
 
 	homeScreen.style.display = 'none';
@@ -248,32 +285,29 @@ const showStatistics = () => {
 
 };
 
+//Funcion para obtener los promedios
 const getCalculations = () => {
 
+	graphicTitle.style.display= 'flex';
+    calculateButton.style.display = 'none';
 	computedResults.style.display = 'flex';
-
-	if (computeType.value === "weight") {
-		textResults.innerHTML = "El peso promedio de los pokemon en Kanto es de " + kantodex.computeStats(pokemonObj, computeType.value) + " kg.";
-	} else  {
-		textResults.innerHTML = "La altura promedio de los pokemon en Kanto es de " + kantodex.computeStats(pokemonObj, computeType.value) + " metros.";
-	}
-
+	
 };
-
 
 //Botones
 
 aboutUsButton.addEventListener('click', showAboutUs);
 showAllButton.addEventListener('click', getAllPokemon);
 searchButton.addEventListener('click', validateSearchInput);
-filterButton.addEventListener('click', printFilteredPokemon);
-//condition.addEventListener('change', (event) => printFilteredPokemon);
+condition.addEventListener('change', printFilteredPokemon);
 resetButton.addEventListener('click', resetForm);
 sortButton.addEventListener('click', printSortedList);
 sortDescentButton.addEventListener('click', printSortedDescentList);
 homeButton.addEventListener('click', home);
 infoButton.addEventListener('click', showStatistics);
 calculateButton.addEventListener('click', getCalculations);
+
+
 
 //const aboutUs = document.querySelector('p');
 //const searchBox = document.querySelector('#search');

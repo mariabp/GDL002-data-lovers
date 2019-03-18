@@ -8,7 +8,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 
     <title>Data Lovers</title>
     
@@ -50,7 +50,7 @@
               <option value="Normal">Normal</option>
               <option value="Fire">Fire</option>
               <option value="Water">Water</option>
-              <option value="Grass">Grass</option>
+              <option value="Grass">Grass</option>
               <option value="Electric">Electric</option>
               <option value="Ice">Ice</option>
               <option value="Fighting">Fighting</option>
@@ -63,8 +63,6 @@
               <option value="Ghost">Ghost</option>
               <option value="Dragon">Dragon</option>
             </select>
-
-            <div id="filterbutton"><i class="fas fa-filter"></i></div>
 
             <div id="sortbutton"><i class="fas fa-sort-alpha-up"></i></div>
 
@@ -86,21 +84,12 @@
 
         <div id="statistics">
 
-          <div id="descriptiondemographics">Para conocer algunos datos demográficos de Kanto, elige alguna de las opciones siguientes:</div> 
-
-          <select id="computetype">
-            <option value="chooseoption">Elige una opción</option>
-            <option value="weight">Peso</option>
-            <option value="height">Altura</option>
-          </select>
-
-          <div id="calculatebutton">Ver Promedio</div>
-
-          <div id="textresults"></div>
+          <div id="calculatebutton">Ver datos demográficos de Kanto</div>
+          <div id="graphictitle">Número de Pokemon por Tipo</div>
 
           <div id="computedresults">
 
-              <canvas id="heightchart" width="50%" height="20%"></canvas>
+              <canvas id="typechart" width="50%" height="18%"></canvas>
 
           </div>
 

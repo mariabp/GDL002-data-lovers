@@ -12,6 +12,7 @@ window.kantodex = {
 			}
 		});
 		
+		console.log(filteredData.map(element => element.name));
 		return filteredData;
 	},
 
@@ -58,7 +59,7 @@ window.kantodex = {
 			
 			numbersOnlyArray.forEach((element) => {
 				floatNumbersArray.push(parseFloat(element));
-				console.log(element);
+
 			}); 
 			
 		});
