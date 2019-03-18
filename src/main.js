@@ -13,7 +13,6 @@ const aboutUsScreen = document.querySelector('#aboutusscreen');
 //---------------------------------------------------------------------
 const searchInput = document.querySelector('#searchbar');
 const searchButton = document.querySelector('#searchbutton');
-const filterButton = document.querySelector('#filterbutton');
 const sortButton = document.querySelector('#sortbutton');
 const sortDescentButton = document.querySelector('#sortdescentbutton');
 const showAllButton = document.querySelector('#showall');
@@ -73,6 +72,36 @@ const resetForm = () => {
 
 };
 
+//Funcion para eliminar object object.
+const noUndefinedOrNull = (element) => {
+
+	let propertyIds = ["type", "height", "weight", "candy", "candy_count", "egg", "spawn_chance", "avg_spawns", "spawn_time", "multipliers", "weaknesses", "prev_evolution", "next_evolution"];
+
+	for (let i = 0; i < propertyIds.length; i++) {
+
+		if (element[`${propertyIds[i]}`] === undefined || element[`${propertyIds[i]}`] === null) {
+
+			element[`${propertyIds[i]}`] = "--";
+
+		} else if (Array.isArray(element[`${propertyIds[i]}`])) {
+
+			element[`${propertyIds[i]}`].forEach((subelement) => {
+
+				if (typeof(subelement) === "object") {
+
+					let objectContent = Object.entries(subelement);
+					element[`${propertyIds[i]}`] = objectContent[1][1];
+
+				}
+
+			});
+
+		}
+
+	}
+
+};
+
 //Funcion para mostrar en placeholder la cantidad de resultados
 const colorBgAndShow = () => {
 
@@ -104,11 +133,20 @@ const pokemonInfoLayout = (givenPokemonList) => {
 
 		let pokemonInfoDiv = event.currentTarget;
 		let clickedElement = pokemonInfoDiv.querySelector("[id^='secondaryinfoid']");
-		clickedElement.style.display = "grid";
 
+		if (clickedElement.style.display === 'grid') {
+
+			clickedElement.style.display = "none";
+
+		} else {
+			clickedElement.style.display = "grid";
+
+		}
 	};
 	
 	givenPokemonList.forEach((element) => {
+
+		noUndefinedOrNull(element);
 
 		pokemonInfo = `
 			<div id="identifier${element.id}" class="pokemoninfo">
@@ -200,7 +238,7 @@ const printSortedDescentList = () => {
 };
 
 //Funcion para imprimir lista de Pokemon filtrados
-const printFilteredPokemon = (event) => {
+const printFilteredPokemon = () => {
 
 	if (pokemonList.length === 0) {
 		pokemonList = pokemonObj;
@@ -261,7 +299,7 @@ const getCalculations = () => {
 aboutUsButton.addEventListener('click', showAboutUs);
 showAllButton.addEventListener('click', getAllPokemon);
 searchButton.addEventListener('click', validateSearchInput);
-condition.addEventListener('change', (event) => printFilteredPokemon(event));
+condition.addEventListener('change', printFilteredPokemon);
 resetButton.addEventListener('click', resetForm);
 sortButton.addEventListener('click', printSortedList);
 sortDescentButton.addEventListener('click', printSortedDescentList);
