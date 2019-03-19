@@ -4,7 +4,7 @@ const typeChart = document.getElementById("typechart");
 // eslint-disable-next-line no-undef
 const byTypeChart = new Chart(typeChart, {
 
-    type: 'polarArea',
+    type: 'bar',
     
     data: {
             labels: ['Normal',
@@ -63,7 +63,7 @@ const byTypeChart = new Chart(typeChart, {
 
         legend: {
             display: true,
-            position: 'left',
+            position: 'bottom',
             labels: {
                 fontFamily: 'Dosis',
                 fontSize: 16,
