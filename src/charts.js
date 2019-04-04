@@ -106,6 +106,13 @@ const configObject = {
         borderWidth: 0,
         data: pokemonByTypeCount(pokemonData),
       },
+
+      {
+        label: 'Tamaño promedio por tipo',
+        backgroundColor: calculateBackground(),
+        borderWidth: 0,
+        data: [1.02, 1.15, 1.22, 1.62, 1.24, 0.90, 0.89, 0.85, 1.51, 1.20, 1.26, 1.77, 1.76, 1.47,2.67]
+      },
     ],
   },
 
