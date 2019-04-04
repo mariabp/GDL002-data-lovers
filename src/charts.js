@@ -61,7 +61,7 @@ const pokemonByTypeCount = pokemons => {
 
 
 
-    calculatePokemonTypes(pokemonData).forEach((element) => {
+calculatePokemonTypes(pokemonData).forEach((element) => {
 
     let heightsArray = [];
 
