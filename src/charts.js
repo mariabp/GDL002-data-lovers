@@ -59,6 +59,42 @@ const pokemonByTypeCount = pokemons => {
   });
 };
 
+
+
+    calculatePokemonTypes(pokemonData).forEach((element) => {
+
+    let heightsArray = [];
+
+    let heightSum = 0;
+
+    window.kantodex.filterData(pokemonData, element).forEach((subelement) => {
+
+        heightsArray.push(subelement.height);
+
+    });
+
+    heightsArray.forEach((height) => {
+
+        heightSum += parseFloat(height);
+
+    });
+
+    let heightAverage = heightSum / parseFloat(heightsArray.length);
+
+    let typeHeightAverageStructure = {type: element, AverageHeight: heightAverage.toFixed(2)};
+
+    let typeHeightAverage = [];
+
+    typeHeightAverage.push(typeHeightAverageStructure);
+
+    typeHeightAverage.forEach((object) => console.log(Object.values(object)));
+
+});
+
+
+
+//Gráfica
+
 const configObject = {
   type: 'bar',
   data: {

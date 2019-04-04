@@ -3,6 +3,7 @@
 const pokemonObj = POKEMON.pokemon;
 //---------------------------------------------------------------------
 let pokemonList = [];
+// eslint-disable-next-line no-unused-vars
 let pokemonInfo = "";
 //---------------------------------------------------------------------
 let condition = document.querySelector('select');
@@ -125,70 +126,139 @@ const colorBgAndShow = () => {
 const pokemonInfoLayout = (givenPokemonList) => {
 
     results.innerHTML = "";
+	
+	givenPokemonList.forEach((element) => {
 
-    let secondaryInfoId = 1;
+		noUndefinedOrNull(element);
 
-    const showSecondaryInfo = (event) => {
+		const showSecondaryInfo = () => {
 
-        let pokemonInfoDiv = event.currentTarget;
-        let clickedElement = pokemonInfoDiv.querySelector("[id^='secondaryinfoid']");
+			if (secondaryInfoId.style.display === 'grid') {
+				secondaryInfoId.style.display = 'none';
+			} else {
+				secondaryInfoId.style.display = 'grid';
+			}
 
-        if (clickedElement.style.display === 'grid') {
+		};
 
-            clickedElement.style.display = "none";
+		let pokemonInfoId = document.createElement('div');
+		pokemonInfoId.setAttribute('id', `pokemoninfoid${element.id}`);
+		pokemonInfoId.setAttribute('class', 'pokemoninfo');
 
-        } else {
-            clickedElement.style.display = "grid";
+		let primaryInfoId = document.createElement('div');
+		primaryInfoId.setAttribute('id', 'primaryinfoid');
+		primaryInfoId.setAttribute('class', 'primaryinfolayout');
 
-        }
-    };
+		let pokemonImg = document.createElement('img');
+		pokemonImg.setAttribute('id', 'pokemonimg');
+		pokemonImg.setAttribute('src', `img/${element.num}.png`);
 
-    givenPokemonList.forEach((element) => {
+		let pokemonId = document.createElement('div');
+		pokemonId.setAttribute('id', 'pokemonid');
+		pokemonId.innerHTML = element.id;
 
-        noUndefinedOrNull(element);
+		let pokemonName = document.createElement('div');
+		pokemonName.setAttribute('id', 'pokemonname');
+		pokemonName.innerHTML = element.name;
 
-        pokemonInfo = `
-            <div id="identifier${element.id}" class="pokemoninfo">
+		primaryInfoId.appendChild(pokemonImg);
+		primaryInfoId.appendChild(pokemonId);
+		primaryInfoId.appendChild(pokemonName);
 
-                <div class="primaryinfolayout">
-                    <div id="pokemonid">${element.id}</div>
-                    <div id="pokemonname">${element.name}</div>
-                    <img id="pokemonimg" src="${element.img}">
-                </div>
+		let secondaryInfoId = document.createElement('div');
+		secondaryInfoId.setAttribute('id', 'secondaryinfoid');
+		secondaryInfoId.setAttribute('class', 'secondaryinfolayout');
 
-                <div id="secondaryinfoid${secondaryInfoId}" class="secondaryinfolayout">
-                    <div id="pokemontype" class="secondaryinfostyle"><div class="property">Type: </div>${element.type}</div>
-                    <div id="pokemonheight" class="secondaryinfostyle"><div class="property">Height: </div>${element.height}</div>
-                    <div id="pokemonweight" class="secondaryinfostyle"><div class="property">Weight: </div>${element.weight}</div>
-                    <div id="pokemoncandy" class="secondaryinfostyle"><div class="property">Candy: </div>${element.candy}</div>
-                    <div id="pokemoncandycount" class="secondaryinfostyle"><div class="property">Candy Count: </div>${element.candy_count}</div>
-                    <div id="pokemonegg" class="secondaryinfostyle"><div class="property">Egg: </div>${element.egg}</div>
-                    <div id="pokemonspawnchance" class="secondaryinfostyle"><div class="property">Spawn Chance: </div>${element.spawn_chance}</div>
-                    <div id="pokemonavgspawns" class="secondaryinfostyle"><div class="property">Average Spawns: </div>${element.avg_spawns}</div>
-                    <div id="pokemonspawntime" class="secondaryinfostyle"><div class="property">Spawn Time: </div>${element.spawn_time}</div>
-                    <div id="pokemonmultipliers" class="secondaryinfostyle"><div class="property">Multipliers: </div>${element.multipliers}</div>
-                    <div id="pokemonweaknesses" class="secondaryinfostyle"><div class="property">Weaknesses: </div>${element.weaknesses}</div>
-                    <div id="pokemonprevevolution" class="secondaryinfostyle"><div class="property">Previous Evolution: </div>${element.prev_evolution}</div>
-                    <div id="pokemonnextevolution" class="secondaryinfostyle"><div class="property">Next Evolution: </div>${element.next_evolution}</div>
-                </div>
-                
-            </div>`
-        ;
+		let pokemonType = document.createElement('div');
+		pokemonType.setAttribute('id', 'pokemontype');
+		pokemonType.setAttribute('class', 'secondaryinfostyle');
+		pokemonType.innerHTML = `<div class='property'>Type: </div>${element.type}`;
 
-        secondaryInfoId++;
-        results.innerHTML += pokemonInfo;
-        
-    });
+		let pokemonHeight = document.createElement('div');
+		pokemonHeight.setAttribute('id', 'pokemonheight');
+		pokemonHeight.setAttribute('class', 'secondaryinfostyle');
+		pokemonHeight.innerHTML = `<div class='property'>Height: </div>${element.height}</div>`;
 
+		let pokemonWeight = document.createElement('div');
+		pokemonWeight.setAttribute('id', 'pokemonweight');
+		pokemonWeight.setAttribute('class', 'secondaryinfostyle');
+		pokemonWeight.innerHTML = `<div class='property'>Weight: </div>${element.weight}</div>`;
 
-    let pokemonInfoDisplayIds = document.querySelectorAll("[id^='identifier']");
+		let pokemonCandy = document.createElement('div');
+		pokemonCandy.setAttribute('id', 'pokemoncandy');
+		pokemonCandy.setAttribute('class', 'secondaryinfostyle');
+		pokemonCandy.innerHTML = `<div class='property'>Candy: </div>${element.candy}</div>`;
 
-    pokemonInfoDisplayIds.forEach((element) => {
-        element.addEventListener('click', showSecondaryInfo);
-    });
+		let pokemonCandyCount = document.createElement('div');
+		pokemonCandyCount.setAttribute('id', 'pokemoncandycount');
+		pokemonCandyCount.setAttribute('class', 'secondaryinfostyle');
+		pokemonCandyCount.innerHTML = `<div class='property'>Candy Count: </div>${element.candy_count}</div>`;
+
+		let pokemonEgg = document.createElement('div');
+		pokemonEgg.setAttribute('id', 'pokemonegg');
+		pokemonEgg.setAttribute('class', 'secondaryinfostyle');
+		pokemonEgg.innerHTML = `<div class='property'>Egg: </div>${element.egg}</div>`;
+
+		let pokemonSpawnChance = document.createElement('div');
+		pokemonSpawnChance.setAttribute('id', 'pokemonspawnchance');
+		pokemonSpawnChance.setAttribute('class', 'secondaryinfostyle');
+		pokemonSpawnChance.innerHTML = `<div class='property'>Spawn Chance: </div>${element.spawn_chance}</div>`;
+
+		let pokemonAvgSpawns = document.createElement('div');
+		pokemonAvgSpawns.setAttribute('id', 'pokemonavgspawns');
+		pokemonAvgSpawns.setAttribute('class', 'secondaryinfostyle');
+		pokemonAvgSpawns.innerHTML = `<div class='property'>Average Spawns: </div>${element.avg_spawns}</div>`;
+
+		let pokemonSpawnTime = document.createElement('div');
+		pokemonSpawnTime.setAttribute('id', 'pokemonspawntime');
+		pokemonSpawnTime.setAttribute('class', 'secondaryinfostyle');
+		pokemonSpawnTime.innerHTML = `<div class='property'>Spawn Time: </div>${element.spawn_time}</div>`;
+
+		let pokemonMultipliers = document.createElement('div');
+		pokemonMultipliers.setAttribute('id', 'pokemonmultipliers');
+		pokemonMultipliers.setAttribute('class', 'secondaryinfostyle');
+		pokemonMultipliers.innerHTML = `<div class='property'>Multipliers: </div>${element.multipliers}</div>`;
+
+		let pokemonWeaknesses = document.createElement('div');
+		pokemonWeaknesses.setAttribute('id', 'pokemonweaknesses');
+		pokemonWeaknesses.setAttribute('class', 'secondaryinfostyle');
+		pokemonWeaknesses.innerHTML = `<div class='property'>Weaknesses: </div>${element.weaknesses}</div>`;
+
+		let pokemonPrevEvolution = document.createElement('div');
+		pokemonPrevEvolution.setAttribute('id', 'pokemonprevevolution');
+		pokemonPrevEvolution.setAttribute('class', 'secondaryinfostyle');
+		pokemonPrevEvolution.innerHTML = `<div class='property'>Previous Evolution: </div>${element.prev_evolution}</div>`;
+
+		let pokemonNextEvolution = document.createElement('div');
+		pokemonNextEvolution.setAttribute('id', 'pokemonnextevolution');
+		pokemonNextEvolution.setAttribute('class', 'secondaryinfostyle');
+		pokemonNextEvolution.innerHTML = `<div class='property'>Next Evolution: </div>${element.next_evolution}</div>`;
+
+		secondaryInfoId.appendChild(pokemonType);
+		secondaryInfoId.appendChild(pokemonHeight);
+		secondaryInfoId.appendChild(pokemonWeight);
+		secondaryInfoId.appendChild(pokemonCandy);
+		secondaryInfoId.appendChild(pokemonCandyCount);
+		secondaryInfoId.appendChild(pokemonEgg);
+		secondaryInfoId.appendChild(pokemonSpawnChance);
+		secondaryInfoId.appendChild(pokemonAvgSpawns);
+		secondaryInfoId.appendChild(pokemonSpawnTime);
+		secondaryInfoId.appendChild(pokemonMultipliers);
+		secondaryInfoId.appendChild(pokemonWeaknesses);
+		secondaryInfoId.appendChild(pokemonPrevEvolution);
+		secondaryInfoId.appendChild(pokemonNextEvolution);
+
+		pokemonInfoId.appendChild(primaryInfoId);
+		pokemonInfoId.appendChild(secondaryInfoId);
+
+		results.appendChild(pokemonInfoId);
+
+		primaryInfoId.addEventListener('click', showSecondaryInfo);
+
+	});
 
     colorBgAndShow();
-    
+
 };
 
 //Funcion que obtiene la información de 1 pokemon buscado.
@@ -270,7 +340,7 @@ const home = () => {
     aboutUsScreen.style.display = 'none';
     statisticsScreen.style.display = 'none';
     resetForm();
-    
+
 };
 
 //Funcion para mostrar pantalla statistics

@@ -11,7 +11,7 @@ window.kantodex = {
 				}
 			}
 		});
-		
+
 		return filteredData;
 	},
 
@@ -55,17 +55,16 @@ window.kantodex = {
 					return true;
 				}
 			});
-			
+
 			numbersOnlyArray.forEach((element) => {
 				floatNumbersArray.push(parseFloat(element));
 
-			}); 
-			
+			});
+
 		});
 		const average = floatNumbersArray.reduce((acc, val) => acc + val ) / floatNumbersArray.length;
 		let avgFixed = average.toFixed(2); 
 
 		return avgFixed;
-	
 	}
 };
