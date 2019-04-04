@@ -3,18 +3,16 @@
     grid-area: content;
 	display: none;
     overflow: auto;
-    grid-template-columns: 1fr 30vw 30vw 10vw 1fr;
-    grid-template-rows: 1em 3rem 0.5rem auto 0.5rem;
-    grid-template-areas: 
-        ". . . . ."
-        " . calculatebutton calculatebutton calculatebutton ."
-        ". . . . ."
-        ". computedresults computedresults computedresults ."
-        ". . . . ."
+    grid-template-columns: 1fr 0.5fr 1fr;
+    grid-template-rows: 3rem 1rem auto;
+    grid-template-areas:
+        "bytypebutton . bysizebutton"
+        ". . ."
+        "computedresults computedresults computedresults";
 }
 
-#calculatebutton {
-    grid-area: calculatebutton;
+#bytypebutton {
+    grid-area: bytypebutton;
 	display: flex;
     background-color: rgb(158, 207, 173);
     align-items: center;
@@ -23,20 +21,31 @@
     border: solid 1px;
 }
 
-#calculatebutton:hover {
+#bytypebutton:hover {
+	opacity: 0.75;
+}
+
+#bysizebutton {
+    grid-area: bysizebutton;
+	display: flex;
+    background-color: rgb(158, 159, 207);
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: solid 1px;
+}
+
+#bysizebutton:hover {
 	opacity: 0.75;
 }
 
 
-#graphictitle {
-    grid-area: calculatebutton;
-	display: none;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
+#typechart {
+    grid-area: computedresults;
+    display: flex;
 }
 
-#computedresults {
+#sizechart {
     grid-area: computedresults;
     display: none;
 }

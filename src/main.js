@@ -26,9 +26,8 @@ const welcomeMessage = document.querySelector('#welcomemessage');
 const infoButton = document.querySelector('#infobutton');
 const statisticsScreen = document.querySelector('#statistics');
 
-const calculateButton = document.querySelector('#calculatebutton');
-const computedResults = document.querySelector('#computedresults');
-const graphicTitle = document.querySelector('#graphictitle');
+
+
 
 
 //Funcion para validar el texto que ingreso el usuario
@@ -58,9 +57,9 @@ const warnAndReset = () => {
     searchInput.value = "";
     results.style.display = "none";
 
-};  
+};
 
-//Funcion para borrar campos 
+//Funcion para borrar campos
 const resetForm = () => {
 
     searchInput.value = "";
@@ -143,7 +142,7 @@ const pokemonInfoLayout = (givenPokemonList) => {
 
         }
     };
-    
+
     givenPokemonList.forEach((element) => {
 
         noUndefinedOrNull(element);
@@ -285,14 +284,7 @@ const showStatistics = () => {
 
 };
 
-//Funcion para obtener los promedios
-const getCalculations = () => {
 
-    graphicTitle.style.display= 'flex';
-    calculateButton.style.display = 'none';
-    computedResults.style.display = 'flex';
-    
-};
 
 //Botones
 
@@ -305,15 +297,3 @@ sortButton.addEventListener('click', printSortedList);
 sortDescentButton.addEventListener('click', printSortedDescentList);
 homeButton.addEventListener('click', home);
 infoButton.addEventListener('click', showStatistics);
-calculateButton.addEventListener('click', getCalculations);
-
-
-
-//const aboutUs = document.querySelector('p');
-//const searchBox = document.querySelector('#search');
-//const showAndResetBox = document.querySelector('#showandreset');
-//const filterBox = document.querySelector('#filter');
-//const footer = document.querySelector('footer');
-//const description = document.querySelector('h1');
-//const descriptionDemographics = document.querySelector('#descriptiondemographics');
-//const selectType = document.querySelector('selecttype');

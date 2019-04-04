@@ -1,85 +1,132 @@
+let pokemonData = POKEMON.pokemon;
 
-const typeChart = document.getElementById("typechart");
+const typeChart = document.getElementById('typechart');
+const sizeChart = document.getElementById('sizechart');
 
-// eslint-disable-next-line no-undef
-const byTypeChart = new Chart(typeChart, {
+const byTypeButton = document.querySelector('#bytypebutton');
+const bySizeButton = document.querySelector('#bysizebutton');
+//let typeChart = document.getElementById('typechart');
 
-    type: 'bar',
-    
-    data: {
-            labels: ['Normal',
-                    'Fire',
-                    'Water',
-                    'Grass',
-                    'Electric', 
-                    'Ice',
-                    'Fighting',
-                    'Poison',  
-                    'Ground',
-                    'Flying', 
-                    'Psychic',
-                    'Bug',
-                    'Rock', 
-                    'Ghost', 
-                    'Dragon'
-                    ], 
+const calculateAllPokemonTypes = pokemons => {
+  const allTheTypes = [];
+  pokemons.forEach(pokemon => {
+    allTheTypes.push(...pokemon.type);
+  });
+  return allTheTypes;
+};
 
-            datasets: [{
+const calculatePokemonTypes = pokemons => {
+  const allTheTypes = calculateAllPokemonTypes(pokemons);
+  const notRepeatedTypes = [];
 
-                label: 'Tipos de Pokemon',
+  allTheTypes.forEach(type => {
+    if (!notRepeatedTypes.includes(type)) {
+      notRepeatedTypes.push(type);
+    }
+  });
 
-                backgroundColor: [
-                    'rgb(239, 160, 127)',
-                    'rgb(238, 129, 129)',
-                    'rgb(129, 221, 238)',
-                    'rgb(129, 238, 129)',
-                    'rgb(238, 232, 129)',
-                    'rgb(129, 238, 216)',
-                    'rgb(129, 138, 238)',
-                    'rgb(205, 238, 129)',
-                    'rgb(238, 168, 129)',
-                    'rgb(129, 225, 238)',
-                    'rgb(192, 129, 238)',
-                    'rgb(238, 196, 129)',
-                    'rgb(129, 150, 238)',
-                    'rgb(238, 129, 207)',
-                        ],
-                
-                borderWidth: 0,
+  return notRepeatedTypes;
+};
 
-                data: [24, 12, 32, 14, 9, 5, 8, 33, 2, 19, 14, 12, 11, 3, 3]
-            }],
+const getRandomNumber = top => {
+  return Math.floor(Math.random() * top);
+};
 
+const rgbGenerator = () => {
+  return `rgb(${getRandomNumber(255)},${getRandomNumber(255)},${getRandomNumber(255)})`;
+};
+
+const calculateBackground = () => {
+  const typeCount = calculatePokemonTypes(pokemonData).length;
+  return [...Array(typeCount)].map(() => {
+    return rgbGenerator();
+  });
+};
+
+const pokemonByTypeCount = pokemons => {
+  const allTheTypes = calculateAllPokemonTypes(pokemons);
+  const pokemonTypes = calculatePokemonTypes(pokemons);
+
+  // return pokemonTypes.map(pokemonType => {
+  //   let toReturn = _.countBy(allTheTypes, element => element === pokemonType).true;
+  //   console.log('toReturn', toReturn);
+  //   return toReturn;
+  // });
+
+  return pokemonTypes.map(pokemonType => {
+    const countObject = allTheTypes.reduce((prev, current) => {
+      prev[current] = (prev[current] || 0) + 1;
+      return prev;
+    }, {});
+    return countObject[pokemonType];
+  });
+};
+
+const configObject = {
+  type: 'bar',
+  data: {
+    labels: calculatePokemonTypes(pokemonData),
+    datasets: [
+      {
+        label: 'Tipos de Pokemon',
+        backgroundColor: calculateBackground(),
+        borderWidth: 0,
+        data: pokemonByTypeCount(pokemonData),
+      },
+    ],
+  },
+
+  options: {
+    responsive: true,
+    maintainAspectRatio: true,
+    animation: {
+      animateRotate: true,
+      animateScale: true,
     },
 
-    options: {
+    legend: {
+      display: true,
+      position: 'bottom',
+      labels: {
+        fontFamily: 'Dosis',
+        fontSize: 16,
+        fontColor: 'rgb(255, 255, 255)',
+      },
+    },
 
-        responsive: true,
-        maintainAspectRatio: true, 
-        animation: {
-					animateRotate: true,
-					animateScale: true
-		},
+    scales: {
 
-        legend: {
-            display: true,
-            position: 'bottom',
-            labels: {
-                fontFamily: 'Dosis',
-                fontSize: 16,
-                fontColor: 'rgb(255, 255, 255)'
-            }
-        },
+      scaleLabel: {
+        display: false,
+      },
 
-        scales: {
-            scaleLabel: {
-                display: false
-            }
+      yAxes: [{
+        ticks: {
+            beginAtZero: true
         }
+    }]
+    },
+  },
+};
 
-    }
-});
 
-byTypeChart;
+const byTypeChart = () => {
+    // eslint-disable-next-line no-undef
+    new Chart(typeChart, configObject);
+};
+
+//Funcion ver gráfica por tipo
+const showByType = () => {
+    typeChart.style.display = 'flex';
+    sizeChart.style.display = 'none';
+    byTypeChart();
+};
+
+const showBySize = () => {
+    typeChart.style.display = 'none';
+    sizeChart.style.display = 'flex';
+};
 
 
+byTypeButton.addEventListener('click', showByType);
+bySizeButton.addEventListener('click', showBySize);
