@@ -3,49 +3,23 @@
     grid-area: content;
 	display: none;
     overflow: auto;
-    grid-template-columns: 1fr 0.5fr 1fr;
-    grid-template-rows: 3rem 1rem auto;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 2rem 1.5rem auto;
     grid-template-areas:
-        "bytypebutton . bysizebutton"
+        "graphtitle graphtitle graphtitle"
         ". . ."
         "computedresults computedresults computedresults";
 }
 
-#bytypebutton {
-    grid-area: bytypebutton;
-	display: flex;
-    background-color: rgb(158, 207, 173);
-    align-items: center;
+#graphtitle {
+    grid-area: graphtitle;
+    display: flex;
     justify-content: center;
-    overflow: hidden;
-    border: solid 1px;
-}
-
-#bytypebutton:hover {
-	opacity: 0.75;
-}
-
-#bysizebutton {
-    grid-area: bysizebutton;
-	display: flex;
-    background-color: rgb(158, 159, 207);
     align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    border: solid 1px;
+    padding: 0.25rem;
 }
-
-#bysizebutton:hover {
-	opacity: 0.75;
-}
-
 
 #typechart {
     grid-area: computedresults;
     display: flex;
-}
-
-#sizechart {
-    grid-area: computedresults;
-    display: none;
 }

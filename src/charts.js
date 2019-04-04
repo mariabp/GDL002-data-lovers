@@ -1,10 +1,7 @@
 let pokemonData = POKEMON.pokemon;
 
 const typeChart = document.getElementById('typechart');
-const sizeChart = document.getElementById('sizechart');
 
-const byTypeButton = document.querySelector('#bytypebutton');
-const bySizeButton = document.querySelector('#bysizebutton');
 //let typeChart = document.getElementById('typechart');
 
 const calculateAllPokemonTypes = pokemons => {
@@ -115,18 +112,4 @@ const byTypeChart = () => {
     new Chart(typeChart, configObject);
 };
 
-//Funcion ver gráfica por tipo
-const showByType = () => {
-    typeChart.style.display = 'flex';
-    sizeChart.style.display = 'none';
-    byTypeChart();
-};
-
-const showBySize = () => {
-    typeChart.style.display = 'none';
-    sizeChart.style.display = 'flex';
-};
-
-
-byTypeButton.addEventListener('click', showByType);
-bySizeButton.addEventListener('click', showBySize);
+byTypeChart();
