@@ -29,8 +29,6 @@ const statisticsScreen = document.querySelector('#statistics');
 
 
 
-
-
 //Funcion para validar el texto que ingreso el usuario
 const validateSearchInput = () => {
 
@@ -126,7 +124,7 @@ const colorBgAndShow = () => {
 const pokemonInfoLayout = (givenPokemonList) => {
 
     results.innerHTML = "";
-	
+
 	givenPokemonList.forEach((element) => {
 
 		noUndefinedOrNull(element);
@@ -290,19 +288,19 @@ const getAllPokemon = () => {
     });
 
     pokemonInfoLayout(pokemonList);
-    
+
 };
 
 //Funcion para imprimir la lista por orden alfabético
 const printSortedList = () => {
-    
+
     pokemonInfoLayout(kantodex.sortData(pokemonList));
 
 };
 
 const printSortedDescentList = () => {
 
-    pokemonInfoLayout(kantodex.sortDataDescent(pokemonList));       
+    pokemonInfoLayout(kantodex.sortDataDescent(pokemonList));
 
 };
 

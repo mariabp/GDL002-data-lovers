@@ -87,8 +87,6 @@ calculatePokemonTypes(pokemonData).forEach((element) => {
 
     typeHeightAverage.push(typeHeightAverageStructure);
 
-    typeHeightAverage.forEach((object) => console.log(Object.values(object)));
-
 });
 
 
